@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &150868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 450868}
+  - 108: {fileID: 10850868}
+  m_Layer: 0
+  m_Name: Spotlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &188100
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +29,7 @@ GameObject:
   - 136: {fileID: 13688266}
   - 114: {fileID: 11404232}
   - 114: {fileID: 11459862}
+  - 114: {fileID: 11450868}
   m_Layer: 0
   m_Name: Minion
   m_TagString: Minion
@@ -1251,6 +1268,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &450868
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150868}
+  m_LocalRotation: {x: .793495834, y: -3.23814886e-09, z: -2.64116906e-08, w: .608575702}
+  m_LocalPosition: {x: 0, y: .300000012, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 488102}
+  m_RootOrder: 3
 --- !u!4 &488100
 Transform:
   m_ObjectHideFlags: 1
@@ -1271,12 +1300,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188100}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 5.75, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488104}
   - {fileID: 488106}
   - {fileID: 488108}
+  - {fileID: 450868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &488104
@@ -2359,6 +2389,41 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!108 &10850868
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150868}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 0
+  m_Color: {r: .320506871, g: .801470578, b: .229833454, a: 1}
+  m_Intensity: 3
+  m_Range: .560679793
+  m_SpotAngle: 97.7819138
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
 --- !u!114 &11404232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2367,11 +2432,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 188100}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc132f1257ef41ada8f9f64e59d9a43, type: 3}
+  m_Script: {fileID: 11500000, guid: d7d0e0772ac3946e88cb29f12271559a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facing: 0
   speed: 1
   rotSpeed: .100000001
+--- !u!114 &11450868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 100
+  deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
 --- !u!114 &11459862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2383,6 +2462,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1012a9f84414155a9a1169cced9745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wanderTime: 2
+  attackTime: 1
+  meleeSlash: {fileID: 197726, guid: 4f5a0567fca084b68927748c7957a97c, type: 2}
 --- !u!136 &13688266
 CapsuleCollider:
   m_ObjectHideFlags: 1

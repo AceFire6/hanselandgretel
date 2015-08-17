@@ -1,62 +1,103 @@
-﻿using UnityEngine;
+﻿/*
+ * Movement base class allows easy moving and animating of kinematic GameObjects.
+ * Subclass this class (e.g. MovementMinion) to specialise the movement
+ * for a specific GameObject and to implement that GameObjects animation
+ * logic.
+ * 
+ * Important functions (Use these to move the gameObject):
+ * SetDeltaMovement(float x, float y)
+ * RotateToFace(Direction direction)
+ * 
+ * 
+ * Author: Muhummad Patel
+ * Date: 17-August-2015
+ */
+
+using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour {
+public class Movement : MonoBehaviour
+{
+
+	public enum Direction
+	{
+		Left,
+		Right
+	};
+	//direction the GameObject faces initially. This MUST be set correctly for the prefab.
+	public Direction facing;
 
 	public float speed = 3.0f;
-	public float rotSpeed = 250.0f;
+	public float rotSpeed = 5.0f;
 
-	private Vector3 deltaMovement;
-	private Vector3 rotation;
-	private Animator objAnimator;
-	private Rigidbody objRigidbody;
+	protected Vector3 deltaMovement; //set to 0 at every update.
+	protected Vector3 rotation; //keeps track of the rotation of the GameObject.
+
+	protected Rigidbody objRigidbody;
 	
-	void Start () {
-		objAnimator = GetComponent<Animator> ();
+	protected virtual void Start ()
+	{
 		objRigidbody = GetComponent<Rigidbody> ();
-		rotation = objRigidbody.rotation.eulerAngles;
+		rotation = objRigidbody.rotation.eulerAngles; //initial rotation of the rigidBody
 	}
 
-	void Update () {
-		//float h = Input.GetAxisRaw ("Horizontal");
-		//float v = Input.GetAxisRaw ("Vertical");
+	protected virtual void Update ()
+	{		
+		UpdatePosition ();
+		UpdateRotation ();
+	}
+
+	//Move in the direction specified by deltaMovement at speed.
+	//Sets deltaMovement back to zero.
+	private void UpdatePosition ()
+	{
+		deltaMovement = deltaMovement.normalized * speed * Time.deltaTime;
 		
-		Move (deltaMovement.x, deltaMovement.y);
-		Rotate (rotation.x, rotation.y);
-		Animate (deltaMovement.x, deltaMovement.y);
+		objRigidbody.MovePosition (transform.position + deltaMovement);
+		deltaMovement = Vector3.zero;
 	}
 
-	public void SetDeltaMovement(float x, float y){
-		deltaMovement = new Vector3(x, y, 0.0f);
+	//Rotate the rigidBody at every update until its rotation is the rotation we want.
+	//NOTE: the rotation vector is NOT reset to zero.
+	private void UpdateRotation ()
+	{
+		if (objRigidbody.rotation.eulerAngles != rotation) {
+			Quaternion rot = Quaternion.Lerp (objRigidbody.rotation, Quaternion.Euler (rotation), rotSpeed);
+			objRigidbody.MoveRotation (rot);
+		}
 	}
 
-	//todo: make this use a public var as well
-	public void SetDeltaRotation(float x, float y){
-		rotation += new Vector3(x, y, 0.0f);
+	//Increments the rotation of the rigidbody by the given amounts in those axes.
+	//Used mainly to clamp to the range [0, 360]
+	private void IncrementRotation (float x, float y)
+	{
+		rotation += new Vector3 (x, y, 0.0f);
 
-		if(rotation.x > 360){
+		if (rotation.x > 360) {
 			rotation.x -= 360;
 		}
-		if(rotation.y > 360){
+		if (rotation.y > 360) {
 			rotation.y -= 360;
 		}
 	}
 
-	void Rotate(float x, float y){
-		if(objRigidbody.rotation.eulerAngles != rotation){
-			Quaternion rot = Quaternion.Lerp(objRigidbody.rotation, Quaternion.Euler(rotation), rotSpeed);
-			objRigidbody.MoveRotation ( rot);
+	//Move the object.
+	//+ve x -> moves object right
+	//-ve x -> moves object left
+	//+ve y -> moves object up
+	//-ve y -> moves object down
+	public void SetDeltaMovement (float x, float y)
+	{
+		deltaMovement = new Vector3 (x, y, 0.0f);
+	}
+
+	//Rotate the object to face either left or right.
+	//Pass in either Movement.Direction.Left, or Movement.Directon.Right
+	public void RotateToFace (Direction direction)
+	{
+		if (facing != direction) {
+			IncrementRotation (0.0f, 180.0f);
+			facing = direction;
 		}
-	}
-
-	void Move(float horizontal, float vertical){
-		deltaMovement.Set (horizontal, vertical, 0.0f);
-		deltaMovement = deltaMovement.normalized * speed * Time.deltaTime;
-
-		objRigidbody.MovePosition (transform.position + deltaMovement);
-	}
-
-	void Animate(float horizontal, float vertical) {
-		objAnimator.SetBool ("isFlying", horizontal != 0);
 	}
 }

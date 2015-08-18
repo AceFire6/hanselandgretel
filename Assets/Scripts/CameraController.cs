@@ -18,6 +18,7 @@ public class CameraController : MonoBehaviour {
 	public float maxFov = 90.0f;
 	public float padding = 15.0f; //border to keep around the players
 	public float zoomSpeed = 1.5f; //speed of lerping between FOV's
+	public float followSpeed = 2.0f; //speed of lerping to follow players
 
 	private GameObject player1;
 	private GameObject player2;
@@ -35,11 +36,12 @@ public class CameraController : MonoBehaviour {
 		}
 	}
 
-	void Update ()
+	void FixedUpdate ()
 	{
-		//Centre the camera between the two players
+		//Centre the camera between the two players smoothly using lerp
 		Vector3 centre = (player1.transform.position + player2.transform.position) / 2;
-		camera.transform.position = new Vector3(centre.x, centre.y + camElevation, camera.transform.position.z);
+		Vector3 newPos = new Vector3(centre.x, centre.y + camElevation, camera.transform.position.z);
+		camera.transform.position = Vector3.Lerp(camera.transform.position, newPos, followSpeed * Time.deltaTime);
 
 
 		float playerToCentre = 0.5f * Vector3.Distance(player1.transform.position, player2.transform.position); //opposite side

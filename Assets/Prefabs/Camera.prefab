@@ -93,8 +93,7 @@ MonoBehaviour:
   maxFov: 90
   padding: 15
   zoomSpeed: 1.5
-  player1: {fileID: 0}
-  player2: {fileID: 0}
+  followSpeed: 2
   camElevation: .600000024
 --- !u!124 &12441116
 Behaviour:

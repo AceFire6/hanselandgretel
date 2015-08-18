@@ -3770,6 +3770,8 @@ MonoBehaviour:
   wanderTime: 2
   attackTime: 1
   meleeSlash: {fileID: 197726, guid: 4f5a0567fca084b68927748c7957a97c, type: 2}
+  chaseRadius: 6
+  attackRadius: 1
 --- !u!114 &605035076
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,24 +11,24 @@ using System.Collections;
 
 public class AiMinion : MonoBehaviour
 {
-
 	public float wanderTime = 2.0f; //time to wander in each direction before turning around
 	public float attackTime = 1.0f; //interval between attacks in Attacking state
 	public GameObject meleeSlash;
 
+	public float chaseRadius = 6.0f;
+	public float attackRadius = 1.0f;
+
+	private float attackTimer = 0.0f;
+	private float wanderingTimer = 0.0f;
 	public enum State
 	{
 		Wandering,
 		Chasing,
 		Attacking};
 	private State currentState;
-	
-	private float chaseRadius = 6.0f;
-	private float attackRadius = 1.0f;
-	private float attackTimer = 0.0f;
-	private float wanderingTimer = 0.0f;
 
 	private GameObject[] players;
+	private GameObject closestPlayer;
 	private Movement movement;
 	
 	protected void Start ()
@@ -44,19 +44,30 @@ public class AiMinion : MonoBehaviour
 		ExecuteState ();
 	}
 
+	//Updates closestPlayer to reference the player that is closest to this minion.
+	private void UpdateClosestPlayer ()
+	{
+		//Find the closest player to the minion
+		GameObject target = players [0];
+		float distToTarget = (transform.position - players [0].transform.position).sqrMagnitude;
+		foreach (GameObject player in players) {
+			float distToPlayer = (transform.position - player.transform.position).sqrMagnitude;
+			if (distToPlayer < distToTarget) {
+				distToTarget = (transform.position - player.transform.position).sqrMagnitude;
+				target = player;
+			}
+		}
+
+		closestPlayer = target;
+	}
+
 	//Checks if a state transition is needed and updates currentState accordingly.
 	//State changes are triggered by player proximity to the minion.
 	private void UpdateState ()
 	{
 		//Get the distance to the closest player
-		float closestPlayerDist = (transform.position - players [0].transform.position).sqrMagnitude;
-		foreach (GameObject player in players) {
-
-			float distToPlayer = (transform.position - player.transform.position).sqrMagnitude;
-			if (distToPlayer < closestPlayerDist) {
-				closestPlayerDist = distToPlayer;
-			}
-		}
+		UpdateClosestPlayer ();
+		float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;
 
 		//Check if the distance to the closest player is inside any of our thresholds
 		//update state accordingly
@@ -113,20 +124,9 @@ public class AiMinion : MonoBehaviour
 	//chase radius.
 	private void Chase ()
 	{
-		//Find the closest player to the minion
-		GameObject target = players [0];
-		float distToTarget = (transform.position - players [0].transform.position).sqrMagnitude;
-		foreach (GameObject player in players) {
-			float distToPlayer = (transform.position - player.transform.position).sqrMagnitude;
-			if (distToPlayer < distToTarget) {
-				distToTarget = (transform.position - player.transform.position).sqrMagnitude;
-				target = player;
-			}
-		}
-
 		//figure out whether the target player is in front of or behind the minion and move in the
 		//correct direction.
-		float diff = (target.transform.position.x - transform.position.x);
+		float diff = (closestPlayer.transform.position.x - transform.position.x);
 		if (diff > 0) {
 			movement.SetDeltaMovement (1.0f, 0.0f);
 			movement.RotateToFace (Movement.Direction.Right);
@@ -141,20 +141,8 @@ public class AiMinion : MonoBehaviour
 	//TODO: replace placeholder slashing with animated bite attack.
 	private void Attack ()
 	{
-		//Find the closest player to the minion
-		GameObject target = players [0];
-		float distToTarget = (transform.position - players [0].transform.position).sqrMagnitude;
-		foreach (GameObject player in players) {
-			float distToPlayer = (transform.position - player.transform.position).sqrMagnitude;
-			if (distToPlayer < distToTarget) {
-				distToTarget = (transform.position - player.transform.position).sqrMagnitude;
-				target = player;
-			}
-		}
-
-		//figure out whether the target player is in front of or behind the minion and move in the
-		//correct direction.
-		float diff = (target.transform.position.x - transform.position.x);
+		//turn to face the player.
+		float diff = (closestPlayer.transform.position.x - transform.position.x);
 		if (diff > 0) {
 			movement.RotateToFace (Movement.Direction.Right);
 		} else {
@@ -165,7 +153,7 @@ public class AiMinion : MonoBehaviour
 		attackTimer += Time.deltaTime;
 		if (attackTimer > attackTime) {
 			//TODO: REPLACE THIS WITH ANIMATION CODE
-			Vector3 pos = target.transform.position;
+			Vector3 pos = closestPlayer.transform.position;
 			pos.y += 0.5f;
 			pos.z -= 0.3f;
 			GameObject slash = (GameObject)Instantiate(meleeSlash, pos, meleeSlash.transform.rotation);

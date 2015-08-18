@@ -17,7 +17,6 @@ public class MovementMinion : Movement
 	protected override void Start ()
 	{
 		base.Start ();
-		facing = Direction.Left;
 		objAnimator = GetComponent<Animator> ();
 	}
 

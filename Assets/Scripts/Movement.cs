@@ -24,7 +24,7 @@ public class Movement : MonoBehaviour
 		Left,
 		Right
 	};
-	//direction the GameObject faces initially. This MUST be set correctly for the prefab.
+	//direction the GameObject faces initially.
 	public Direction facing;
 
 	public float speed = 3.0f;
@@ -39,6 +39,13 @@ public class Movement : MonoBehaviour
 	{
 		objRigidbody = GetComponent<Rigidbody> ();
 		rotation = objRigidbody.rotation.eulerAngles; //initial rotation of the rigidBody
+
+		//Compute and set the direction that the gameObject is facing
+		if (Mathf.Approximately(rotation.y, 90.0f)) {
+			facing = Direction.Right;
+		} else if (Mathf.Approximately(rotation.y, 270.0f)) {
+			facing = Direction.Left;
+		}
 	}
 
 	protected virtual void Update ()

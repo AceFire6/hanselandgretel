@@ -19,18 +19,20 @@ public class CameraController : MonoBehaviour {
 	public float padding = 15.0f; //border to keep around the players
 	public float zoomSpeed = 1.5f; //speed of lerping between FOV's
 
-	//TODO:Change these player vars to private when we actually have 2 players in the scene
-	public GameObject player1;
-	public GameObject player2;
+	private GameObject player1;
+	private GameObject player2;
 
 	public float camElevation = 0.6f;
 
 	protected void Start ()
 	{
-		//TODO:Use these when we actually have 2 players on screen
-		//GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
-		//player1 = players[0];
-		//player2 = players[1];
+		GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+		if (players.Length == 2) {
+			player1 = players[0];
+			player2 = players[1];
+		} else {
+			player1 = player2 = players[0];
+		}
 	}
 
 	void Update ()

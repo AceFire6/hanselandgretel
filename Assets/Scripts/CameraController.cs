@@ -1,14 +1,25 @@
-﻿using UnityEngine;
+﻿/*
+ * Controls the movement of the camera. The camera will centre itself between the two targets
+ * (the two players). As the players move together or apart, the camera will adjust it's 
+ * field of view to zoom in or out so as to keep both players in view. The zoom is clamped to
+ * the specified range. Mathf.Lerp is used to adjust the field of view smoothly. The speed of
+ * the lerping can also be adjusted.
+ * 
+ * Author: Muhummad Patel
+ * Date: 18-August-2015
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class CameraController : MonoBehaviour {
 
 	public float minFov = 45.0f;
 	public float maxFov = 90.0f;
-	public float padding = 15.0f;
-	public float zoomSpeed = 1.5f;
+	public float padding = 15.0f; //border to keep around the players
+	public float zoomSpeed = 1.5f; //speed of lerping between FOV's
 
-	//Change these player vars to private when we actually have 2 players in the scene
+	//TODO:Change these player vars to private when we actually have 2 players in the scene
 	public GameObject player1;
 	public GameObject player2;
 
@@ -16,7 +27,7 @@ public class CameraController : MonoBehaviour {
 
 	protected void Start ()
 	{
-		//Use these when we actually have 2 players on screen
+		//TODO:Use these when we actually have 2 players on screen
 		//GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
 		//player1 = players[0];
 		//player2 = players[1];
@@ -37,6 +48,7 @@ public class CameraController : MonoBehaviour {
 		newFov += padding; //add padding
 		newFov = Mathf.Clamp(newFov, minFov, maxFov);
 
-		camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, newFov, zoomSpeed * Time.deltaTime); //Update camera's field of view
+		//Update camera's field of view
+		camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, newFov, zoomSpeed * Time.deltaTime);
 	}
 }

@@ -1,4 +1,14 @@
-﻿using UnityEngine;
+﻿/*
+ * Controls the behaviour of a ButtonPlatform that will be used as part of a puzzle.
+ * The buttonPlatform will lower/raise the button as the player steps on/off it.
+ * When the player steps on/off the button platform, this script will notify the
+ * puzzleController of the event for the relevant action to be taken.
+ * 
+ * Author: Muhummad Patel
+ * Date: 19-August-2015
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class ButtonPlatform : MonoBehaviour

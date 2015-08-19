@@ -3975,7 +3975,6 @@ GameObject:
   - 95: {fileID: 773867616}
   - 54: {fileID: 773867615}
   - 136: {fileID: 773867614}
-  - 114: {fileID: 773867617}
   m_Layer: 0
   m_Name: Gretel
   m_TagString: Player
@@ -4043,17 +4042,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &773867617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 773867612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56faceb30036c477bb9aa980d6a33138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &804489374
 GameObject:
   m_ObjectHideFlags: 0

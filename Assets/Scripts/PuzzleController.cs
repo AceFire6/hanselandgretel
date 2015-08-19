@@ -1,4 +1,15 @@
-﻿using UnityEngine;
+﻿/*
+ * Controls the behaviour of a puzzle consisting of two floor buttonPlatforms and a number
+ * pillars in between them. When the buttons are pressed/released, the pillars between them
+ * will be raised/lowered in a smooth wave-like formation. When the pillars have been fully 
+ * raised, it will stay there for some time (crossingDelay) to allow the player(s) to get 
+ * across.
+ * 
+ * Author: Muhummad Patel
+ * Date: 19-August-2015
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class PuzzleController : MonoBehaviour

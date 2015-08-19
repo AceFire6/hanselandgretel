@@ -1,56 +1,60 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ButtonPlatform : MonoBehaviour {
+public class ButtonPlatform : MonoBehaviour
+{
 
-	public float yDepression = 0.02f;
-	public float height = 0.03f;
-	private Vector3 unpressedPos;
-	private Vector3 pressedPos;
+	private PuzzleController puzzCtrl;
+	public float yDepression = 0.02f; //how far the button is depressed when the player stands on it
+	public float height = 0.03f; //the height to elevate the player standing on the button
 
-	private GameObject button;
+	private GameObject button; //the mesh of the actual button
+	private Vector3 pressedPos; //the depressed position of the button
+	private Vector3 unpressedPos; //the released position of the button
 
-	// Use this for initialization
 	void Start ()
 	{
-		button = transform.parent.gameObject;
+		button = transform.parent.gameObject; //get the button mesh
+
+		//compute the depressed and unpressed positions
 		unpressedPos = button.transform.position;
-		pressedPos = unpressedPos;
+		pressedPos = button.transform.position;
 		pressedPos.y -= yDepression;
 	}
 
-	float timer = 0.0f;
-	// Update is called once per frame
-	void Update ()
-	{
-//		timer+= Time.deltaTime;
-//		if(timer > 2.0f){
-//			transform.position =  unpressedPos;
-//			timer = 0;
-//		}
-	
-	}
-
-	//onStay instead?
+	//auto fired when the player walks onto the button
 	void OnTriggerEnter (Collider other)
 	{
-		Debug.Log ("Yello");
-		if(other.gameObject.tag == "Player")
-		{		button.transform.position = pressedPos;
+		if (other.gameObject.tag == "Player") {
+			//tell the puzzleCOntroller that this button has been pressed
+			puzzCtrl.ButtonPressed (this);
+			button.transform.position = pressedPos;
+
+			//pick the player up (they are standing on the button)
 			Vector3 newPos = other.gameObject.transform.position;
 			newPos.y += height;
 			other.gameObject.transform.position = newPos;
 		}
 	}
 
+	//auto fired when the player steps off the button
 	void OnTriggerExit (Collider other)
 	{
-		Debug.Log ("Leave");
-		if(other.gameObject.tag == "Player"){
-			button.transform.position =  unpressedPos;
+		if (other.gameObject.tag == "Player") {
+			//tell the puzzleController that the button has been released
+			puzzCtrl.ButtonReleased (this);
+			button.transform.position = unpressedPos;
+
+			//put the player back on the floor
 			Vector3 newPos = other.gameObject.transform.position;
 			newPos.y -= height;
 			other.gameObject.transform.position = newPos;
 		}
+	}
+
+	//Lets us get a reference to the puzzleController that this button was assigned to
+	public void SetPuzzleController (PuzzleController puzzCtrl)
+	{
+		this.puzzCtrl = puzzCtrl;
 	}
 }

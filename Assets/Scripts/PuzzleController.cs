@@ -52,6 +52,15 @@ public class PuzzleController : MonoBehaviour
 		button1.SetPuzzleController (this);
 		button2.SetPuzzleController (this);
 
+		//set behaviour to either multiplayer mode if there is more than 1 player
+		//single player: crossingDelay > 0 (allows single player time to cross)
+		//multiplayer: crossingDelay = 0 (players must co-operate to cross)
+		int  numPlayers = GameObject.FindGameObjectsWithTag ("Player").Length;
+		if(numPlayers > 1){
+			//multiplayer mode (bridge falls as soon as player steps off the button)
+			crossingDelay = 0; 
+		}
+
 		//Compute the up and down positions for each pillar
 		numPillars = pillars.Length;
 		pillarUpPoss = new Vector3[numPillars];

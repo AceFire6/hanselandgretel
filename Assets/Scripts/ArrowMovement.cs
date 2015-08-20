@@ -9,10 +9,12 @@ public class ArrowMovement : MonoBehaviour {
 
 	Rigidbody body;
 	Vector3 position;
+	Collider collider;
 
 	void Start () 
 	{
 		body = GetComponent<Rigidbody> ();
+		collider = GetComponent<Collider> ();
 		position = transform.position;
 		direction = transform.forward.x; 
 	}
@@ -28,9 +30,15 @@ public class ArrowMovement : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
-		Debug.Log ("Collision");
-		body.isKinematic = true;
-		active = false;
-		transform.parent = collision.transform;
+		if (collision.gameObject.tag != "Player")
+		{
+			Debug.Log ("Collision");
+			body.isKinematic = true;
+			position.x += 0.1f * direction;
+			body.MovePosition (position); //Move the arrow a bit so the it looks like it cut into the object it struck
+			collider.isTrigger = true;
+			active = false;
+			transform.parent = collision.transform;
+		}
 	}
 }

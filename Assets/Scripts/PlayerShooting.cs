@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+ * Script to control spawning arrows whenever Gretel shoots. Based on the animation rather than the keyboard press
+ * since the movement script handles the keyboard presses and it prevents firing when the player is jumping.
+ * 
+ * Author: Aashiq Parker
+ * Date: 21-August-2015
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class PlayerShooting : MonoBehaviour {
@@ -7,8 +15,8 @@ public class PlayerShooting : MonoBehaviour {
 
 	private float cooldown;
 	private float timer;
-	private Vector3 positionOffset;
-
+	private Vector3 positionOffset; //Uses an offset to place the arrow since the bow moves up and down because of the
+										//animation but the position doesn't change
 	Animator animator;
 
 	void Start () 
@@ -26,12 +34,12 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Update () 
 	{
-		timer += Time.deltaTime;
-		bool canShoot = !animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Jump") && !animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Strafe");
-		if (Input.GetKeyDown (KeyCode.Space) && timer > cooldown && canShoot) 
+		timer += Time.deltaTime;				//Check if the player performing the shooting animation.
+		bool shooting = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.RaiseCrossbow"); //&& !animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Strafe");
+		if (timer > cooldown && shooting)
 		{
 			timer = 0;
-			Invoke ("Shoot", cooldown /2); //Instantiate after 0.292s when the bow reaches the fire position
+			Shoot ();
 		}
 
 	}

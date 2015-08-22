@@ -65,9 +65,9 @@ public class PlayerMovement : Movement
 		}
 
 		animator.SetBool ("isStrafing", strafing);
-		animator.SetBool ("isShooting", shooting);
 		animator.SetBool ("isJumping", jumping);
 		animator.SetBool ("isRunning", running); 
+		animator.SetBool ("isShooting", shooting && !(running || jumping));
 
 		position.x = position.x + Time.deltaTime * movementSpeed * h; //Increment or decrement the players position 
 
@@ -84,11 +84,5 @@ public class PlayerMovement : Movement
 		}
 
 		SetDeltaMovement (h, 0);
-	}
-
-
-	void FixedUpdate () 
-	{
-		
 	}
 }

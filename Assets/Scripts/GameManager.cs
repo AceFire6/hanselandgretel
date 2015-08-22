@@ -15,18 +15,33 @@ public class GameManager : MonoBehaviour {
 
 	private Transform[] spawnPoints;
 	private Transform[] minions;
-	GameObject obj;
 
 	void Start () 
 	{
 		spawnPoints = GetComponentsInChildren<Transform> ();
 		minions = new Transform[spawnPoints.Length];
-		minions[0] = (Transform)Instantiate (minionPrefab, transform.position, transform.rotation);
+		updateMinions ();
 	}
 
 	void Update () 
 	{
-	
+		updateMinions ();
+	}
+
+	/*Loops through minion array and spawns a minion at the spawn points if the current one is dead*/
+	void updateMinions()
+	{
+		for (int i = 1; i < minions.Length; i++) //Starts at 1 because GetComponentsInChildren includes the parent object
+		{
+			if (minions[i] == null)
+			{	
+				Vector3 position = spawnPoints[i].position;
+				position.x = position.x + Random.Range (-3.5f,3.5f); //Add some randomness to where it gets spawned
+				minions[i] = (Transform)Instantiate(minionPrefab,position, spawnPoints[i].rotation);
+									//Can also use Invoke to add a delay before spawning the minion but it makes the 
+											//code a bit uglier
+			}
+		}
 	}
 
 }

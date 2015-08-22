@@ -7775,6 +7775,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minionPrefab: {fileID: 488102, guid: 99450b3c1d50844ff86462f1a3f26a7c, type: 2}
+  coins: 0
+  limit: 2
 --- !u!1 &1548286519
 GameObject:
   m_ObjectHideFlags: 0

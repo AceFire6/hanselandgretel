@@ -12,6 +12,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	public Transform minionPrefab;
+	public int coins;
 
 	private Transform[] spawnPoints;
 	private Transform[] minions;
@@ -20,16 +21,17 @@ public class GameManager : MonoBehaviour {
 	{
 		spawnPoints = GetComponentsInChildren<Transform> ();
 		minions = new Transform[spawnPoints.Length];
-		updateMinions ();
+		coins = 0;
+		UpdateMinions ();
 	}
 
 	void Update () 
 	{
-		updateMinions ();
+		UpdateMinions ();
 	}
 
 	/*Loops through minion array and spawns a minion at the spawn points if the current one is dead*/
-	void updateMinions()
+	void UpdateMinions()
 	{
 		for (int i = 1; i < minions.Length; i++) //Starts at 1 because GetComponentsInChildren includes the parent object
 		{
@@ -44,4 +46,9 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	void UpdateCoints(int amount)
+	{
+		coins += amount;
+		Debug.Log ("Coins: " + coins);
+	}
 }

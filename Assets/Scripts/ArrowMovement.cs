@@ -38,7 +38,8 @@ public class ArrowMovement : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{		//When it hits something other than the player
-		if (collision.gameObject.tag != "Player")  
+		GameObject obj = collision.gameObject;
+		if (obj.tag != "Player")  
 		{
 			body.isKinematic = true; 	//Prevent other forces from moving it
 			position.x += 0.05f * direction;
@@ -46,6 +47,9 @@ public class ArrowMovement : MonoBehaviour {
 			collider.isTrigger = true; //Prevent it from colliding with other objects
 			active = false;
 			transform.parent = collision.transform;
+
+			if (obj.tag == "Minion") //Do damage to minions
+				obj.GetComponent<Health>().TakeDamage(50);
 		}
 	}
 }

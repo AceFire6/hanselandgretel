@@ -10,14 +10,23 @@ using UnityEngine;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-	
+
+	public Transform minionPrefab;
+
+	private Transform[] spawnPoints;
+	private Transform[] minions;
+	GameObject obj;
+
 	void Start () 
 	{
-	
+		spawnPoints = GetComponentsInChildren<Transform> ();
+		minions = new Transform[spawnPoints.Length];
+		minions[0] = (Transform)Instantiate (minionPrefab, transform.position, transform.rotation);
 	}
 
 	void Update () 
 	{
 	
 	}
+
 }

@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	public void UpdateCoints(int amount)
+	public void UpdateCoins(int amount)
 	{
 		coins += amount;
 		Debug.Log ("Coins: " + coins);

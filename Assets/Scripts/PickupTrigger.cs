@@ -21,7 +21,7 @@ public class PickupTrigger : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "Player")  //Only disappears if its a player
 		{
-			GameObject.Find("GameManager").GetComponent<GameManager>().UpdateCoints(value);
+			GameObject.Find("GameManager").GetComponent<GameManager>().UpdateCoins(value);
 			Destroy(this.gameObject);
 		}
 	}

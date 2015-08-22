@@ -26,8 +26,6 @@ public class Health : MonoBehaviour {
 	{
 		totalHealth -= damage;
 
-		Debug.Log ("health: " + totalHealth);
-
 		if (totalHealth <= 0) {
 			Die();
 		}
@@ -35,7 +33,7 @@ public class Health : MonoBehaviour {
 
 	private void Die()
 	{
-		Debug.Log ("ded");
+
 		if (deathSpawn != null){
 			Vector3 pos = transform.position;
 			pos.y += 0.4f;

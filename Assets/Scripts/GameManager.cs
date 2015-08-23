@@ -7,13 +7,15 @@
  */
 
 using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
 	public Transform minionPrefab;
 	public int coins;
 	public int limit;
+	public Text CoinCount;
+
 
 	private Transform[] spawnPoints;
 	private Transform[] minions;
@@ -58,6 +60,6 @@ public class GameManager : MonoBehaviour {
 	public void UpdateCoins(int amount)
 	{
 		coins += amount;
-		Debug.Log ("Coins: " + coins);
+		CoinCount.text = "Coins: " + coins;
 	}
 }

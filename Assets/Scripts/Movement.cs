@@ -105,6 +105,11 @@ public class Movement : MonoBehaviour
 		if (facing != direction) {
 			IncrementRotation (0.0f, 180.0f);
 			facing = direction;
+			if (facing == Direction.Left) {
+				objRigidbody.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+			} else {
+				objRigidbody.gameObject.transform.localScale = new Vector3(1, 1, 1);
+			}
 		}
 	}
 }

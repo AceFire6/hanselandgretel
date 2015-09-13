@@ -44,11 +44,14 @@ function Update () {
 	//Debug.Log(directionVector);
 	motor.inputJump = Input.GetButton("Jump");
 	
-	// Set rotation to the move direction	
-	if (!isStrafing && autoRotate && directionVector.sqrMagnitude > 0.01) {
+	// Set rotation to the move direction
+	
+	if (autoRotate && directionVector.sqrMagnitude > 0.01) {
+		var toFace : Vector3 = (isStrafing)? (-1 * directionVector): directionVector;
+		
 		var newForward : Vector3 = ConstantSlerp(
 			transform.forward,
-			directionVector,
+			toFace,
 			maxRotationSpeed * Time.deltaTime
 		);
 		newForward = ProjectOntoPlane(newForward, transform.up);

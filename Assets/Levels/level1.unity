@@ -4568,7 +4568,7 @@ Animator:
   m_GameObject: {fileID: 773867612}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: dcb066876ccae4af3bbfb134f8f82aaf, type: 3}
-  m_Controller: {fileID: 9100000, guid: 3019f1cc194d7824a802baaafc2c8af8, type: 2}
+  m_Controller: {fileID: 9100000, guid: ebd90ec1fbbbf634088bf0311a41dcf6, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -6217,6 +6217,10 @@ Prefab:
       propertyPath: jumpTime
       value: .300000012
       objectReference: {fileID: 0}
+    - target: {fileID: 9501052, guid: 3675102eb177e4bb7b3c53eef6b733c1, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ebd90ec1fbbbf634088bf0311a41dcf6, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3675102eb177e4bb7b3c53eef6b733c1, type: 2}
   m_RootGameObject: {fileID: 773867612}

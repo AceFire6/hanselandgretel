@@ -35,7 +35,7 @@ public class PlayerShooting : MonoBehaviour {
 	void Update () 
 	{
 		timer += Time.deltaTime;				//Check if the player performing the shooting animation.
-		bool shooting = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.RaiseCrossbow"); 
+		bool shooting = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Shoot"); 
 		if (timer > cooldown && shooting)
 		{
 			timer = 0;

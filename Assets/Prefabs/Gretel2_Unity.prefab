@@ -3257,6 +3257,7 @@ GameObject:
   - 143: {fileID: 14309940}
   - 114: {fileID: 11409942}
   - 114: {fileID: 11409940}
+  - 114: {fileID: 11424490}
   m_Layer: 0
   m_Name: Gretel2_Unity
   m_TagString: Player
@@ -6113,9 +6114,9 @@ MonoBehaviour:
   canControl: 1
   useFixedUpdate: 1
   movement:
-    maxForwardSpeed: 10
-    maxSidewaysSpeed: 10
-    maxBackwardsSpeed: 10
+    maxForwardSpeed: 5
+    maxSidewaysSpeed: 5
+    maxBackwardsSpeed: 5
     slopeSpeedMultiplier:
       serializedVersion: 2
       m_Curve:
@@ -6136,16 +6137,16 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-    maxGroundAcceleration: 30
-    maxAirAcceleration: 20
+    maxGroundAcceleration: 10
+    maxAirAcceleration: 5
     gravity: 10
     maxFallSpeed: 20
   jumping:
     enabled: 1
-    baseHeight: 1
-    extraHeight: 4.0999999
-    perpAmount: 0
-    steepPerpAmount: .5
+    baseHeight: .699999988
+    extraHeight: .200000003
+    perpAmount: .300000012
+    steepPerpAmount: .200000003
   movingPlatform:
     enabled: 1
     movementTransfer: 2
@@ -6154,6 +6155,18 @@ MonoBehaviour:
     slidingSpeed: 15
     sidewaysControl: 1
     speedControl: .400000006
+--- !u!114 &11424490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d017451ec3b924fa397ced183f3237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 460108, guid: a7a2b142335794b85befe924fa94aa8e, type: 2}
 --- !u!137 &13709940
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -158,9 +158,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 195240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e82234b1c1a0f6a4dab932e97fc4c426, type: 3}
+  m_Script: {fileID: 11500000, guid: c3635f7002374de46a175bc1f9e27004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthText: {fileID: 11495244}
 --- !u!114 &11495242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,16 +210,16 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11495240}
         m_MethodName: UpdateText
-        m_Mode: 2
+        m_Mode: 0
         m_Arguments:
-          m_ObjectArgument: {fileID: 11495242}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI,
-            Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11495244
@@ -566,7 +567,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 358, y: -280}
+  m_AnchoredPosition: {x: -870, y: -878}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!1001 &100100000

@@ -3258,6 +3258,7 @@ GameObject:
   - 114: {fileID: 11409942}
   - 114: {fileID: 11409940}
   - 114: {fileID: 11424490}
+  - 54: {fileID: 5420650}
   m_Layer: 0
   m_Name: Gretel2_Unity
   m_TagString: Player
@@ -5681,7 +5682,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110370}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: .00600000005, z: 0}
+  m_LocalPosition: {x: 14.5299997, y: .00999999978, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410170}
@@ -6072,6 +6073,21 @@ Transform:
   - {fileID: 410092}
   m_Father: {fileID: 410106}
   m_RootOrder: 0
+--- !u!54 &5420650
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110370}
+  serializedVersion: 2
+  m_Mass: 1.00000001e-07
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 88
+  m_CollisionDetection: 0
 --- !u!95 &9509940
 Animator:
   serializedVersion: 3
@@ -7788,12 +7804,12 @@ CharacterController:
   m_GameObject: {fileID: 110370}
   serializedVersion: 2
   m_Height: 1
-  m_Radius: .200000003
+  m_Radius: .100000001
   m_SlopeLimit: 45
   m_StepOffset: .300000012
-  m_SkinWidth: .0799999982
+  m_SkinWidth: .0500000007
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: .5, z: 0}
+  m_Center: {x: 0, y: .550000012, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -68,7 +68,7 @@ public class PlayerMovement : Movement
 		animator.SetBool ("isStrafing", strafing);
 		animator.SetBool ("isJumping", jumping);
 		animator.SetBool ("isRunning", running); 
-		animator.SetBool ("isShooting", shooting && !(running || jumping));
+		animator.SetBool ("isShooting", shooting && !jumping);
 
 		position.x = position.x + Time.deltaTime * movementSpeed * h; //Increment or decrement the players position 
 

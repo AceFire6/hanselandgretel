@@ -34,6 +34,15 @@ public class ArrowMovement : MonoBehaviour {
 			position.x += speed * Time.deltaTime * direction;
 			body.MovePosition (position);
 		}
+
+		//Destroys the gameobject when it leaves the screen.
+		//If in scene view, it will only destroy when it leaves the scene view screen.
+		//Could also keep track of how far the arrow has gone and destroy it based on that
+			//but the then it depends on the camera zoom
+		if (!renderer.isVisible) 
+		{
+			Destroy (gameObject);
+		}
 	}
 
 	void OnCollisionEnter(Collision collision)

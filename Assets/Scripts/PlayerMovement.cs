@@ -47,7 +47,7 @@ public class PlayerMovement : Movement
 
 		bool running = h != 0;									//Strafing only if shift is pressed, player is running and moving backwards
 		bool strafing = Input.GetKey (KeyCode.LeftShift) && running && transform.forward.x * h < 0;
-		bool shooting = Input.GetKeyDown (KeyCode.Space);
+		bool shooting = Input.GetKey (KeyCode.Space);
 		bool jumping = Input.GetKeyDown (KeyCode.W) && IsGrounded();// && canJump;
 
 		/* I initially tried using OnCollisionEnter and Exit to set a canJump variable to check if the player was
@@ -63,6 +63,7 @@ public class PlayerMovement : Movement
 			objRigidbody.AddForce (transform.up * jumpSpeed);
 			timer = 0f;
 		}
+
 
 		animator.SetBool ("isStrafing", strafing);
 		animator.SetBool ("isJumping", jumping);

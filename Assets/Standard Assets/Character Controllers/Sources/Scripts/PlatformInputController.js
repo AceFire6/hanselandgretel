@@ -40,7 +40,7 @@ function Update () {
 	
 	// Apply the direction to the CharacterMotor
 	motor.inputMoveDirection = directionVector;
-	Debug.Log(directionVector);
+	//Debug.Log(directionVector);
 	motor.inputJump = Input.GetButton("Jump");
 	
 	// Set rotation to the move direction	

@@ -306,6 +306,15 @@ private function UpdateFunction () {
         movingPlatform.activeGlobalRotation = tr.rotation;
         movingPlatform.activeLocalRotation = Quaternion.Inverse(movingPlatform.activePlatform.rotation) * movingPlatform.activeGlobalRotation; 
 	}
+	
+	// whatever happens, we set the character's position and velocity in the z-axis
+	// to zero. This stops the character from drifting out of the z=0 plane when colliding
+	// curved/sloped objects like enemies/walls. 
+	var charPos : Vector3 = controller.transform.position;
+	charPos.z = 0.0f;
+	controller.transform.position = charPos;
+	
+	movement.velocity.z = 0.0f;
 }
 
 function FixedUpdate () {

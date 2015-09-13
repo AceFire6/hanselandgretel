@@ -13,6 +13,7 @@ function Awake () {
 function Update () {
 	// Get the input vector from keyboard or analog stick
 	var directionVector = new Vector3(Input.GetAxis("Horizontal"), 0, 0);//Input.GetAxis("Vertical"), 0);
+	var isStrafing = (Input.GetAxis("Fire2") > 0)? true: false;
 	
 	if (directionVector != Vector3.zero) {
 		// Get the length of the directon vector and then normalize it
@@ -44,7 +45,7 @@ function Update () {
 	motor.inputJump = Input.GetButton("Jump");
 	
 	// Set rotation to the move direction	
-	if (autoRotate && directionVector.sqrMagnitude > 0.01) {
+	if (!isStrafing && autoRotate && directionVector.sqrMagnitude > 0.01) {
 		var newForward : Vector3 = ConstantSlerp(
 			transform.forward,
 			directionVector,

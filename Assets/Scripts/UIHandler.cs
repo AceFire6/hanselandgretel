@@ -6,6 +6,7 @@
  */
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour {
 
@@ -38,6 +39,9 @@ public class UIHandler : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			paused = !paused;
 			PausePanel.gameObject.SetActive(paused);
+		}
+		for (int i = 0; i < players.Length; i++) {
+			namePlates[i].GetComponentInChildren<Slider>().value = players[i].GetComponent<Health>().GetHealthPercent();
 		}
 	}
 

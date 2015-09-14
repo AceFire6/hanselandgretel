@@ -11,12 +11,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+	public Transform StartLocation;
 	public Transform minionPrefab;
 	public int coins;
 	public int limit;
 	public Text CoinCount;
 
-
+	private int lastCheckpoint;
 	private Transform[] spawnPoints;
 	private Transform[] minions;
 	private int[] spawnLimits;
@@ -55,6 +56,19 @@ public class GameManager : MonoBehaviour {
 											//code a bit uglier
 			}
 		}
+	}
+
+	public void SetLastCheckpoint(int id) {
+		lastCheckpoint = id;
+	}
+
+	public Vector3 GetRespawnLocation() {
+		foreach (GameObject go in GameObject.FindGameObjectsWithTag ("Checkpoint")) {
+			if (go.GetComponentInChildren<Checkpoint>().GetID() == lastCheckpoint) {
+				return go.transform.position;
+			}
+		}
+		return StartLocation.position;
 	}
 
 	public void UpdateCoins(int amount)

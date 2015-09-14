@@ -15,9 +15,19 @@ public class Health : MonoBehaviour {
 	public int totalHealth = 100;
 	public GameObject deathSpawn; //object to be spawned when this GameObject dies
 
+	private int maxHealth;
+
+
+	void Start() {
+		maxHealth = totalHealth;
+	}
+
+	public float GetHealthPercent() {
+		return ((float)totalHealth / (float)maxHealth);
+	}
 //used to test health script
 //	void Update() {
-//		if(Input.GetKeyUp(KeyCode.A)){
+//		if(Input.GetKeyDown(KeyCode.X)){
 //			TakeDamage(10);
 //		}
 //	}
@@ -31,6 +41,10 @@ public class Health : MonoBehaviour {
 		}
 	}
 
+	public void Kill() {
+		Die ();
+	}
+
 	private void Die()
 	{
 
@@ -40,6 +54,11 @@ public class Health : MonoBehaviour {
 			Instantiate(deathSpawn, pos, deathSpawn.transform.rotation);
 		}
 
-		Destroy(this.gameObject);
+		if (this.tag != "Player") {
+			Destroy(this.gameObject);
+		} else {
+			totalHealth = maxHealth;
+			gameObject.transform.position = GameObject.Find("GameManager").GetComponent<GameManager>().GetRespawnLocation();
+		}
 	}
 }

@@ -17,7 +17,8 @@ function Update () {
 	var directionVector = new Vector3(Input.GetAxis("Horizontal"), 0, 0);//Input.GetAxis("Vertical"), 0);
 	var isStrafing = (Input.GetAxis("Fire2") > 0)? true: false;
 	
-
+	//Made the shooting key left cntrl in the mean time
+	var isShooting = Input.GetKey(KeyCode.LeftControl);
 	
 	if (directionVector != Vector3.zero) {
 		// Get the length of the directon vector and then normalize it
@@ -65,7 +66,8 @@ function Update () {
 	//Update AC logic
 	animator.SetBool("isRunning", directionVector != Vector3.zero);
 	animator.SetBool("isStrafing", isStrafing);
-	animator.SetBool("isJumping" ,motor.inputJump);	
+	animator.SetBool("isJumping" ,motor.inputJump);
+	animator.SetBool("isShooting" , isShooting);
 }
 
 function ProjectOntoPlane (v : Vector3, normal : Vector3) {

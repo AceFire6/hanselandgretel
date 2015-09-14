@@ -2687,6 +2687,7 @@ GameObject:
   - 54: {fileID: 5401052}
   - 136: {fileID: 13601052}
   - 114: {fileID: 11456006}
+  - 114: {fileID: 11443576}
   m_Layer: 0
   m_Name: Gretel
   m_TagString: Player
@@ -5037,6 +5038,19 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11443576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 100
+  deathSpawn: {fileID: 0}
 --- !u!114 &11456006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5055,6 +5069,8 @@ MonoBehaviour:
   strafeSpeed: .5
   rotationSpeed: 180
   jumpSpeed: 200
+  jumpOffset: .300000012
+  timer: 0
 --- !u!136 &13601052
 CapsuleCollider:
   m_ObjectHideFlags: 1

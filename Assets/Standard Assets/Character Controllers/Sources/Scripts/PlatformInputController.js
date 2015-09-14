@@ -66,8 +66,18 @@ function Update () {
 	//Update AC logic
 	animator.SetBool("isRunning", directionVector != Vector3.zero);
 	animator.SetBool("isStrafing", isStrafing);
-	animator.SetBool("isJumping" ,motor.inputJump);
 	animator.SetBool("isShooting" , isShooting);
+	
+	/* For jumping, I initally set the boolean like such:
+			animator.SetBool("isJumping" , motor.inputJump);
+	   The problem with this is that inputJump uses GetButton and not GetButtonDown
+	   which means that when you press spacebar (even if you hold it down), Unity
+	   only registers it as one press, and so the animation for jumping cancels mid air.
+	   I then tried using GetButtonDown, but then you'd have to hold space bar throughout
+	   the duration of the jump and if you were to keep holding it when you landed, the
+	   animation would keep playing and wouldn't transition to idle. So what I did was 
+	   include the jumping flag in the PlatformInputController script and set it based
+	   on whether the player is grounded or not and it works perfectly like that */
 }
 
 function ProjectOntoPlane (v : Vector3, normal : Vector3) {

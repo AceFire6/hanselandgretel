@@ -11358,7 +11358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5def2657c0a468f9ee728c20c0b3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toLevel: Level1
+  toLevel: Level1_3
   speed: .899999976
   fadeTexture: {fileID: 2800000, guid: ae1878a465bfd43108759f7851e29817, type: 3}
 --- !u!65 &1350942060
@@ -14969,6 +14969,10 @@ Prefab:
     - target: {fileID: 460014, guid: 2f9f1619a057645e88f9141b189113ce, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460016, guid: 2f9f1619a057645e88f9141b189113ce, type: 2}
+      propertyPath: toLevel
+      value: Level1_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f9f1619a057645e88f9141b189113ce, type: 2}

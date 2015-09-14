@@ -22,20 +22,20 @@ public class PlayerShooting : MonoBehaviour {
 	void Start () 
 	{
 		animator = GetComponent<Animator> ();
-		positionOffset = new Vector3 (0, 0.55f, 0);
-		cooldown = 0.292f * 2; //Time it takes to raise and lower bow
+		positionOffset = new Vector3 (0, 0.5f, 0);
+		cooldown = 0.2f;
 	}
 
 	void Shoot()
 	{
-		positionOffset.x = transform.forward.x * 0.01f;
+		positionOffset.x = transform.forward.x * 0.1f;
 		Instantiate (arrow, transform.position + positionOffset,transform.rotation);
 	}
 
 	void Update () 
 	{
 		timer += Time.deltaTime;				//Check if the player performing the shooting animation.
-		bool shooting = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.RaiseCrossbow"); 
+		bool shooting = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.StandAndShootv2") || animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.RunAndShoot");  
 		if (timer > cooldown && shooting)
 		{
 			timer = 0;

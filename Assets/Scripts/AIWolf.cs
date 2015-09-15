@@ -10,6 +10,13 @@ public class AIWolf : MonoBehaviour
 	private GameObject closestPlayer;
 	private Movement movement;
 
+	public float clawAttackCD = 3f;
+	public float lungeAttackCD = 5f;
+	private float clawAttackRange = 5f;
+	private float lungeAttackRange = 10f;
+	private float clawAttackTimer;
+	private float lungeAttackTimer;
+
 	private enum State
 	{
 		Chasing,
@@ -25,11 +32,17 @@ public class AIWolf : MonoBehaviour
 		animator = GetComponent<Animator> ();
 		movement = GetComponent<Movement> ();
 		players = GameObject.FindGameObjectsWithTag ("Player");
+
+		clawAttackTimer = 0f;
+		lungeAttackTimer = 0f;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
+		clawAttackTimer += Time.deltaTime;
+		lungeAttackTimer += Time.deltaTime;
+
 		UpdateState ();
 		ExecuteState ();
 	}
@@ -61,7 +74,6 @@ public class AIWolf : MonoBehaviour
 		UpdateClosestPlayer ();
 		float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;
 
-		Debug.Log (closestPlayerDist);
 		//Check if the distance to the closest player is inside any of our thresholds
 		//update state accordingly
 /*		if (closestPlayerDist < attackRadius) {
@@ -98,7 +110,7 @@ public class AIWolf : MonoBehaviour
 
 	void Attack()
 	{
-
+		animator.SetTrigger ("ClawAttack");
 	}
 
 	void BackOff()
@@ -107,6 +119,16 @@ public class AIWolf : MonoBehaviour
 	}
 
 	void Die()
+	{
+
+	}
+
+	void ClawAttack()
+	{
+
+	}
+
+	void LungeAttack()
 	{
 
 	}

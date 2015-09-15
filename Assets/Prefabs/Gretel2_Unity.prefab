@@ -3257,6 +3257,7 @@ GameObject:
   - 143: {fileID: 14309940}
   - 114: {fileID: 11409942}
   - 114: {fileID: 11409940}
+  - 114: {fileID: 11453966}
   m_Layer: 0
   m_Name: Gretel2_Unity
   m_TagString: Player
@@ -3755,7 +3756,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110016}
-  m_LocalRotation: {x: -2.40726254e-12, y: 4.31831827e-12, z: -.48690936, w: .873452485}
+  m_LocalRotation: {x: -2.40726276e-12, y: 4.31831871e-12, z: -.486909389, w: .873452544}
   m_LocalPosition: {x: -.0762743801, y: 2.44215753e-13, z: -9.76996256e-17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4556,7 +4557,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110134}
-  m_LocalRotation: {x: -3.49877632e-06, y: 1.17305035e-05, z: -.302471966, w: .953158259}
+  m_LocalRotation: {x: -3.49877655e-06, y: 1.17305044e-05, z: -.302471995, w: .953158319}
   m_LocalPosition: {x: -.22370404, y: 7.1607607e-13, z: 1.85149666e-13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4852,7 +4853,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110172}
-  m_LocalRotation: {x: 5.74041542e-06, y: -2.27911323e-06, z: -.48690936, w: .873452485}
+  m_LocalRotation: {x: 5.74041587e-06, y: -2.27911346e-06, z: -.486909389, w: .873452544}
   m_LocalPosition: {x: -.0762743801, y: 5.67315726e-12, z: -7.21795402e-07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5330,7 +5331,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110248}
-  m_LocalRotation: {x: -1.8143844e-06, y: 4.76070863e-06, z: -.302471966, w: .953158259}
+  m_LocalRotation: {x: -1.81438452e-06, y: 4.76070909e-06, z: -.302471995, w: .953158319}
   m_LocalPosition: {x: -.22370404, y: -1.94923179e-12, z: 5.02391049e-06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5485,7 +5486,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110272}
-  m_LocalRotation: {x: -1.22401634e-16, y: -.0259565841, z: -1.567758e-18, w: .999663055}
+  m_LocalRotation: {x: -1.22401647e-16, y: -.025956586, z: -1.5677581e-18, w: .999663115}
   m_LocalPosition: {x: .0109308977, y: -5.68434176e-16, z: -.00236003799}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5679,8 +5680,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110370}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 14.5299997, y: .00999999978, z: 0}
+  m_LocalRotation: {x: 0, y: .707106888, z: 0, w: .707106769}
+  m_LocalPosition: {x: 0, y: .00600000005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410170}
@@ -6013,7 +6014,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110352}
-  m_LocalRotation: {x: 0, y: -.0259565841, z: -0, w: .999663055}
+  m_LocalRotation: {x: 0, y: -.025956586, z: -0, w: .999663115}
   m_LocalPosition: {x: -.0109317303, y: 1.42108544e-16, z: .00236004801}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6080,7 +6081,7 @@ Animator:
   m_GameObject: {fileID: 110370}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 565a6b44911d54750992f39ffc10d58d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebd90ec1fbbbf634088bf0311a41dcf6, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -6154,6 +6155,18 @@ MonoBehaviour:
     slidingSpeed: 15
     sidewaysControl: 1
     speedControl: .400000006
+--- !u!114 &11453966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05d017451ec3b924fa397ced183f3237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 460108, guid: a7a2b142335794b85befe924fa94aa8e, type: 2}
 --- !u!137 &13709940
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

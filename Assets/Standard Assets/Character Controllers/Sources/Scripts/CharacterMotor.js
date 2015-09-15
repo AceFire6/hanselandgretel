@@ -6,6 +6,7 @@
 var canControl : boolean = true;
 
 var useFixedUpdate : boolean = true;
+private var animator : Animator;
 
 // For the next variables, @System.NonSerialized tells Unity to not serialize the variable or show it in the inspector view.
 // Very handy for organization!
@@ -177,6 +178,7 @@ private var controller : CharacterController;
 
 function Awake () {
 	controller = GetComponent (CharacterController);
+	animator = GetComponent(Animator);
 	tr = transform;
 }
 
@@ -402,11 +404,18 @@ private function ApplyGravityAndJumping (velocity : Vector3) {
 		jumping.lastButtonDownTime = -100;
 	}
 	
+	//Booleans for jumping
 	if (inputJump && jumping.lastButtonDownTime < 0 && canControl)
+	{
 		jumping.lastButtonDownTime = Time.time;
+		animator.SetBool("isJumping", true);
+	}
 	
 	if (grounded)
+	{
 		velocity.y = Mathf.Min(0, velocity.y) - movement.gravity * Time.deltaTime;
+		animator.SetBool("isJumping", false); //Cancel jumping animation if the player lands
+	}
 	else {
 		velocity.y = movement.velocity.y - movement.gravity * Time.deltaTime;
 		

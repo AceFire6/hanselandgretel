@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
 	//Sets deltaMovement back to zero.
 	private void UpdatePosition ()
 	{
-		deltaMovement = deltaMovement.normalized * speed * Time.deltaTime;
+		deltaMovement = deltaMovement * speed * Time.deltaTime; //.normalized
 		
 		objRigidbody.MovePosition (transform.position + deltaMovement);
 		deltaMovement = Vector3.zero;

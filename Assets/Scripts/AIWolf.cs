@@ -19,7 +19,7 @@ public class AIWolf : MonoBehaviour
 	private float lungeAttackTimer;
 	private float attackDelayTimer;
 
-	public float movementSpeed = 1f;
+	private float movementSpeed = 1f;
 
 	private enum State
 	{
@@ -88,12 +88,15 @@ public class AIWolf : MonoBehaviour
 		//bool isIdle = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Idle"); 
 		bool isChasing = canAttack && !inRangeForAttack && !isAttacking;
 
+		if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.LungeAndBite"))
+			LungeAttackMovement();
 		//Check if the distance to the closest player is inside any of our thresholds
 		//update state accordingly
 
 		animator.SetBool ("IsChasing", isChasing);
 		animator.SetBool ("IsBackingOff", !isChasing);
-		Debug.Log (canAttack);
+		Debug.Log (attackDelayTimer <= attackDelay);
+
 		if (canAttack && inRangeForAttack && !isAttacking) 
 		{
 			state = State.Attacking;
@@ -154,9 +157,16 @@ public class AIWolf : MonoBehaviour
 		float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;
 
 		if ((clawAttackTimer >= clawAttackCD) && (closestPlayerDist <= clawAttackRange)) 
-			ClawAttack ();
+		{
+			animator.SetTrigger ("ClawAttack");
+			clawAttackTimer = 0;
+		}
 		else
-			LungeAttack ();
+		{
+			animator.SetTrigger ("LungeAttack");
+			lungeAttackTimer = 0;
+			//LungeAttackMovement ();
+		}
 	}
 
 	void BackOff()
@@ -165,12 +175,12 @@ public class AIWolf : MonoBehaviour
 		
 		if (diff < 0) 
 		{
-			movement.SetDeltaMovement (movementSpeed/2, 0.0f);
+			movement.SetDeltaMovement (movementSpeed, 0.0f);
 			movement.RotateToFace (Movement.Direction.Left);
 		} 
 		else 
 		{
-			movement.SetDeltaMovement ((movementSpeed*-1)/2, 0.0f);
+			movement.SetDeltaMovement ((movementSpeed*-1), 0.0f);
 			movement.RotateToFace (Movement.Direction.Right);
 		}
 	}
@@ -179,17 +189,22 @@ public class AIWolf : MonoBehaviour
 	{
 
 	}
+	
 
-	void ClawAttack()
+	void LungeAttackMovement()
 	{
-		animator.SetTrigger ("ClawAttack");
-		clawAttackTimer = 0;
-	}
-
-	void LungeAttack()
-	{
-		animator.SetTrigger ("LungeAttack");
-		lungeAttackTimer = 0;
+		float diff = (closestPlayer.transform.position.x - transform.position.x);
+		
+		if (diff > 0) 
+		{
+			movement.SetDeltaMovement (movementSpeed*2.25f, 0.0f);
+			movement.RotateToFace (Movement.Direction.Right);
+		} 
+		else 
+		{
+			movement.SetDeltaMovement (movementSpeed*-2.25f, 0.0f);
+			movement.RotateToFace (Movement.Direction.Left);
+		}
 	}
 
 	void Idle()

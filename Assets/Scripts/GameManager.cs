@@ -11,12 +11,12 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-	public Transform StartLocation;
 	public Transform minionPrefab;
 	public int coins;
 	public int limit;
 	public Text CoinCount;
 
+	private Vector3 StartLocation;
 	private int lastCheckpoint;
 	private Transform[] spawnPoints;
 	private Transform[] minions;
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 	void Start () 
 	{
 		spawnPoints = GetComponentsInChildren<Transform> ();
+		StartLocation = GameObject.FindGameObjectsWithTag ("Player")[0].transform.position;
 		minions = new Transform[spawnPoints.Length];
 		coins = 0;
 		limit = 2;
@@ -68,7 +69,7 @@ public class GameManager : MonoBehaviour {
 				return go.transform.position;
 			}
 		}
-		return StartLocation.position;
+		return StartLocation;
 	}
 
 	public void UpdateCoins(int amount)

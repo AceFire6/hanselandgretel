@@ -23,7 +23,7 @@ public class PlayerShooting : MonoBehaviour {
 	{
 		animator = GetComponent<Animator> ();
 		positionOffset = new Vector3 (0, 0.5f, 0);
-		cooldown = 0.2f;
+		cooldown = 0.3f;
 	}
 
 	void Shoot()

@@ -54,11 +54,12 @@ function Update () {
 	if (autoRotate && directionVector.sqrMagnitude > 0.01) {
 		var toFace : Vector3 = (isStrafing)? (-1 * directionVector): directionVector;
 		
-		var newForward : Vector3 = ConstantSlerp(
-			transform.forward,
-			toFace,
-			maxRotationSpeed * Time.deltaTime
-		);
+		var newForward : Vector3 = toFace;
+//		var newForward : Vector3 = ConstantSlerp(
+//			transform.forward,
+//			toFace,
+//			maxRotationSpeed * Time.deltaTime
+//		);
 		newForward = ProjectOntoPlane(newForward, transform.up);
 		transform.rotation = Quaternion.LookRotation(newForward, transform.up);
 	}

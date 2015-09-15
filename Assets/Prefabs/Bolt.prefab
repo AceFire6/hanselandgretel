@@ -13,7 +13,7 @@ GameObject:
   - 54: {fileID: 5460108}
   - 65: {fileID: 6560108}
   - 114: {fileID: 11416508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}

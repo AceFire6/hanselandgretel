@@ -76,6 +76,7 @@ public class FallingSpike : MonoBehaviour {
 	//allow gravity to do it's work.
 	void Fall () {
 		rigidbody.isKinematic = false;
+		rigidbody.AddTorque (new Vector3 (0, 1000, 0)); //slight spin as it falls.
 	}
 	
 	void OnCollisionEnter(Collision collision)
@@ -83,14 +84,16 @@ public class FallingSpike : MonoBehaviour {
 		GameObject obj = collision.gameObject;
 		if (obj.tag != "Player" && state != State.Grounded)  
 		{
-			//if we hit the ground, sink slightly, and set state to grounded
-			Vector3 pos = rigidbody.position;
-			pos.y -= 0.2f;
-			rigidbody.isKinematic = true;
-			rigidbody.MovePosition (pos);
-			transform.parent = collision.transform;
+			if (obj.name != "RoofCollider"){
+				//if we hit the ground, sink slightly, and set state to grounded
+				Vector3 pos = rigidbody.position;
+				pos.y -= 0.2f;
+				rigidbody.isKinematic = true;
+				rigidbody.MovePosition (pos);
+				transform.parent = collision.transform;
 
-			state = State.Grounded;
+				state = State.Grounded;
+			}
 		} else if (state == State.Falling) {
 			//if we hit the player while falling, kill the player
 			collision.gameObject.GetComponent<Health>().Kill();

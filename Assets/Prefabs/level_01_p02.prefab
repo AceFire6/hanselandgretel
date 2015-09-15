@@ -2815,6 +2815,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &165448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 465448}
+  - 33: {fileID: 3365448}
+  - 65: {fileID: 6565448}
+  m_Layer: 0
+  m_Name: RoofCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &197534
 GameObject:
   m_ObjectHideFlags: 1
@@ -4924,6 +4941,7 @@ Transform:
   - {fileID: 435194}
   - {fileID: 435192}
   - {fileID: 440466}
+  - {fileID: 465448}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &440466
@@ -4938,6 +4956,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 435202}
   m_RootOrder: 5
+--- !u!4 &465448
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.3599999, z: 90.5}
+  m_LocalScale: {x: 1, y: 1, z: 218.91716}
+  m_Children: []
+  m_Father: {fileID: 435202}
+  m_RootOrder: 6
 --- !u!4 &497534
 Transform:
   m_ObjectHideFlags: 1
@@ -8076,6 +8106,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140466}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &3365448
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165448}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &3397534
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -8135,7 +8172,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135072}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 999
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 1
@@ -9583,6 +9620,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6565448
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165448}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6597534
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -9624,7 +9673,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470228
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9639,7 +9687,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9654,7 +9701,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9669,7 +9715,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9684,7 +9729,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9699,7 +9743,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9714,7 +9757,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9729,7 +9771,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9744,7 +9785,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9759,7 +9799,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9774,7 +9813,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9789,7 +9827,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9804,7 +9841,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9819,7 +9855,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9834,7 +9869,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9849,7 +9883,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470258
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9864,7 +9897,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11470260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9879,7 +9911,6 @@ MonoBehaviour:
   activationRange: 1
   vibrationIntensity: .0250000004
   vibrateDelay: .5
-  vibrationVariance: .200000003
 --- !u!114 &11485104
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -17,6 +17,7 @@ public class AiMinion : MonoBehaviour
 
 	public float chaseRadius = 6.0f;
 	public float attackRadius = 1.0f;
+	public int attackDamage = 10;
 
 	private float attackTimer = 0.0f;
 	private float wanderingTimer = 0.0f;
@@ -31,6 +32,7 @@ public class AiMinion : MonoBehaviour
 	private GameObject closestPlayer;
 	private Movement movement;
 	
+
 	protected void Start ()
 	{
 		players = GameObject.FindGameObjectsWithTag ("Player");
@@ -158,6 +160,9 @@ public class AiMinion : MonoBehaviour
 			pos.z -= 0.3f;
 			GameObject slash = (GameObject)Instantiate(meleeSlash, pos, meleeSlash.transform.rotation);
 			Destroy(slash, 0.5f);
+
+			//Actually reduce player health
+			closestPlayer.GetComponent<Health> ().TakeDamage (attackDamage);
 
 			attackTimer = 0;
 		}

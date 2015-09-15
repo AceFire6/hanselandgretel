@@ -10,12 +10,14 @@ public class AIWolf : MonoBehaviour
 	private GameObject closestPlayer;
 	private Movement movement;
 
-	public float clawAttackCD = 3f;
-	public float lungeAttackCD = 5f;
-	private float clawAttackRange = 5f;
+	public float clawAttackCD = 5f;
+	public float lungeAttackCD = 15f;
+	private float clawAttackRange = 2f;
 	private float lungeAttackRange = 10f;
+	private float attackDelay = 0.5f;
 	private float clawAttackTimer;
 	private float lungeAttackTimer;
+	private float attackDelayTimer;
 
 	public float movementSpeed = 1f;
 
@@ -35,8 +37,9 @@ public class AIWolf : MonoBehaviour
 		movement = GetComponent<Movement> ();
 		players = GameObject.FindGameObjectsWithTag ("Player");
 
-		clawAttackTimer = 3f;
-		lungeAttackTimer = 5f;
+		clawAttackTimer = clawAttackCD;
+		lungeAttackTimer = lungeAttackCD;
+		attackDelayTimer = attackDelay;
 	}
 	
 	// Update is called once per frame
@@ -44,6 +47,7 @@ public class AIWolf : MonoBehaviour
 	{
 		clawAttackTimer += Time.deltaTime;
 		lungeAttackTimer += Time.deltaTime;
+		attackDelayTimer += Time.deltaTime;
 
 		UpdateState ();
 		ExecuteState ();
@@ -76,20 +80,21 @@ public class AIWolf : MonoBehaviour
 		UpdateClosestPlayer ();
 		float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;
 
-		bool canAttack = (clawAttackTimer >= clawAttackCD);
-		bool inRangeForAttack =(closestPlayerDist <= clawAttackRange);
+		bool canAttack = (clawAttackTimer >= clawAttackCD) || (lungeAttackTimer >= lungeAttackCD);
+		bool inRangeForAttack = ((closestPlayerDist <= clawAttackRange) && (clawAttackTimer >= clawAttackCD)) || ((closestPlayerDist <= lungeAttackRange) && (lungeAttackTimer >= lungeAttackCD));
 		//bool inChaseRange = closestPlayerDist >= 1;
 
-		bool isAttacking = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.LungeAndBite") || animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.ClawSwipe");  
+		bool isAttacking = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.LungeAndBite") || animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.ClawSwipe") || (attackDelayTimer <= attackDelay);  
+		//bool isIdle = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Idle"); 
 		bool isChasing = canAttack && !inRangeForAttack && !isAttacking;
-		Debug.Log (isAttacking);
+
 		//Check if the distance to the closest player is inside any of our thresholds
 		//update state accordingly
 
 		animator.SetBool ("IsChasing", isChasing);
 		animator.SetBool ("IsBackingOff", !isChasing);
-
-		if ((canAttack && inRangeForAttack) || isAttacking) 
+		Debug.Log (canAttack);
+		if (canAttack && inRangeForAttack && !isAttacking) 
 		{
 			state = State.Attacking;
 		} 
@@ -145,9 +150,13 @@ public class AIWolf : MonoBehaviour
 
 	void Attack()
 	{
-		if (clawAttackTimer >= clawAttackCD)
-			animator.SetTrigger ("ClawAttack");
-		clawAttackTimer = 0;
+		attackDelayTimer = 0;
+		float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;
+
+		if ((clawAttackTimer >= clawAttackCD) && (closestPlayerDist <= clawAttackRange)) 
+			ClawAttack ();
+		else
+			LungeAttack ();
 	}
 
 	void BackOff()
@@ -174,11 +183,13 @@ public class AIWolf : MonoBehaviour
 	void ClawAttack()
 	{
 		animator.SetTrigger ("ClawAttack");
+		clawAttackTimer = 0;
 	}
 
 	void LungeAttack()
 	{
-
+		animator.SetTrigger ("LungeAttack");
+		lungeAttackTimer = 0;
 	}
 
 	void Idle()

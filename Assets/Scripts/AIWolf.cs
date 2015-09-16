@@ -14,18 +14,16 @@ public class AIWolf : MonoBehaviour
 	public float lungeAttackCD = 15f;
 	private float clawAttackRange = 2f;
 	private float lungeAttackRange = 4f;
-	private float attackDelay = 0.5f;
 	private float clawAttackTimer;
 	private float lungeAttackTimer;
-	private float attackDelayTimer;
 
 	private float clawAttackDuration = 1.958f;
 	private float lungeAttackDuration = 3.0f;
 	private bool isClawAttacking = false;
 	private bool isLungeAttacking = false;
 	private bool isAttacking = false;
-	private float movementSpeed = 1f;
-
+	private bool isIdle = false;
+	
 	private enum State
 	{
 		Chasing,
@@ -44,7 +42,6 @@ public class AIWolf : MonoBehaviour
 
 		clawAttackTimer = clawAttackCD;
 		lungeAttackTimer = lungeAttackCD;
-		attackDelayTimer = attackDelay;
 	}
 	
 	// Update is called once per frame
@@ -52,7 +49,6 @@ public class AIWolf : MonoBehaviour
 	{
 		clawAttackTimer += Time.deltaTime;
 		lungeAttackTimer += Time.deltaTime;
-		attackDelayTimer += Time.deltaTime;
 
 		UpdateState ();
 		ExecuteState ();
@@ -98,7 +94,7 @@ public class AIWolf : MonoBehaviour
 
 		animator.SetBool ("IsChasing", isChasing);
 		animator.SetBool ("IsBackingOff", !isChasing);
-		Debug.Log (attackDelayTimer <= attackDelay);
+		animator.SetBool("IsIdle", isIdle);
 
 		if (canAttack && inRangeForAttack && !isAttacking) 
 		{
@@ -144,12 +140,12 @@ public class AIWolf : MonoBehaviour
 
 		if (diff > 0) 
 		{
-			movement.SetDeltaMovement (movementSpeed, 0.0f);
+			movement.SetDeltaMovement (movement.speed, 0.0f);
 			movement.RotateToFace (Movement.Direction.Right);
 		} 
 		else 
 		{
-			movement.SetDeltaMovement (movementSpeed*-1, 0.0f);
+			movement.SetDeltaMovement (movement.speed*-1, 0.0f);
 			movement.RotateToFace (Movement.Direction.Left);
 		}
 	}
@@ -158,7 +154,6 @@ public class AIWolf : MonoBehaviour
 	{
 		if (!isAttacking)
 		{
-			attackDelayTimer = 0;
 			float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;
 
 			if ((clawAttackTimer >= clawAttackCD) && (closestPlayerDist <= clawAttackRange)) 
@@ -190,12 +185,12 @@ public class AIWolf : MonoBehaviour
 		
 		if (diff < 0) 
 		{
-			movement.SetDeltaMovement (movementSpeed, 0.0f);
+			movement.SetDeltaMovement (movement.speed, 0.0f);
 			movement.RotateToFace (Movement.Direction.Left);
 		} 
 		else 
 		{
-			movement.SetDeltaMovement ((movementSpeed*-1), 0.0f);
+			movement.SetDeltaMovement ((movement.speed*-1), 0.0f);
 			movement.RotateToFace (Movement.Direction.Right);
 		}
 	}

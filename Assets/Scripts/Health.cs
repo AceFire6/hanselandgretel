@@ -59,6 +59,14 @@ public class Health : MonoBehaviour {
 		} else {
 			totalHealth = maxHealth;
 			gameObject.transform.position = GameObject.Find("GameManager").GetComponent<GameManager>().GetRespawnLocation();
+			SendRespawnEvent ();
+		}
+	}
+
+	void SendRespawnEvent () {
+		GameObject[] all = (GameObject[])FindObjectsOfType(typeof(GameObject));
+		foreach (GameObject g in all) {
+			g.SendMessage("OnPlayerRespawn", SendMessageOptions.DontRequireReceiver);
 		}
 	}
 }

@@ -38,7 +38,12 @@ public class UIHandler : MonoBehaviour {
 
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
+			Time.timeScale = 1;
 			paused = !paused;
+			if (paused) {
+				Time.timeScale = 0;
+			}
+
 			PausePanel.gameObject.SetActive(paused);
 		}
 		if (!paused) {
@@ -51,6 +56,7 @@ public class UIHandler : MonoBehaviour {
 	// Handles unpausing for the resume button in the pause menu
 	public void SetPause() {
 		paused = false;
+		Time.timeScale = 1;
 		PausePanel.gameObject.SetActive(paused);
 	}
 

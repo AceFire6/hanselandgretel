@@ -14,6 +14,7 @@ public class UIHandler : MonoBehaviour {
 	public GameObject GretelNamePlate;
 	public Canvas UIOverlay;
 	public GameObject PausePanel;
+	public GameObject SettingsMenu;
 
 	private GameObject [] players;
 	private GameObject [] namePlates;
@@ -45,8 +46,10 @@ public class UIHandler : MonoBehaviour {
 
 			PausePanel.gameObject.SetActive(paused);
 		}
-		for (int i = 0; i < players.Length; i++) {
-			namePlates[i].GetComponentInChildren<Slider>().value = players[i].GetComponent<Health>().GetHealthPercent();
+		if (!paused) {
+			for (int i = 0; i < players.Length; i++) {
+				namePlates[i].GetComponentInChildren<Slider>().value = players[i].GetComponent<Health>().GetHealthPercent();
+			}
 		}
 	}
 
@@ -55,5 +58,12 @@ public class UIHandler : MonoBehaviour {
 		paused = false;
 		Time.timeScale = 1;
 		PausePanel.gameObject.SetActive(paused);
+	}
+
+	public void ToggleSettingsMenu(bool settingsState) {
+		foreach (GameObject namePlate in namePlates) {
+			namePlate.SetActive(!settingsState);
+		}
+		SettingsMenu.gameObject.SetActive(settingsState);
 	}
 }

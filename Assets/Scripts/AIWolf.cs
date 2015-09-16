@@ -86,9 +86,8 @@ public class AIWolf : MonoBehaviour
 		//bool inChaseRange = closestPlayerDist >= 1;
 
 		bool isAttacking = isClawAttacking || isLungeAttacking;
-		//bool isIdle = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.Idle"); 
 		bool isChasing = canAttack && !inRangeForAttack && !isAttacking;
-
+;
 		//Check if the distance to the closest player is inside any of our thresholds
 		//update state accordingly
 		animator.SetBool ("IsChasing", isChasing);

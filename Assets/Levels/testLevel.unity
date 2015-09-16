@@ -8528,6 +8528,10 @@ Prefab:
       propertyPath: m_TagString
       value: Minion
       objectReference: {fileID: 0}
+    - target: {fileID: 11454140, guid: 4c15d08537ba894488936de753e88e90, type: 2}
+      propertyPath: totalHealth
+      value: 500
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c15d08537ba894488936de753e88e90, type: 2}
   m_RootGameObject: {fileID: 923374432}
@@ -10679,7 +10683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 100
+  totalHealth: 500
   deathSpawn: {fileID: 0}
 --- !u!136 &923374435
 CapsuleCollider:

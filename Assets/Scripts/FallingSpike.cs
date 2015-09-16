@@ -19,7 +19,8 @@ public class FallingSpike : MonoBehaviour {
 	public float vibrateDelay = 0.5f; //how long to vibrate before falling
 	public float disappearDelay = 2.0f; //how long the spikes stay on screen after landing before they disappear
 
-	private Vector3 spikeOrigin; //original location (vibrates around this point)
+	private Vector3 spikeOriginPos; //original location (vibrates around this point)
+	private Quaternion spikeOriginRot; //original rotation of the spike
 	private Rigidbody rigidbody;
 	private GameObject[] players;
 
@@ -31,7 +32,8 @@ public class FallingSpike : MonoBehaviour {
 
 	//Initialise required variables
 	void Start () {
-		spikeOrigin = transform.position;
+		spikeOriginPos = transform.position;
+		spikeOriginRot = transform.rotation;
 		rigidbody = GetComponent<Rigidbody> ();
 		players = GameObject.FindGameObjectsWithTag ("Player");
 	}
@@ -74,7 +76,7 @@ public class FallingSpike : MonoBehaviour {
 	//Vibrate about the original position of the spike by some small amount.
 	void Vibrate () {
 		float deltaX = Random.Range(-vibrationIntensity, vibrationIntensity);
-		Vector3 newPos = spikeOrigin;
+		Vector3 newPos = spikeOriginPos;
 		newPos.x += deltaX;
 		
 		transform.position =  newPos;
@@ -83,7 +85,7 @@ public class FallingSpike : MonoBehaviour {
 	//allow gravity to do it's work.
 	void Fall () {
 		rigidbody.isKinematic = false;
-		//rigidbody.AddTorque (new Vector3 (0, 1000, 0)); //slight spin as it falls.
+		rigidbody.AddTorque (new Vector3 (0, 1000, 0)); //slight spin as it falls.
 	}
 
 	//Disbale the mesh renderer and collision detection (makes spike basically invisible)
@@ -103,7 +105,8 @@ public class FallingSpike : MonoBehaviour {
 
 		rigidbody.detectCollisions = true;
 		rigidbody.isKinematic = true;
-		rigidbody.MovePosition (spikeOrigin);
+		rigidbody.MovePosition (spikeOriginPos);
+		rigidbody.rotation = spikeOriginRot;
 
 
 		this.gameObject.GetComponent <MeshCollider> ().enabled = true;
@@ -135,7 +138,7 @@ public class FallingSpike : MonoBehaviour {
 	bool PlayerInRange () {
 		float distToClosest = float.MaxValue;
 		foreach (GameObject p in players) {
-			float distToP = spikeOrigin.x - p.transform.position.x;
+			float distToP = spikeOriginPos.x - p.transform.position.x;
 			if (distToP < distToClosest) {
 				distToClosest = distToP;
 			}

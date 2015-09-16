@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 	protected Vector3 deltaMovement; //set to 0 at every update.
 	protected Vector3 rotation; //keeps track of the rotation of the GameObject.
 
-	protected Rigidbody objRigidbody;
+	public Rigidbody objRigidbody;
 	
 	protected virtual void Start ()
 	{

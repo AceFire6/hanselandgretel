@@ -23,13 +23,16 @@ public class AIWolf : MonoBehaviour
 	public bool isLungeAttacking = false;
 	private bool isAttacking = false;
 	private bool isIdle = false;
-	
+
+	private bool isDying = false;
+
 	public enum State
 	{
 		Chasing,
 		BackingOff,
 		Attacking,
 		Idle,
+		Dying
 	};
 	public State state;
 
@@ -70,6 +73,9 @@ public class AIWolf : MonoBehaviour
 		case State.Idle:
 			Idle();
 			break;
+		case State.Dying:
+			Die();
+			break;
 		}
 	}
 
@@ -94,7 +100,11 @@ public class AIWolf : MonoBehaviour
 		animator.SetBool ("IsBackingOff", !isChasing);
 		animator.SetBool("IsIdle", isIdle);
 
-		if (canAttack && inRangeForAttack && !isAttacking) 
+		if (isDying) 
+		{
+			state = State.Dying;
+		}
+		else if (canAttack && inRangeForAttack && !isAttacking) 
 		{
 			state = State.Attacking;
 		} 
@@ -206,11 +216,13 @@ public class AIWolf : MonoBehaviour
 
 	public void Die()
 	{
-		Debug.Log ("Dying");
-		Destroy (gameObject, 3f);
+		if (!isDying)
+		{
+			isDying = true;
+			animator.SetTrigger ("Die");
+			Destroy (gameObject, 4f);
+		}
 	}
-	
-
 
 	void Idle()
 	{

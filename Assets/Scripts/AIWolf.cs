@@ -91,7 +91,7 @@ public class AIWolf : MonoBehaviour
 
 		//Check if the distance to the closest player is inside any of our thresholds
 		//update state accordingly
-
+		Debug.Log (isIdle);
 		animator.SetBool ("IsChasing", isChasing);
 		animator.SetBool ("IsBackingOff", !isChasing);
 		animator.SetBool("IsIdle", isIdle);
@@ -104,7 +104,7 @@ public class AIWolf : MonoBehaviour
 		{
 			state = State.Chasing;
 		}
-		else if (!isAttacking)
+		else if (!isAttacking && !isIdle)
 		{
 			state = State.BackingOff;
 		}
@@ -132,10 +132,19 @@ public class AIWolf : MonoBehaviour
 		closestPlayer = target;
 	}
 
+	void OnTriggerStay(Collider col)
+	{
+		if (col.gameObject.name == "WolfCollider") 
+		{
+			isIdle = true;
+		}
+	}
+
 	void Chase()
 	{
 		//figure out whether the target player is in front of or behind the Wolf and move in the
 		//correct direction.
+		isIdle = false;
 		float diff = (closestPlayer.transform.position.x - transform.position.x);
 
 		if (diff > 0) 
@@ -152,6 +161,7 @@ public class AIWolf : MonoBehaviour
 
 	void Attack()
 	{
+		isIdle = false;
 		if (!isAttacking)
 		{
 			float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;
@@ -181,6 +191,7 @@ public class AIWolf : MonoBehaviour
 	}
 	void BackOff()
 	{
+		//isIdle = false;
 		float diff = (closestPlayer.transform.position.x - transform.position.x);
 		
 		if (diff < 0) 

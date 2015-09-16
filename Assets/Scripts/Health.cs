@@ -54,7 +54,9 @@ public class Health : MonoBehaviour {
 			Instantiate(deathSpawn, pos, deathSpawn.transform.rotation);
 		}
 
-		if (this.tag != "Player") {
+		if (this.name == "BBWolf_Unity") //Change later to check a tag for boss
+			gameObject.GetComponent<AIWolf> ().Die();
+		else if (this.tag != "Player") {
 			Destroy(this.gameObject);
 		} else {
 			totalHealth = maxHealth;

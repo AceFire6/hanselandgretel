@@ -204,9 +204,10 @@ public class AIWolf : MonoBehaviour
 		}
 	}
 
-	void OnDestroy()
+	public void Die()
 	{
-
+		Debug.Log ("Dying");
+		Destroy (gameObject, 3f);
 	}
 	
 

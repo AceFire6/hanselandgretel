@@ -2,6 +2,12 @@
 var autoRotate : boolean = true;
 var maxRotationSpeed : float = 360;
 
+var playerNo : int = 1;
+private var horizontal : String = "Horizontal";
+private var strafe : String = "Strafe";
+private var attack : String = "Attack";
+private var jump : String = "Jump";
+
 private var motor : CharacterMotor;
 private var animator : Animator;
 
@@ -9,16 +15,23 @@ private var animator : Animator;
 function Awake () {
 	motor = GetComponent(CharacterMotor);
 	animator = GetComponent(Animator);
+	
+	if (playerNo == 2) {
+		horizontal += "_2";
+		strafe += "_2";
+		attack += "_2";
+		jump += "_2";
+	}
 }
 
 // Update is called once per frame
 function Update () {
 	// Get the input vector from keyboard or analog stick
-	var directionVector = new Vector3(Input.GetAxis("Horizontal"), 0, 0);//Input.GetAxis("Vertical"), 0);
-	var isStrafing = (Input.GetAxis("Fire2") > 0)? true: false;
+	var directionVector = new Vector3(Input.GetAxis(horizontal), 0, 0);//Input.GetAxis("Vertical"), 0);
+	var isStrafing = (Input.GetAxis(strafe) > 0)? true: false;
 	
 	//Made the shooting key left cntrl in the mean time
-	var isShooting = Input.GetKey(KeyCode.LeftControl);
+	var isShooting = (Input.GetAxis(attack) > 0)? true: false;
 	
 	if (directionVector != Vector3.zero) {
 		// Get the length of the directon vector and then normalize it
@@ -47,7 +60,7 @@ function Update () {
 	// Apply the direction to the CharacterMotor
 	motor.inputMoveDirection = directionVector;
 	//Debug.Log(directionVector);
-	motor.inputJump = Input.GetButton("Jump");
+	motor.inputJump = Input.GetButton(jump);
 	
 	// Set rotation to the move direction
 	

@@ -17,6 +17,7 @@ public class FallingSpike : MonoBehaviour {
 	public float activationRange = 1.0f; //starts vibrating when player is closer than this
 	public float vibrationIntensity = 0.025f; //how much the spike vibrates
 	public float vibrateDelay = 0.5f; //how long to vibrate before falling
+	public float disappearDelay = 2.0f; //how long the spikes stay on screen after landing before they disappear
 
 	private Vector3 spikeOrigin; //original location (vibrates around this point)
 	private Rigidbody rigidbody;
@@ -26,6 +27,7 @@ public class FallingSpike : MonoBehaviour {
 	private State state = State.Passive;
 
 	private float vibrationTimer = 0.0f;
+	private float disappearTimer = 0.0f;
 
 	//Initialise required variables
 	void Start () {
@@ -49,6 +51,8 @@ public class FallingSpike : MonoBehaviour {
 			if (vibrationTimer >= vibrateDelay) {
 				state = State.Falling;
 			}
+		}else if (state == State.Grounded) {
+			disappearTimer += Time.deltaTime;
 		}
 	}
 
@@ -60,6 +64,9 @@ public class FallingSpike : MonoBehaviour {
 			break;
 		case State.Falling:
 			Fall ();
+			break;
+		case State.Grounded:
+			Disappear();
 			break;
 		}
 	}
@@ -76,7 +83,31 @@ public class FallingSpike : MonoBehaviour {
 	//allow gravity to do it's work.
 	void Fall () {
 		rigidbody.isKinematic = false;
-		rigidbody.AddTorque (new Vector3 (0, 1000, 0)); //slight spin as it falls.
+		//rigidbody.AddTorque (new Vector3 (0, 1000, 0)); //slight spin as it falls.
+	}
+
+	//Disbale the mesh renderer and collision detection (makes spike basically invisible)
+	void Disappear () {
+		if (disappearTimer >= disappearDelay) {
+			rigidbody.detectCollisions = false;
+			this.gameObject.GetComponent <MeshRenderer> ().enabled = false;
+		}
+	}
+
+	//Called when the player respawns (message sent from the players health script)
+	//Resets the spike to it's original position and state.
+	void OnPlayerRespawn () {
+		disappearTimer = 0.0f;
+		vibrationTimer = 0.0f;
+		state = State.Passive;
+
+		rigidbody.detectCollisions = true;
+		rigidbody.isKinematic = true;
+		rigidbody.MovePosition (spikeOrigin);
+
+
+		this.gameObject.GetComponent <MeshCollider> ().enabled = true;
+		this.gameObject.GetComponent <MeshRenderer> ().enabled = true;
 	}
 	
 	void OnCollisionEnter(Collision collision)
@@ -90,7 +121,6 @@ public class FallingSpike : MonoBehaviour {
 				pos.y -= 0.2f;
 				rigidbody.isKinematic = true;
 				rigidbody.MovePosition (pos);
-				transform.parent = collision.transform;
 
 				state = State.Grounded;
 			}

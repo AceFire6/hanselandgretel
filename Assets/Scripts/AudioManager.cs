@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿
+
+using UnityEngine;
 using System.Collections;
 
 public class AudioManager : MonoBehaviour {
@@ -15,18 +17,22 @@ public class AudioManager : MonoBehaviour {
 		backgroundMusic = GetComponent<AudioSource> ();
 	}
 
-	void Update () {
-	
-	}
-
 	public void AdjustMusicVolume (float vol){
-		vol = Mathf.Clamp01 (vol);
+		musicVolume = Mathf.Clamp01 (vol);
 
-		backgroundMusic.volume = vol;
+		backgroundMusic.volume = musicVolume;
 	}
 
 	public void ToggleMusicMute (bool isMute) {
 		isMusicMute = isMute;
 		backgroundMusic.mute = isMute;
+	}
+
+	public void AdjustSoundVolume (float vol){
+		soundVolume = Mathf.Clamp01 (vol);
+	}
+	
+	public void ToggleSoundMute (bool isMute) {
+		isSoundMute = isMute;
 	}
 }

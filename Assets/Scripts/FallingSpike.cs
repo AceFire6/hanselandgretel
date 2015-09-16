@@ -21,7 +21,7 @@ public class FallingSpike : MonoBehaviour {
 
 	private Vector3 spikeOriginPos; //original location (vibrates around this point)
 	private Quaternion spikeOriginRot; //original rotation of the spike
-	private Rigidbody rigidbody;
+	private Rigidbody rbody;
 	private GameObject[] players;
 
 	private enum State {Passive, Vibrating, Falling, Grounded};
@@ -34,7 +34,7 @@ public class FallingSpike : MonoBehaviour {
 	void Start () {
 		spikeOriginPos = transform.position;
 		spikeOriginRot = transform.rotation;
-		rigidbody = GetComponent<Rigidbody> ();
+		rbody = GetComponent<Rigidbody> ();
 		players = GameObject.FindGameObjectsWithTag ("Player");
 	}
 
@@ -84,14 +84,14 @@ public class FallingSpike : MonoBehaviour {
 
 	//allow gravity to do it's work.
 	void Fall () {
-		rigidbody.isKinematic = false;
-		rigidbody.AddTorque (new Vector3 (0, 1000, 0)); //slight spin as it falls.
+		rbody.isKinematic = false;
+		rbody.AddTorque (new Vector3 (0, 1000, 0)); //slight spin as it falls.
 	}
 
 	//Disbale the mesh renderer and collision detection (makes spike basically invisible)
 	void Disappear () {
 		if (disappearTimer >= disappearDelay) {
-			rigidbody.detectCollisions = false;
+			rbody.detectCollisions = false;
 			this.gameObject.GetComponent <MeshRenderer> ().enabled = false;
 		}
 	}
@@ -103,10 +103,10 @@ public class FallingSpike : MonoBehaviour {
 		vibrationTimer = 0.0f;
 		state = State.Passive;
 
-		rigidbody.detectCollisions = true;
-		rigidbody.isKinematic = true;
-		rigidbody.MovePosition (spikeOriginPos);
-		rigidbody.rotation = spikeOriginRot;
+		rbody.detectCollisions = true;
+		rbody.isKinematic = true;
+		rbody.MovePosition (spikeOriginPos);
+		rbody.rotation = spikeOriginRot;
 
 
 		this.gameObject.GetComponent <MeshCollider> ().enabled = true;
@@ -120,10 +120,10 @@ public class FallingSpike : MonoBehaviour {
 		{
 			if (obj.name != "RoofCollider"){
 				//if we hit the ground, sink slightly, and set state to grounded
-				Vector3 pos = rigidbody.position;
+				Vector3 pos = rbody.position;
 				pos.y -= 0.2f;
-				rigidbody.isKinematic = true;
-				rigidbody.MovePosition (pos);
+				rbody.isKinematic = true;
+				rbody.MovePosition (pos);
 
 				state = State.Grounded;
 			}

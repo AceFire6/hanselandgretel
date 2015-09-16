@@ -12,8 +12,8 @@ public class AIWolf : MonoBehaviour
 
 	public float clawAttackCD = 5f;
 	public float lungeAttackCD = 15f;
-	private float clawAttackRange = 2f;
-	private float lungeAttackRange = 2f;
+	private float clawAttackRange = 1.8f;
+	private float lungeAttackRange = 2.5f;
 	private float clawAttackTimer;
 	private float lungeAttackTimer;
 

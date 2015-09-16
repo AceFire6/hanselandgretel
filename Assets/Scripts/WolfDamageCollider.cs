@@ -7,9 +7,15 @@ public class WolfDamageCollider : MonoBehaviour {
 
 	/* To ensure that the player can only get hit by an attack once*/
 	private float lungeAttackDuration = 3f;
-	private float clawAttackDuration = 1.958f;;
+	private float clawAttackDuration = 1.958f;
 	private float lungeAttackTimer;
 	private float clawAttackTimer;
+	public enum Type
+	{
+		clawAttack,
+		lungeAttack
+	};
+	public Type type;
 
 	// Use this for initialization
 	void Start () 
@@ -25,12 +31,12 @@ public class WolfDamageCollider : MonoBehaviour {
 		GameObject obj = collision.gameObject;
 		if (obj.tag == "Player")
 		{
-			if (wolfScript.isClawAttacking && (clawAttackTimer >= clawAttackDuration))
+			if ((type == Type.clawAttack) && wolfScript.isClawAttacking && (clawAttackTimer >= clawAttackDuration))
 			{
 				clawAttackTimer = 0f;
 				obj.GetComponent<Health>().TakeDamage(10);
 			}
-			else if (wolfScript.isLungeAttacking && (lungeAttackTimer >= lungeAttackDuration))
+			else if ((type == Type.lungeAttack) && wolfScript.isLungeAttacking && (lungeAttackTimer >= lungeAttackDuration))
 			{
 				lungeAttackTimer = 0f;
 				obj.GetComponent<Health>().TakeDamage(35);

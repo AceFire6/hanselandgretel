@@ -1389,6 +1389,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 114503985}
+  - 135: {fileID: 114503987}
+  - 114: {fileID: 114503986}
   m_Layer: 0
   m_Name: r_hand_joint
   m_TagString: Untagged
@@ -1413,6 +1415,29 @@ Transform:
   - {fileID: 1545951979}
   m_Father: {fileID: 1023529054}
   m_RootOrder: 0
+--- !u!114 &114503986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 114503984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc45547e7d683e4183f875eabab8327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &114503987
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 114503984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .370000005
+  m_Center: {x: .300000012, y: 0, z: 0}
 --- !u!1 &118462429
 GameObject:
   m_ObjectHideFlags: 0
@@ -10339,6 +10364,7 @@ Transform:
   - {fileID: 1834690342}
   - {fileID: 110136564}
   - {fileID: 569828842}
+  - {fileID: 1569894132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!1 &908826963
@@ -10586,7 +10612,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 120
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!95 &923374437
 Animator:
@@ -10633,6 +10659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clawAttackCD: 5
   lungeAttackCD: 15
+  state: 0
 --- !u!1 &924224715
 GameObject:
   m_ObjectHideFlags: 0
@@ -17478,6 +17505,87 @@ Transform:
   m_Children: []
   m_Father: {fileID: 532917879}
   m_RootOrder: 4
+--- !u!1 &1569894131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1569894132}
+  - 33: {fileID: 1569894136}
+  - 65: {fileID: 1569894135}
+  - 23: {fileID: 1569894134}
+  - 114: {fileID: 1569894133}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1569894132
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569894131}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .541999996, z: -1.18900001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 904715432}
+  m_RootOrder: 7
+--- !u!114 &1569894133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569894131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc45547e7d683e4183f875eabab8327, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!23 &1569894134
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569894131}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!65 &1569894135
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569894131}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1569894136
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1569894131}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1573666225
 GameObject:
   m_ObjectHideFlags: 0
@@ -22830,7 +22938,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5454140, guid: 4c15d08537ba894488936de753e88e90, type: 2}
       propertyPath: m_Constraints
-      value: 120
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 13654140, guid: 4c15d08537ba894488936de753e88e90, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468904, guid: 4c15d08537ba894488936de753e88e90, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 146664, guid: 4c15d08537ba894488936de753e88e90, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c15d08537ba894488936de753e88e90, type: 2}
@@ -22850,6 +22970,8 @@ GameObject:
   - 114: {fileID: 2108793088}
   - 114: {fileID: 2108793087}
   - 114: {fileID: 2108793090}
+  - 54: {fileID: 2108793091}
+  - 114: {fileID: 2108793092}
   m_Layer: 8
   m_Name: Gretel2_Unity
   m_TagString: Player
@@ -22987,6 +23109,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 460108, guid: a7a2b142335794b85befe924fa94aa8e, type: 2}
+--- !u!54 &2108793091
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108793084}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2108793092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2108793084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 100
+  deathSpawn: {fileID: 0}
 --- !u!1 &2112665171
 GameObject:
   m_ObjectHideFlags: 0

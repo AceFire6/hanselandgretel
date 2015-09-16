@@ -19,19 +19,19 @@ public class AIWolf : MonoBehaviour
 
 	private float clawAttackDuration = 1.958f;
 	private float lungeAttackDuration = 3.0f;
-	private bool isClawAttacking = false;
-	private bool isLungeAttacking = false;
+	public bool isClawAttacking = false;
+	public bool isLungeAttacking = false;
 	private bool isAttacking = false;
 	private bool isIdle = false;
 	
-	private enum State
+	public enum State
 	{
 		Chasing,
 		BackingOff,
 		Attacking,
 		Idle,
 	};
-	private State state;
+	public State state;
 
 	// Use this for initialization
 	void Start () 
@@ -91,7 +91,6 @@ public class AIWolf : MonoBehaviour
 
 		//Check if the distance to the closest player is inside any of our thresholds
 		//update state accordingly
-		Debug.Log (isIdle);
 		animator.SetBool ("IsChasing", isChasing);
 		animator.SetBool ("IsBackingOff", !isChasing);
 		animator.SetBool("IsIdle", isIdle);
@@ -108,7 +107,7 @@ public class AIWolf : MonoBehaviour
 		{
 			state = State.BackingOff;
 		}
-		else
+		else 
 		{
 			state = State.Idle;
 		}

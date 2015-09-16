@@ -10,6 +10,8 @@ public class AIWolf : MonoBehaviour
 	private GameObject closestPlayer;
 	private Movement movement;
 
+	private Health health; //Checking hp to perform the take hit animation at certain intervals
+
 	public float clawAttackCD = 5f;
 	public float lungeAttackCD = 15f;
 	private float clawAttackRange = 1.8f;
@@ -26,6 +28,7 @@ public class AIWolf : MonoBehaviour
 
 	private bool isDying = false;
 
+	private int lastHpHit = 2000;
 	public enum State
 	{
 		Chasing,
@@ -41,6 +44,7 @@ public class AIWolf : MonoBehaviour
 	{
 		animator = GetComponent<Animator> ();
 		movement = GetComponent<Movement> ();
+		health = GetComponent<Health>();
 		players = GameObject.FindGameObjectsWithTag ("Player");
 
 		clawAttackTimer = clawAttackCD;
@@ -83,6 +87,13 @@ public class AIWolf : MonoBehaviour
 	//State changes are triggered by player proximity to the wolf.
 	private void UpdateState ()
 	{
+		int hpLeft = health.totalHealth;
+		if ((hpLeft % 250 == 0) && (lastHpHit != hpLeft))
+		{	
+			lastHpHit -= 250;
+			animator.SetTrigger("TakeHit");
+		}
+
 		//Get the distance to the closest player
 		UpdateClosestPlayer ();
 		float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;

@@ -8530,7 +8530,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11454140, guid: 4c15d08537ba894488936de753e88e90, type: 2}
       propertyPath: totalHealth
-      value: 500
+      value: 2000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c15d08537ba894488936de753e88e90, type: 2}
@@ -10683,7 +10683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 500
+  totalHealth: 2000
   deathSpawn: {fileID: 0}
 --- !u!136 &923374435
 CapsuleCollider:
@@ -10746,6 +10746,7 @@ MonoBehaviour:
   facing: 0
   speed: 1.10000002
   rotSpeed: 5
+  objRigidbody: {fileID: 0}
 --- !u!114 &923374439
 MonoBehaviour:
   m_ObjectHideFlags: 0

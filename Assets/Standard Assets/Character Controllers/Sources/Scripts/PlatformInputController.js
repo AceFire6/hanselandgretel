@@ -28,8 +28,8 @@ function Awake () {
 function Update () {
 	// Get the input vector from keyboard or analog stick
 	var directionVector = new Vector3(Input.GetAxis(horizontal), 0, 0);//Input.GetAxis("Vertical"), 0);
-	var isStrafing = (Input.GetAxis(strafe) > 0)? true: false;
-	
+	var isStrafing = (Input.GetAxis(strafe) > 0 && directionVector.sqrMagnitude > 0 )? true: false;
+	Debug.Log(isStrafing);
 	//Made the shooting key left cntrl in the mean time
 	var isShooting = (Input.GetAxis(attack) > 0)? true: false;
 	

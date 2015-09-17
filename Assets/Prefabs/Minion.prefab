@@ -1286,7 +1286,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188154}
-  m_LocalRotation: {x: 0, y: -.293613076, z: -0, w: .955924332}
+  m_LocalRotation: {x: 0, y: -.293613106, z: -0, w: .955924392}
   m_LocalPosition: {x: 2.220446e-18, y: -4.440892e-18, z: -4.440892e-18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1299,8 +1299,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188100}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -.707106888, z: 0, w: .707106769}
+  m_LocalPosition: {x: -38.3499985, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488104}
@@ -2438,6 +2438,7 @@ MonoBehaviour:
   facing: 0
   speed: 1
   rotSpeed: .100000001
+  objRigidbody: {fileID: 0}
 --- !u!114 &11450868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2464,9 +2465,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wanderTime: 2
   attackTime: 1
-  meleeSlash: {fileID: 197726, guid: 4f5a0567fca084b68927748c7957a97c, type: 2}
+  meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
+  attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
   chaseRadius: 6
   attackRadius: 1
+  attackDamage: 10
 --- !u!136 &13688266
 CapsuleCollider:
   m_ObjectHideFlags: 1

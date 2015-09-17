@@ -14429,6 +14429,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3caf0e3b3017a6140a7674d70b3774ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  facing: 0
+  speed: 1
+  rotSpeed: 5
+  objRigidbody: {fileID: 0}
   clawAttackCD: 5
   lungeAttackCD: 15
   isClawAttacking: 0

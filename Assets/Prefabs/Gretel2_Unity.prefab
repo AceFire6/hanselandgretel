@@ -3259,6 +3259,8 @@ GameObject:
   - 114: {fileID: 11409940}
   - 114: {fileID: 11453966}
   - 114: {fileID: 11404972}
+  - 54: {fileID: 5495070}
+  - 114: {fileID: 11495070}
   m_Layer: 8
   m_Name: Gretel2_Unity
   m_TagString: Player
@@ -5681,8 +5683,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110370}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: -20.2199993, y: .189999998, z: 0}
+  m_LocalRotation: {x: 0, y: .707106888, z: 0, w: .707106769}
+  m_LocalPosition: {x: .620000005, y: .00999999978, z: -.419999987}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410170}
@@ -6073,6 +6075,21 @@ Transform:
   - {fileID: 410092}
   m_Father: {fileID: 410106}
   m_RootOrder: 0
+--- !u!54 &5495070
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110370}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &9509940
 Animator:
   serializedVersion: 3
@@ -6114,6 +6131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoRotate: 1
   maxRotationSpeed: 360
+  playerNo: 1
 --- !u!114 &11409942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6181,6 +6199,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 460108, guid: a7a2b142335794b85befe924fa94aa8e, type: 2}
+--- !u!114 &11495070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalHealth: 100
+  deathSpawn: {fileID: 0}
 --- !u!137 &13709940
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
 		StartLocation = GameObject.FindGameObjectsWithTag ("Player")[0].transform.position;
 		minions = new Transform[spawnPoints.Length];
 		coins = 0;
-		limit = 2;
+		limit = 0;
 		spawnLimits = new int[spawnPoints.Length];
 
 		for (int i = 0; i < spawnLimits.Length; i++)

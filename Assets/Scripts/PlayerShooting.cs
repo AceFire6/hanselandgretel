@@ -36,6 +36,7 @@ public class PlayerShooting : MonoBehaviour {
 	{
 		timer += Time.deltaTime;				//Check if the player performing the shooting animation.
 		bool shooting = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.StandAndShootv2") || animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.RunAndShoot");  
+		//Temporary until we have proper animations for shooting in all states
 		shooting = shooting || Input.GetKey(KeyCode.LeftControl);
 		if (timer > cooldown && shooting)
 		{

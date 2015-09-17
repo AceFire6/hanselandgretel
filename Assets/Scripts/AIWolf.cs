@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AIWolf : MonoBehaviour 
+public class AIWolf : Movement
 {
 
 	private Animator animator;
 
 	private GameObject[] players;
 	private GameObject closestPlayer;
-	private Movement movement;
 
 	private Health health; //Checking hp to perform the take hit animation at certain intervals
 
@@ -42,8 +41,8 @@ public class AIWolf : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
+		base.Start ();
 		animator = GetComponent<Animator> ();
-		movement = GetComponent<Movement> ();
 		health = GetComponent<Health>();
 		players = GameObject.FindGameObjectsWithTag ("Player");
 
@@ -54,6 +53,7 @@ public class AIWolf : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		base.Update ();
 		clawAttackTimer += Time.deltaTime;
 		lungeAttackTimer += Time.deltaTime;
 
@@ -168,13 +168,13 @@ public class AIWolf : MonoBehaviour
 
 		if (diff > 0) 
 		{
-			movement.SetDeltaMovement (movement.speed, 0.0f);
-			movement.RotateToFace (Movement.Direction.Right);
+		 	base.SetDeltaMovement (base.speed, 0.0f);
+			base.RotateToFace (Movement.Direction.Right);
 		} 
 		else 
 		{
-			movement.SetDeltaMovement (movement.speed*-1, 0.0f);
-			movement.RotateToFace (Movement.Direction.Left);
+			base.SetDeltaMovement (base.speed*-1, 0.0f);
+			base.RotateToFace (Movement.Direction.Left);
 		}
 	}
 
@@ -215,13 +215,13 @@ public class AIWolf : MonoBehaviour
 		
 		if (diff < 0) 
 		{
-			movement.SetDeltaMovement (movement.speed, 0.0f);
-			movement.RotateToFace (Movement.Direction.Left);
+			base.SetDeltaMovement (base.speed, 0.0f);
+			base.RotateToFace (Movement.Direction.Left);
 		} 
 		else 
 		{
-			movement.SetDeltaMovement ((movement.speed*-1), 0.0f);
-			movement.RotateToFace (Movement.Direction.Right);
+			base.SetDeltaMovement ((base.speed*-1), 0.0f);
+			base.RotateToFace (Movement.Direction.Right);
 		}
 	}
 

@@ -14,6 +14,7 @@ public class AiMinion : MonoBehaviour
 	public float wanderTime = 2.0f; //time to wander in each direction before turning around
 	public float attackTime = 1.0f; //interval between attacks in Attacking state
 	public GameObject meleeSlash;
+	public GameObject attackBeam;
 
 	public float chaseRadius = 6.0f;
 	public float attackRadius = 1.0f;
@@ -158,6 +159,17 @@ public class AiMinion : MonoBehaviour
 			Vector3 pos = closestPlayer.transform.position;
 			pos.y += 0.5f;
 			pos.z -= 0.3f;
+
+			Vector3 startPos = transform.position;
+			startPos.y += 0.5f;
+
+			GameObject beam = (GameObject) Instantiate(attackBeam);
+			LineRenderer beamRenderer = beam.GetComponent<LineRenderer> ();
+			beamRenderer.SetPosition (0, startPos);
+			beamRenderer.SetPosition (1, pos);
+			Destroy (beam, 0.1f);
+
+
 			GameObject slash = (GameObject)Instantiate(meleeSlash, pos, meleeSlash.transform.rotation);
 			Destroy(slash, 0.5f);
 

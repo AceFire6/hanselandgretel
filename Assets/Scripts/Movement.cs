@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 	protected Vector3 deltaMovement; //set to 0 at every update.
 	protected Vector3 rotation; //keeps track of the rotation of the GameObject.
 
-	protected Rigidbody objRigidbody;
+	public Rigidbody objRigidbody;
 	
 	protected virtual void Start ()
 	{
@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
 	//Sets deltaMovement back to zero.
 	private void UpdatePosition ()
 	{
-		deltaMovement = deltaMovement.normalized * speed * Time.deltaTime;
+		deltaMovement = deltaMovement * speed * Time.deltaTime; //.normalized
 		
 		objRigidbody.MovePosition (transform.position + deltaMovement);
 		deltaMovement = Vector3.zero;

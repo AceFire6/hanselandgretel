@@ -44,6 +44,7 @@ public class UIHandler : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			if (settings) {
 				settings = false;
+				gameObject.GetComponentInChildren<PlayerSettings>().SaveSettings();
 				ToggleSettingsMenu(settings);
 			} else {
 				Time.timeScale = 1;

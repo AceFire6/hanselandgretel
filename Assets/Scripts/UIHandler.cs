@@ -63,6 +63,10 @@ public class UIHandler : MonoBehaviour {
 		}
 	}
 
+	void OnDestroy() {
+		Time.timeScale = 1;
+	}
+
 	// Handles unpausing for the resume button in the pause menu
 	public void SetPause() {
 		paused = false;

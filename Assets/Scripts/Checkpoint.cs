@@ -16,7 +16,9 @@ public class Checkpoint : MonoBehaviour {
 		if (collider.gameObject.tag == "Player")
 		{
 			ActiveLight.color = Color.green;
-			GameObject.Find("GameManager").GetComponent<GameManager>().SetLastCheckpoint(id);
+			GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+			gm.SetLastCheckpoint(id);
+			GameObject.Find("SettingsController").GetComponent<PlayerSettings>().SetLastCheckpoinPosition(transform.position, gm.coins);
 		}
 	}
 

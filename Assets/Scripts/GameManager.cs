@@ -8,6 +8,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class GameManager : MonoBehaviour {
 
@@ -21,11 +22,32 @@ public class GameManager : MonoBehaviour {
 	private Transform[] spawnPoints;
 	private Transform[] minions;
 	private int[] spawnLimits;
+	private PlayerSettings settings;
 
 	void Start () 
 	{
+		string levelName = EditorApplication.currentScene.Replace("Assets/Levels/", "").Replace (".unity", "");
+		settings = GameObject.Find("SettingsController").GetComponent<PlayerSettings>();
+		while (!settings.Loaded) {}
+		if (settings.MostRecentLevel == levelName) {
+			StartLocation = settings.GetLastCheckpointPosition();
+			foreach (GameObject player in GameObject.FindGameObjectsWithTag ("Player")) {
+				player.transform.position = StartLocation;
+			}
+		} else {
+			StartLocation = GameObject.FindGameObjectsWithTag ("Player")[0].transform.position;
+			settings.MostRecentLevel = levelName;
+			settings.SetLastCheckpoinPosition(StartLocation);
+			settings.SaveSettings();
+		}
+		coins = settings.Coins;
+		UpdateCoins(0);
+
+		Transform cam = GameObject.Find ("Camera").transform;
+		Vector3 cameraPos = cam.position;
+		cam.position = new Vector3(StartLocation.x, cameraPos.y, cameraPos.z);
+
 		spawnPoints = GetComponentsInChildren<Transform> ();
-		StartLocation = GameObject.FindGameObjectsWithTag ("Player")[0].transform.position;
 		minions = new Transform[spawnPoints.Length];
 		coins = 0;
 		limit = 0;

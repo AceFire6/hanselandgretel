@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class PlayerSettings : MonoBehaviour {
 
@@ -22,10 +23,16 @@ public class PlayerSettings : MonoBehaviour {
 	public string MostRecentLevel;
 
 	[HideInInspector]
-	public int Checkpoint;
+	public string CheckpointPosition;
 
 	[HideInInspector]
 	public bool Started;
+
+	[HideInInspector]
+	public bool Loaded;
+
+	[HideInInspector]
+	public int Coins;
 
 	void Start () {
 		if (!PlayerPrefs.HasKey("Played")) {
@@ -40,11 +47,13 @@ public class PlayerSettings : MonoBehaviour {
 		SoundVolume = PlayerPrefs.GetInt("SoundVolume");
 
 		MostRecentLevel = PlayerPrefs.GetString("MostRecentLevel");
-		Checkpoint = PlayerPrefs.GetInt("Checkpoint");
+		CheckpointPosition = PlayerPrefs.GetString("CheckpointPosition");
+		Coins = PlayerPrefs.GetInt("Coins");
 		Started = true;
+		Loaded = true;
 	}
 
-	private void FirstPlaySetup() {
+	void FirstPlaySetup() {
 		PlayerPrefs.SetString("Played", "");
 		
 		PlayerPrefs.SetInt("Difficulty", 1);
@@ -56,7 +65,9 @@ public class PlayerSettings : MonoBehaviour {
 		PlayerPrefs.SetInt("SoundVolume", 100);
 		
 		PlayerPrefs.SetString("MostRecentLevel", "");
-		PlayerPrefs.SetInt("Checkpoint", -1);
+		PlayerPrefs.SetString("CheckpointPosition", "0,0,0");
+
+		PlayerPrefs.SetInt("Coins", 0);
 		
 		PlayerPrefs.Save();
 	}
@@ -73,7 +84,9 @@ public class PlayerSettings : MonoBehaviour {
 		PlayerPrefs.SetInt("SoundVolume", SoundVolume);
 
 		PlayerPrefs.SetString("MostRecentLevel", MostRecentLevel);
-		PlayerPrefs.SetInt("Checkpoint", Checkpoint);
+		PlayerPrefs.SetString("CheckpointPosition", CheckpointPosition);
+
+		PlayerPrefs.SetInt("Coins", Coins);
 
 		PlayerPrefs.Save();
 	}
@@ -118,5 +131,27 @@ public class PlayerSettings : MonoBehaviour {
 
 	public void UpdateMusicMute() {
 		SetMuteMusic(GameObject.Find("MuteMusic").GetComponent<Toggle>().isOn);
+	}
+
+	public void SetLastCheckpoinPosition(Vector3 checkpoint, int coins) {
+		CheckpointPosition = checkpoint.x + "," + checkpoint.y + "," + checkpoint.z;
+		Coins = coins;
+		PlayerPrefs.SetString("CheckpointPosition", CheckpointPosition);
+		PlayerPrefs.SetInt("Coins", Coins);
+		PlayerPrefs.Save();
+	}
+
+	public void SetLastCheckpoinPosition(Vector3 checkpoint) {
+		CheckpointPosition = checkpoint.x + "," + checkpoint.y + "," + checkpoint.z;
+		PlayerPrefs.SetString("CheckpointPosition", CheckpointPosition);
+		PlayerPrefs.Save();
+	}
+
+	public Vector3 GetLastCheckpointPosition() {
+		string[] vals = CheckpointPosition.Split(',');
+		float x = Convert.ToSingle(vals[0]);
+		float y = Convert.ToSingle(vals[1]);
+		float z = Convert.ToSingle(vals[2]);
+		return  new Vector3(x, y, z);
 	}
 }

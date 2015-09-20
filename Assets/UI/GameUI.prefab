@@ -9,14 +9,13 @@ GameObject:
   m_Component:
   - 224: {fileID: 22470936}
   - 222: {fileID: 22270936}
-  - 114: {fileID: 11470936}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &170938
 GameObject:
   m_ObjectHideFlags: 1
@@ -248,10 +247,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22470964}
-  - 114: {fileID: 11470974}
   - 114: {fileID: 11436844}
   m_Layer: 5
-  m_Name: SettingsMenuController
+  m_Name: SettingsController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -781,6 +779,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &193752
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22493752}
+  - 222: {fileID: 22293752}
+  - 114: {fileID: 11493752}
+  - 114: {fileID: 11493754}
+  m_Layer: 5
+  m_Name: SettingsPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!114 &11436844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -798,29 +814,9 @@ MonoBehaviour:
   MuteMusic: 0
   MuteSound: 0
   MostRecentLevel: 
-  Checkpoint: 0
+  CheckpointPosition: 
   Started: 0
---- !u!114 &11470936
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: .196078435, g: .0313725509, b: .254901975, a: 1}
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  Loaded: 0
 --- !u!114 &11470938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1114,9 +1110,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ToggleSoundMute
-        m_Mode: 0
+      - m_Target: {fileID: 11436844}
+        m_MethodName: UpdateSoundMute
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -1175,7 +1171,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11470974}
+      - m_Target: {fileID: 11493754}
         m_MethodName: UpdateText
         m_Mode: 2
         m_Arguments:
@@ -1308,7 +1304,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11470974}
+      - m_Target: {fileID: 11493754}
         m_MethodName: UpdateText
         m_Mode: 2
         m_Arguments:
@@ -1334,18 +1330,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11470974
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b419889dddc2c488387844d0c3b1c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DifficultyText: {fileID: 11470956}
 --- !u!114 &11470976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1701,7 +1685,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11470974}
+      - m_Target: {fileID: 11493754}
         m_MethodName: ChangeDifficulty
         m_Mode: 3
         m_Arguments:
@@ -1799,9 +1783,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: ToggleMusicMute
-        m_Mode: 0
+      - m_Target: {fileID: 11436844}
+        m_MethodName: UpdateMusicMute
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -1900,7 +1884,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11470974}
+      - m_Target: {fileID: 11493754}
         m_MethodName: ChangeDifficulty
         m_Mode: 3
         m_Arguments:
@@ -2088,7 +2072,7 @@ MonoBehaviour:
   GretelNamePlate: {fileID: 173898, guid: 3587dc4cc5fe28143bd6cb83990c663e, type: 2}
   UIOverlay: {fileID: 22370936}
   PausePanel: {fileID: 171014}
-  SettingsMenu: {fileID: 170936}
+  SettingsMenu: {fileID: 193752}
 --- !u!114 &11471034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2547,6 +2531,39 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Settings
+--- !u!114 &11493752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .385467678, g: .123864628, b: .580882311, a: 1}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!114 &11493754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b419889dddc2c488387844d0c3b1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DifficultyText: {fileID: 11470956}
 --- !u!222 &22270936
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -2757,6 +2774,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171024}
+--- !u!222 &22293752
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193752}
 --- !u!223 &22370936
 Canvas:
   m_ObjectHideFlags: 1
@@ -2784,15 +2807,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 22470960}
-  - {fileID: 22470952}
-  - {fileID: 22470940}
-  - {fileID: 22470980}
-  - {fileID: 22470954}
-  - {fileID: 22470994}
-  - {fileID: 22470942}
-  - {fileID: 22470978}
   - {fileID: 22470964}
+  - {fileID: 22493752}
   m_Father: {fileID: 22471010}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -2830,7 +2846,7 @@ RectTransform:
   m_Children:
   - {fileID: 22470956}
   - {fileID: 22470998}
-  m_Father: {fileID: 22470936}
+  m_Father: {fileID: 22493752}
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
@@ -2850,7 +2866,7 @@ RectTransform:
   - {fileID: 22470950}
   - {fileID: 22471000}
   - {fileID: 22470990}
-  m_Father: {fileID: 22470936}
+  m_Father: {fileID: 22493752}
   m_RootOrder: 6
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
@@ -2938,7 +2954,7 @@ RectTransform:
   m_Children:
   - {fileID: 22470962}
   - {fileID: 22470988}
-  m_Father: {fileID: 22470936}
+  m_Father: {fileID: 22493752}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
@@ -2956,7 +2972,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22470946}
-  m_Father: {fileID: 22470936}
+  m_Father: {fileID: 22493752}
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
@@ -3010,7 +3026,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22470936}
+  m_Father: {fileID: 22493752}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
@@ -3048,7 +3064,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 22470936}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -51, y: 45}
@@ -3169,7 +3185,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22470982}
-  m_Father: {fileID: 22470936}
+  m_Father: {fileID: 22493752}
   m_RootOrder: 7
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
@@ -3186,7 +3202,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22470936}
+  m_Father: {fileID: 22493752}
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
@@ -3308,7 +3324,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22470938}
-  m_Father: {fileID: 22470936}
+  m_Father: {fileID: 22493752}
   m_RootOrder: 5
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
@@ -3582,6 +3598,31 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -25, y: 0}
   m_SizeDelta: {x: -50, y: 0}
+  m_Pivot: {x: .5, y: .5}
+--- !u!224 &22493752
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 22470960}
+  - {fileID: 22470952}
+  - {fileID: 22470940}
+  - {fileID: 22470980}
+  - {fileID: 22470954}
+  - {fileID: 22470994}
+  - {fileID: 22470942}
+  - {fileID: 22470978}
+  m_Father: {fileID: 22470936}
+  m_RootOrder: 1
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
 Prefab:

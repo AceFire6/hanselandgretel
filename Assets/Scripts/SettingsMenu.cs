@@ -21,7 +21,7 @@ public class SettingsMenu : MonoBehaviour
 
 	void Start ()
 	{
-		settings = GameObject.Find("SettingsMenuController").GetComponent<PlayerSettings>();
+		settings = GameObject.Find("SettingsController").GetComponent<PlayerSettings>();
 		LoadFromSettings();
 	}
 

@@ -226,8 +226,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 369372697}
   - 114: {fileID: 369372696}
-  - 114: {fileID: 369372695}
   - 114: {fileID: 369372698}
+  - 114: {fileID: 369372700}
   m_Layer: 0
   m_Name: MenuUtility
   m_TagString: Untagged
@@ -235,18 +235,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &369372695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 369372694}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a6d778390373514096c35cb440ff975, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartLevel: {fileID: 0}
 --- !u!114 &369372696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +269,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2669ac61397f8ad468d9504ae3cafc7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &369372700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 369372694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c4b74a63a03a24682520dd51fcf22e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DifficultyIndex: 0
+  MusicVolume: 0
+  SoundVolume: 0
+  MuteMusic: 0
+  MuteSound: 0
+  MostRecentLevel: Swag
+  CheckpointPosition: 
+  Started: 0
+  Loaded: 0
+  Coins: 0
 --- !u!1 &379983338
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,6 +741,7 @@ GameObject:
   - 114: {fileID: 592639556}
   - 114: {fileID: 592639559}
   - 114: {fileID: 592639560}
+  - 114: {fileID: 592639561}
   m_Layer: 5
   m_Name: Continue Button
   m_TagString: Untagged
@@ -795,7 +805,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 592639557}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 369372698}
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Continue
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &592639557
@@ -853,6 +875,17 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: .5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &592639561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592639554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45d6fdc2a811a5e4fbe44bea8517fce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &749019872
 GameObject:
   m_ObjectHideFlags: 0

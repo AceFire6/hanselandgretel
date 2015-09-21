@@ -18,7 +18,7 @@ public class Checkpoint : MonoBehaviour {
 			ActiveLight.color = Color.green;
 			GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 			gm.SetLastCheckpoint(id);
-			GameObject.Find("SettingsController").GetComponent<PlayerSettings>().SetLastCheckpoinPosition(transform.position, gm.GetCoins());
+			GameObject.Find("SettingsController").GetComponent<PlayerSettings>().SetLastCheckpointPosition(transform.position, gm.GetCoins());
 		}
 	}
 

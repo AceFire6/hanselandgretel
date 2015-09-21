@@ -65,8 +65,17 @@ public class PlayerSettings : MonoBehaviour {
 		PlayerPrefs.SetInt("SoundVolume", 100);
 		
 		PlayerPrefs.SetString("MostRecentLevel", "");
-		PlayerPrefs.SetString("CheckpointPosition", "0,0,0");
+		PlayerPrefs.SetString("CheckpointPosition", "");
 
+		PlayerPrefs.SetInt("Coins", 0);
+		
+		PlayerPrefs.Save();
+	}
+
+	public void NewGame() {
+		PlayerPrefs.SetString("Played", "");
+		PlayerPrefs.SetString("MostRecentLevel", "");
+		PlayerPrefs.SetString("CheckpointPosition", "");
 		PlayerPrefs.SetInt("Coins", 0);
 		
 		PlayerPrefs.Save();
@@ -133,7 +142,7 @@ public class PlayerSettings : MonoBehaviour {
 		SetMuteMusic(GameObject.Find("MuteMusic").GetComponent<Toggle>().isOn);
 	}
 
-	public void SetLastCheckpoinPosition(Vector3 checkpoint, int coins) {
+	public void SetLastCheckpointPosition(Vector3 checkpoint, int coins) {
 		CheckpointPosition = checkpoint.x + "," + checkpoint.y + "," + checkpoint.z;
 		Coins = coins;
 		PlayerPrefs.SetString("CheckpointPosition", CheckpointPosition);
@@ -141,7 +150,7 @@ public class PlayerSettings : MonoBehaviour {
 		PlayerPrefs.Save();
 	}
 
-	public void SetLastCheckpoinPosition(Vector3 checkpoint) {
+	public void SetLastCheckpointPosition(Vector3 checkpoint) {
 		CheckpointPosition = checkpoint.x + "," + checkpoint.y + "," + checkpoint.z;
 		PlayerPrefs.SetString("CheckpointPosition", CheckpointPosition);
 		PlayerPrefs.Save();

@@ -26,9 +26,9 @@ public class GameManager : MonoBehaviour {
 
 	void Start () 
 	{
-		string levelName = EditorApplication.currentScene.Replace("Assets/Levels/", "").Replace (".unity", "");
+		string levelName =  Application.loadedLevelName;
 		settings = GameObject.Find("SettingsController").GetComponent<PlayerSettings>();
-		while (!settings.Loaded) {}
+
 		if (settings.MostRecentLevel == levelName) {
 			StartLocation = settings.GetLastCheckpointPosition();
 			foreach (GameObject player in GameObject.FindGameObjectsWithTag ("Player")) {
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
 		} else {
 			StartLocation = GameObject.FindGameObjectsWithTag ("Player")[0].transform.position;
 			settings.MostRecentLevel = levelName;
-			settings.SetLastCheckpoinPosition(StartLocation);
+			settings.SetLastCheckpointPosition(StartLocation);
 			settings.SaveSettings();
 		}
 		coins = settings.Coins;

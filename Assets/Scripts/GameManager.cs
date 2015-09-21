@@ -13,10 +13,10 @@ using UnityEditor;
 public class GameManager : MonoBehaviour {
 
 	public Transform minionPrefab;
-	public int coins;
 	public int limit;
-	public Text CoinCount;
 
+	private int coins;
+	private Text CoinCount;
 	private Vector3 StartLocation;
 	private int lastCheckpoint;
 	private Transform[] spawnPoints;
@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour {
 		spawnPoints = GetComponentsInChildren<Transform> ();
 		minions = new Transform[spawnPoints.Length];
 		limit = 0;
+		CoinCount = GameObject.Find("Coins").GetComponent<Text>();
 		spawnLimits = new int[spawnPoints.Length];
 
 		for (int i = 0; i < spawnLimits.Length; i++)

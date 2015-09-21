@@ -193,7 +193,8 @@ MonoBehaviour:
   padding: 15
   zoomSpeed: 1.5
   followSpeed: 2
-  camElevation: .600000024
+  camLead: 1
+  camElevation: .800000012
 --- !u!124 &12441116
 Behaviour:
   m_ObjectHideFlags: 1

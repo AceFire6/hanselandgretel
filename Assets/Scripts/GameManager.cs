@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour {
 			settings.SaveSettings();
 		}
 		coins = settings.Coins;
+		CoinCount = GameObject.Find("Coins").GetComponent<Text>();
 		UpdateCoins(0);
 
 		Transform cam = GameObject.Find ("Camera").transform;
@@ -50,7 +51,6 @@ public class GameManager : MonoBehaviour {
 		spawnPoints = GetComponentsInChildren<Transform> ();
 		minions = new Transform[spawnPoints.Length];
 		limit = 0;
-		CoinCount = GameObject.Find("Coins").GetComponent<Text>();
 		spawnLimits = new int[spawnPoints.Length];
 
 		for (int i = 0; i < spawnLimits.Length; i++)
@@ -92,6 +92,10 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 		return StartLocation;
+	}
+
+	public int GetCoins() {
+		return coins;
 	}
 
 	public void UpdateCoins(int amount)

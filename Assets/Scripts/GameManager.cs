@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour {
 
 		spawnPoints = GetComponentsInChildren<Transform> ();
 		minions = new Transform[spawnPoints.Length];
-		coins = 0;
 		limit = 0;
 		spawnLimits = new int[spawnPoints.Length];
 

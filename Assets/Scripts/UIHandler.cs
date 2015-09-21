@@ -19,6 +19,7 @@ public class UIHandler : MonoBehaviour {
 	private GameObject [] players;
 	private GameObject [] namePlates;
 	private bool paused;
+	private bool settings;
 	private bool namePlatesActive;
 
 	void Start () {
@@ -36,23 +37,34 @@ public class UIHandler : MonoBehaviour {
 			namePlates[i].transform.SetParent(UIOverlay.transform, false);
 		}
 		paused = false;
+		settings = false;
 	}
 
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Escape)) {
-			Time.timeScale = 1;
-			paused = !paused;
-			if (paused) {
-				Time.timeScale = 0;
-			}
+			if (settings) {
+				settings = false;
+				gameObject.GetComponentInChildren<PlayerSettings>().SaveSettings();
+				ToggleSettingsMenu(settings);
+			} else {
+				Time.timeScale = 1;
+				paused = !paused;
+				if (paused) {
+					Time.timeScale = 0;
+				}
 
-			PausePanel.gameObject.SetActive(paused);
+				PausePanel.gameObject.SetActive(paused);
+			}
 		}
-		if (!paused && namePlatesActive) {
+		if (!paused && !settings && namePlatesActive) {
 			for (int i = 0; i < players.Length; i++) {
 				namePlates[i].GetComponentInChildren<Slider>().value = players[i].GetComponent<Health>().GetHealthPercent();
 			}
 		}
+	}
+
+	void OnDestroy() {
+		Time.timeScale = 1;
 	}
 
 	// Handles unpausing for the resume button in the pause menu
@@ -63,6 +75,7 @@ public class UIHandler : MonoBehaviour {
 	}
 
 	public void ToggleSettingsMenu(bool settingsState) {
+		settings = settingsState;
 		foreach (GameObject namePlate in namePlates) {
 			namePlate.SetActive(!settingsState);
 		}

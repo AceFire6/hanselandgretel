@@ -17,15 +17,30 @@ public class SettingsMenu : MonoBehaviour
 	private int currentDifficulty;
 	private string[] difficulties = {"Easy", "Normal", "Hard"};
 
+	private PlayerSettings settings;
+
 	void Start ()
 	{
-		// TODO: Read existing settings data if it exists
-		DifficultyText.text = difficulties [currentDifficulty];
+		settings = GameObject.Find("SettingsController").GetComponent<PlayerSettings>();
+		LoadFromSettings();
 	}
-	
-	void Update ()
-	{
 
+	private void LoadFromSettings() {
+		currentDifficulty = settings.DifficultyIndex;
+		DifficultyText.text = difficulties [currentDifficulty];
+		
+		GameObject.Find("MuteMusic").GetComponent<Toggle>().isOn = settings.IsMusicMuted();
+		GameObject.Find("MuteSound").GetComponent<Toggle>().isOn = settings.IsSoundMuted();
+		
+		GameObject.Find("Sound").GetComponentInChildren<Slider>().value = settings.SoundVolume;
+		GameObject.Find("Music").GetComponentInChildren<Slider>().value = settings.MusicVolume;
+	}
+
+	void Update() {
+		if (settings.Started) {
+			LoadFromSettings();
+			settings.Started = false;
+		}
 	}
 
 	// Updates the textbox that relates to the given slider
@@ -33,7 +48,7 @@ public class SettingsMenu : MonoBehaviour
 	{
 		Text sliderText = slider.transform.parent.FindChild ("Text").GetComponent<Text> ();
 		// Changes the associated text to a percentage based on the slider
-		sliderText.text = (Mathf.RoundToInt (slider.value * 100)).ToString () + "%";
+		sliderText.text = slider.value.ToString() + "%";
 	}
 
 	// Increase or decrease the difficulty setting
@@ -45,5 +60,6 @@ public class SettingsMenu : MonoBehaviour
 		currentDifficulty = Mathf.Max (currentDifficulty, 0);
 
 		DifficultyText.text = difficulties [currentDifficulty];
+		settings.DifficultyIndex = currentDifficulty;
 	}
 }

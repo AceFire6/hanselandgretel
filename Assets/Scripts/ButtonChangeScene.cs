@@ -10,6 +10,11 @@ public class ButtonChangeScene : MonoBehaviour
 	
 	public void ChangeScene (string sceneName)
 	{
-		Application.LoadLevel (sceneName);
+		if (sceneName == "Continue") {
+			string continueLevel = GameObject.Find("MenuUtility").GetComponent<PlayerSettings>().MostRecentLevel;
+			Application.LoadLevel (continueLevel);
+		} else {
+			Application.LoadLevel (sceneName);
+		}
 	}
 }

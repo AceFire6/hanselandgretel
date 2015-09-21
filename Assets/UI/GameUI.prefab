@@ -817,6 +817,7 @@ MonoBehaviour:
   CheckpointPosition: 
   Started: 0
   Loaded: 0
+  Coins: 0
 --- !u!114 &11470938
 MonoBehaviour:
   m_ObjectHideFlags: 1

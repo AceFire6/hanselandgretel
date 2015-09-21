@@ -29,12 +29,17 @@ function Awake () {
 // Update is called once per frame
 function Update () {
 	// Get the input vector from keyboard or analog stick
+
 	var xMov : float = Input.GetAxis(horizontal);
 	if(Mathf.Abs(Input.GetAxis(horizontalJoystick)) > Mathf.Abs(xMov)){
 		 xMov = Input.GetAxis(horizontalJoystick);
 	}
 	var directionVector = new Vector3(xMov, 0, 0);//Input.GetAxis("Vertical"), 0);
 	var isStrafing = (Input.GetAxis(strafe) > 0)? true: false;
+
+	//conflicted
+	//var directionVector = new Vector3(Input.GetAxis(horizontal), 0, 0);//Input.GetAxis("Vertical"), 0);
+	//var isStrafing = (Input.GetAxis(strafe) > 0 && directionVector.sqrMagnitude > 0 )? true: false;
 	
 	//Made the shooting key left cntrl in the mean time
 	var isShooting = (Input.GetAxis(attack) > 0)? true: false;

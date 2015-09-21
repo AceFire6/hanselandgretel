@@ -21,6 +21,9 @@ public class CameraController : MonoBehaviour {
 	public float followSpeed = 2.0f; //speed of lerping to follow players
 	public float camLead = 1.0f; // How far ahead the players can see
 
+	public GameObject leftWall;
+	public GameObject rightWall;
+
 	private GameObject player1;
 	private GameObject player2;
 
@@ -57,6 +60,20 @@ public class CameraController : MonoBehaviour {
 
 		//Update camera's field of view
 		camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, newFov, zoomSpeed * Time.deltaTime);
+	}
+
+	void LateUpdate () {
+		float dist = Mathf.Abs(transform.position.z);
+		float leftBorderPos = Camera.main.ViewportToWorldPoint(new Vector3(0,0,dist)).x;
+		float rightBorderPos = Camera.main.ViewportToWorldPoint(new Vector3(1,0,dist)).x;
+
+		Vector3 newLeftWallPos = leftWall.transform.position;
+		newLeftWallPos.x = leftBorderPos;
+		leftWall.transform.position = newLeftWallPos;
+
+		Vector3 newRightWallPos = rightWall.transform.position;
+		newRightWallPos.x = rightBorderPos;
+		rightWall.transform.position = newRightWallPos;
 	}
 
 	//Immediately repositions camera(no lerping). COmputes centre and just sets the camera

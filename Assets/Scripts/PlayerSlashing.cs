@@ -15,21 +15,18 @@ public class PlayerSlashing : MonoBehaviour {
 		
 	public int slashDamage = 10;
 
-	private float cooldown;
-	private float timer;
 	private Animator animator;
 	private bool canSlash;
 	
 	void Start () 
 	{
 		animator = GetComponentInParent<Animator> ();
-		cooldown = 0.3f;
 	}
 
 	//The axe has hit something
 	//If it's an enemy and hansel can attack, then decrease the enemy's health
 	//If the gameobject doesn't have a health component, just ignore it.
-	void OnCollisionEnter(Collision collision) {
+	void OnCollisionStay(Collision collision) {
 		if (canSlash && collision.gameObject.tag != "Player") {
 			Health health = collision.gameObject.GetComponent<Health> ();
 			if (health != null) {
@@ -40,13 +37,6 @@ public class PlayerSlashing : MonoBehaviour {
 	
 	void Update () 
 	{
-		timer += Time.deltaTime;
-
-		bool slashing = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.StandAndShootv2") || animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.RunAndShoot");
-
-		if (timer >= cooldown && slashing){
-			timer = 0.0f;
-			canSlash = true;
-		}
+		canSlash = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.StandAndAttack") || animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.RunAndChop");
 	}
 }

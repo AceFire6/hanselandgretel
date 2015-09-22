@@ -48,19 +48,22 @@ public class ArrowMovement : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{		//When it hits something other than the player
 		GameObject obj = collision.gameObject;
-		if (obj.tag != "Player")  
-		{
+		if (obj.tag != "Player" && obj.name != "BBWolf_Unity") {
 			body.isKinematic = true; 	//Prevent other forces from moving it
-			Debug.Log(position.x);
+			Debug.Log (position.x);
 			position.x += 0.03f * direction;
-			Debug.Log(position.x);
+			Debug.Log (position.x);
 			body.MovePosition (position); //Move the arrow a bit so the it looks like it cut into the object it struck
 			collider.isTrigger = true; //Prevent it from colliding with other objects
 			active = false;
 			transform.parent = collision.transform;
 
 			if (obj.tag == "Minion") //Do damage to minions
-				obj.GetComponent<Health>().TakeDamage(50);
+				obj.GetComponent<Health> ().TakeDamage (50);
+		} else 
+		{
+			obj.GetComponent<Health> ().TakeDamage (50);
+			Destroy (gameObject);
 		}
 	}
 }

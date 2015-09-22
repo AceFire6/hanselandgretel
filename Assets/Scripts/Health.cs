@@ -15,7 +15,8 @@ public class Health : MonoBehaviour {
 	public int totalHealth = 100;
 	public GameObject deathSpawn; //object to be spawned when this GameObject dies
 
-	private int maxHealth;
+	[HideInInspector]
+	public int maxHealth;
 
 
 	void Start() {

@@ -9,9 +9,9 @@ GameObject:
   m_Component:
   - 224: {fileID: 22404220}
   - 114: {fileID: 11404222}
-  - 114: {fileID: 11404224}
+  - 114: {fileID: 11478150}
   m_Layer: 5
-  m_Name: Health
+  m_Name: BossHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,15 +186,15 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 2000
+  m_WholeNumbers: 1
+  m_Value: 2000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11404224}
+      - m_Target: {fileID: 11478150}
         m_MethodName: UpdateText
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -203,21 +203,9 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11404224
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 104220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3635f7002374de46a175bc1f9e27004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthText: {fileID: 11404232}
 --- !u!114 &11404226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,7 +287,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100%
+  m_Text: 
 --- !u!114 &11404234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -326,6 +314,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: The Big Bad Wolf
+--- !u!114 &11478150
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 104220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94533a133613334cabff9741311bfd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boss: {fileID: 0}
 --- !u!222 &22204220
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -15,22 +15,57 @@ public class Health : MonoBehaviour {
 	public int totalHealth = 100;
 	public GameObject deathSpawn; //object to be spawned when this GameObject dies
 
+	public float respawnDelay = 1.5f;
+
 	private int maxHealth;
+
+	private bool isAwaitingRespawn = false;
+	private float respawnTimer = 0.0f;
+
+	private GameObject otherPlayer = null;
 
 
 	void Start() {
 		maxHealth = totalHealth;
+
+		if (gameObject.tag == "Player") {
+			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+			foreach (GameObject p in players) {
+				if (p.name != this.gameObject.name) {
+					otherPlayer = p;
+					break;
+				}
+			}
+		}
 	}
 
 	public float GetHealthPercent() {
 		return ((float)totalHealth / (float)maxHealth);
 	}
-//used to test health script
-//	void Update() {
-//		if(Input.GetKeyDown(KeyCode.X)){
-//			TakeDamage(10);
-//		}
-//	}
+
+	void Update() {
+		if(isAwaitingRespawn){
+			respawnTimer += Time.deltaTime;
+			if (respawnTimer >= respawnDelay) {
+				respawnTimer = 0.0f;
+				isAwaitingRespawn = false;
+
+				totalHealth = maxHealth;
+
+				Vector3 respawnPos = otherPlayer.transform.position;
+				respawnPos.x -= 0.7f;
+				gameObject.transform.position = respawnPos;
+
+				gameObject.GetComponent<CharacterController> ().detectCollisions = true;
+				Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+				foreach (Renderer r in renderers) {
+					r.enabled = true;
+				}
+
+				SendRespawnEvent();
+			}
+		}
+	}
 
 	public void TakeDamage (int damage)
 	{
@@ -59,9 +94,19 @@ public class Health : MonoBehaviour {
 		else if (this.tag != "Player") {
 			Destroy(this.gameObject);
 		} else {
-			totalHealth = maxHealth;
-			gameObject.transform.position = GameObject.Find("GameManager").GetComponent<GameManager>().GetRespawnLocation();
-			SendRespawnEvent ();
+			if(otherPlayer == null){
+				totalHealth = maxHealth;
+				gameObject.transform.position = GameObject.Find("GameManager").GetComponent<GameManager>().GetRespawnLocation();
+				SendRespawnEvent ();
+			}else{
+				isAwaitingRespawn = true;
+
+				gameObject.GetComponent<CharacterController> ().detectCollisions = false;
+				Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+				foreach (Renderer r in renderers) {
+					r.enabled = false;
+				}
+			}
 		}
 	}
 

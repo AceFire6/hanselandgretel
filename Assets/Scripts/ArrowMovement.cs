@@ -51,7 +51,9 @@ public class ArrowMovement : MonoBehaviour {
 		if (obj.tag != "Player")  
 		{
 			body.isKinematic = true; 	//Prevent other forces from moving it
-			position.x += 0.05f * direction;
+			Debug.Log(position.x);
+			position.x += 0.03f * direction;
+			Debug.Log(position.x);
 			body.MovePosition (position); //Move the arrow a bit so the it looks like it cut into the object it struck
 			collider.isTrigger = true; //Prevent it from colliding with other objects
 			active = false;

@@ -13,7 +13,7 @@ public class AIWolf : Movement
 
 	public float clawAttackCD = 5f;
 	public float lungeAttackCD = 15f;
-	private float clawAttackRange = 1.8f;
+	private float clawAttackRange = 1.81f;
 	private float lungeAttackRange = 2.3f;
 	private float clawAttackTimer;
 	private float lungeAttackTimer;

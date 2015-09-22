@@ -15,9 +15,12 @@ public class Health : MonoBehaviour {
 	public int totalHealth = 100;
 	public GameObject deathSpawn; //object to be spawned when this GameObject dies
 
+
 	public float respawnDelay = 1.5f;
 
-	private int maxHealth;
+	[HideInInspector]
+	public int maxHealth;
+
 
 	private bool isAwaitingRespawn = false;
 	private float respawnTimer = 0.0f;

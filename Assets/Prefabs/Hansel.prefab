@@ -13,7 +13,6 @@ GameObject:
   - 114: {fileID: 11488090}
   - 114: {fileID: 11488092}
   - 114: {fileID: 11488094}
-  - 114: {fileID: 11488096}
   m_Layer: 8
   m_Name: Hansel
   m_TagString: Player
@@ -5419,7 +5418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   autoRotate: 1
   maxRotationSpeed: 360
-  playerNo: 1
+  playerNo: 2
 --- !u!114 &11488094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5433,19 +5432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 0}
---- !u!114 &11488096
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 187726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalHealth: 100
-  deathSpawn: {fileID: 0}
+  respawnDelay: 3
 --- !u!114 &11494322
 MonoBehaviour:
   m_ObjectHideFlags: 1

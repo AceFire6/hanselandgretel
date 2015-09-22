@@ -17,5 +17,3 @@ EditorBuildSettings:
     path: Assets/Levels/Level1_3.unity
   - enabled: 1
     path: Assets/UI/Menus/end_game.unity
-  - enabled: 0
-    path: Assets/Levels/level1.unity

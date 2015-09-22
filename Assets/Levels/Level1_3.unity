@@ -5639,7 +5639,7 @@ Transform:
   - {fileID: 1079148845}
   - {fileID: 364443758}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &323358317
 GameObject:
   m_ObjectHideFlags: 0
@@ -8417,7 +8417,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -11499,7 +11499,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1 &732762302
 GameObject:
   m_ObjectHideFlags: 0
@@ -18380,7 +18380,7 @@ Transform:
   - {fileID: 1965803307}
   - {fileID: 393647053}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!114 &1140277405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27766,7 +27766,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11460016, guid: 2f9f1619a057645e88f9141b189113ce, type: 2}
       propertyPath: toLevel
-      value: Level1_1
+      value: end_game
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f9f1619a057645e88f9141b189113ce, type: 2}
@@ -34080,7 +34080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5def2657c0a468f9ee728c20c0b3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toLevel: Level1_1
+  toLevel: end_game
   speed: .899999976
   fadeTexture: {fileID: 2800000, guid: ae1878a465bfd43108759f7851e29817, type: 3}
 --- !u!65 &1913730676
@@ -38098,7 +38098,7 @@ Transform:
   m_Children:
   - {fileID: 1913730678}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &2128349397
 GameObject:
   m_ObjectHideFlags: 0
@@ -38563,7 +38563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcc7e1a58ab94eb6b0c25f5d621b4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slashDamage: 10
+  slashDamage: 5
 --- !u!135 &2145415652
 SphereCollider:
   m_ObjectHideFlags: 0

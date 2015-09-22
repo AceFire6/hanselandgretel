@@ -110,12 +110,12 @@ public class PlayerSettings : MonoBehaviour {
 
 	public void SetSoundVolume() {
 		SoundVolume = (int)GameObject.Find("Sound").GetComponentInChildren<Slider>().value;
-		audioManager.AdjustSoundVolume (SoundVolume);
+		audioManager.AdjustSoundVolume (SoundVolume/100.0f);
 	}
 
 	public void SetMusicVolume() {
 		MusicVolume = (int)GameObject.Find("Music").GetComponentInChildren<Slider>().value;
-		audioManager.AdjustMusicVolume (MusicVolume);
+		audioManager.AdjustMusicVolume (MusicVolume/100.0f);
 	}
 
 	public void SetDifficultyIndex(string difficulty) {

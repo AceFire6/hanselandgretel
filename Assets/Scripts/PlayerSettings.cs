@@ -34,17 +34,25 @@ public class PlayerSettings : MonoBehaviour {
 	[HideInInspector]
 	public int Coins;
 
+	private AudioManager audioManager;
+
 	void Start () {
 		if (!PlayerPrefs.HasKey("Played")) {
 			FirstPlaySetup();
 		}
 		DifficultyIndex = PlayerPrefs.GetInt("Difficulty");
 
+
+		audioManager = GameObject.FindGameObjectWithTag ("AudioController").GetComponent<AudioManager> ();
 		MuteMusic = PlayerPrefs.GetInt("MuteMusic");
+		audioManager.ToggleMusicMute (MuteMusic != 0);
 		MuteSound = PlayerPrefs.GetInt("MuteSound");
+		audioManager.ToggleSoundMute (MuteSound != 0);
 
 		MusicVolume = PlayerPrefs.GetInt("MusicVolume");
+		audioManager.AdjustMusicVolume (MusicVolume);
 		SoundVolume = PlayerPrefs.GetInt("SoundVolume");
+		audioManager.AdjustSoundVolume (SoundVolume);
 
 		MostRecentLevel = PlayerPrefs.GetString("MostRecentLevel");
 		CheckpointPosition = PlayerPrefs.GetString("CheckpointPosition");
@@ -102,10 +110,12 @@ public class PlayerSettings : MonoBehaviour {
 
 	public void SetSoundVolume() {
 		SoundVolume = (int)GameObject.Find("Sound").GetComponentInChildren<Slider>().value;
+		audioManager.AdjustSoundVolume (SoundVolume/100.0f);
 	}
 
 	public void SetMusicVolume() {
 		MusicVolume = (int)GameObject.Find("Music").GetComponentInChildren<Slider>().value;
+		audioManager.AdjustMusicVolume (MusicVolume/100.0f);
 	}
 
 	public void SetDifficultyIndex(string difficulty) {
@@ -128,10 +138,12 @@ public class PlayerSettings : MonoBehaviour {
 
 	public void SetMuteSound(bool mute) {
 		MuteSound = mute ? 1 : 0;
+		audioManager.ToggleSoundMute (mute);
 	}
 
 	public void SetMuteMusic(bool mute) {
 		MuteMusic = mute ? 1 : 0;
+		audioManager.ToggleMusicMute (mute);
 	}
 
 	public void UpdateSoundMute() {

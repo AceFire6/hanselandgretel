@@ -13,19 +13,13 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour {
 
-	private AudioSource backgroundMusic;
+	public AudioSource backgroundMusic;
 
 	private float musicVolume = 1.0f;
 	private float soundVolume = 1.0f;
 
 	private bool isMusicMute = false;
 	private bool isSoundMute = false;
-
-	void Start () {
-		backgroundMusic = GetComponent<AudioSource> ();
-
-		//TODO: Get and store array of all AudioSources in the scene (Except background music)
-	}
 
 	public void AdjustMusicVolume (float vol){
 		musicVolume = Mathf.Clamp01 (vol);

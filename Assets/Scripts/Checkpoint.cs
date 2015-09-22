@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Checkpoint : MonoBehaviour {
 
-	public Light ActiveLight;
+	public ParticleSystem activeParticles;
 	int id;
 
 	// Use this for initialization
@@ -15,7 +15,7 @@ public class Checkpoint : MonoBehaviour {
 	{
 		if (collider.gameObject.tag == "Player")
 		{
-			ActiveLight.color = Color.green;
+			activeParticles.startColor = Color.green;
 			GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
 			gm.SetLastCheckpoint(id);
 			GameObject.Find("SettingsController").GetComponent<PlayerSettings>().SetLastCheckpointPosition(transform.position, gm.GetCoins());

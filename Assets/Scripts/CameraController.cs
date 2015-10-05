@@ -98,9 +98,9 @@ public class CameraController : MonoBehaviour {
 		//Update camera's field of view
 		camera.fieldOfView = Mathf.Lerp (camera.fieldOfView, newFov, zoomSpeed * Time.deltaTime);
 	}
-
-	//When the player respawns, we snap back to the player.
-	void OnPlayerRespawn () {
-		SnapReposition ();
-	}
+//
+//	//When the player respawns, we snap back to the player.
+//	void OnPlayerRespawn () {
+//		SnapReposition ();
+//	}
 }

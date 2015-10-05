@@ -25,6 +25,8 @@ public class Health : MonoBehaviour {
 	private bool isAwaitingRespawn = false;
 	private float respawnTimer = 0.0f;
 
+	private bool skipDeath;
+
 	private GameObject otherPlayer = null;
 
 
@@ -33,6 +35,7 @@ public class Health : MonoBehaviour {
 
 		if (gameObject.tag == "Player") {
 			GameObject[] players = GameObject.FindGameObjectsWithTag ("Player");
+
 			foreach (GameObject p in players) {
 				if (p.name != this.gameObject.name) {
 					otherPlayer = p;
@@ -47,9 +50,14 @@ public class Health : MonoBehaviour {
 	}
 
 	void Update() {
+		if (!isAwaitingRespawn && skipDeath) {
+			skipDeath = false;
+		}
 		if(isAwaitingRespawn){
 			respawnTimer += Time.deltaTime;
-			if (respawnTimer >= respawnDelay) {
+			gameObject.transform.position = otherPlayer.transform.position;
+			if (respawnTimer >= respawnDelay || skipDeath) {
+				skipDeath = false;
 				respawnTimer = 0.0f;
 				isAwaitingRespawn = false;
 
@@ -64,6 +72,7 @@ public class Health : MonoBehaviour {
 				foreach (Renderer r in renderers) {
 					r.enabled = true;
 				}
+				gameObject.GetComponents<MonoBehaviour>()[0].enabled = true;
 
 				SendRespawnEvent();
 			}
@@ -101,6 +110,14 @@ public class Health : MonoBehaviour {
 				totalHealth = maxHealth;
 				gameObject.transform.position = GameObject.Find("GameManager").GetComponent<GameManager>().GetRespawnLocation();
 				SendRespawnEvent ();
+			} else if (otherPlayer.GetComponent<Health>().isAwaitingRespawn) {
+				Vector3 respawnLoc = GameObject.Find("GameManager").GetComponent<GameManager>().GetRespawnLocation();
+				otherPlayer.transform.position = respawnLoc;
+				gameObject.transform.position = respawnLoc;
+
+				SendRespawnEvent();
+
+				otherPlayer.GetComponent<Health>().skipDeath = true;
 			}else{
 				isAwaitingRespawn = true;
 
@@ -109,6 +126,8 @@ public class Health : MonoBehaviour {
 				foreach (Renderer r in renderers) {
 					r.enabled = false;
 				}
+				// Temporary fix!
+				gameObject.GetComponents<MonoBehaviour>()[0].enabled = false;
 			}
 		}
 	}

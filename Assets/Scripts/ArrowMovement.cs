@@ -59,10 +59,10 @@ public class ArrowMovement : MonoBehaviour {
 			transform.parent = collision.transform;
 
 			if (obj.tag == "Minion") //Do damage to minions
-				obj.GetComponent<Health> ().TakeDamage (50);
+				obj.GetComponent<Health> ().TakeDamage (25);
 		} else 
 		{
-			obj.GetComponent<Health> ().TakeDamage (50);
+			obj.GetComponent<Health> ().TakeDamage (25);
 			Destroy (gameObject);
 		}
 	}

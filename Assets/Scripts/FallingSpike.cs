@@ -116,9 +116,9 @@ public class FallingSpike : MonoBehaviour {
 	void OnCollisionEnter(Collision collision)
 	{		
 		GameObject obj = collision.gameObject;
-		if (obj.layer != LayerMask.NameToLayer("PlayerCharacter") && obj.layer != LayerMask.NameToLayer("PlayerWeapon") && state != State.Grounded)  
+		if (obj.layer != LayerMask.NameToLayer("PlayerCharacter") && obj.layer != LayerMask.NameToLayer("PlayerWeapon") && obj.tag != "Minion" && state != State.Grounded)  
 		{
-			if (obj.name != "RoofCollider" && obj.tag != "Minion"){
+			if (obj.name != "RoofCollider"){
 				//if we hit the ground, sink slightly, and set state to grounded
 				Vector3 pos = rbody.position;
 				pos.y -= Random.Range(0.1f, 0.5f);

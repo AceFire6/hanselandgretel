@@ -30408,7 +30408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcc7e1a58ab94eb6b0c25f5d621b4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slashDamage: 10
+  slashDamage: 5
 --- !u!135 &542342291
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -36922,7 +36922,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -74023,7 +74023,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 435202, guid: d1eefc95d0810443ebab62736538f20e, type: 2}
       propertyPath: m_LocalRotation.y
-      value: .707106829
+      value: .707106888
       objectReference: {fileID: 0}
     - target: {fileID: 435202, guid: d1eefc95d0810443ebab62736538f20e, type: 2}
       propertyPath: m_LocalRotation.z
@@ -74031,11 +74031,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 435202, guid: d1eefc95d0810443ebab62736538f20e, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .707106709
+      value: .707106769
       objectReference: {fileID: 0}
     - target: {fileID: 435202, guid: d1eefc95d0810443ebab62736538f20e, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1eefc95d0810443ebab62736538f20e, type: 2}
@@ -88347,6 +88347,10 @@ Prefab:
     - target: {fileID: 487726, guid: ba1ec74945858bc448f518c27bb1fea4, type: 2}
       propertyPath: m_RootOrder
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 194324, guid: ba1ec74945858bc448f518c27bb1fea4, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba1ec74945858bc448f518c27bb1fea4, type: 2}

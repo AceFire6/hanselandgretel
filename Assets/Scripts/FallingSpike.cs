@@ -124,7 +124,6 @@ public class FallingSpike : MonoBehaviour {
 				pos.y -= Random.Range(0.1f, 0.5f);
 				rbody.isKinematic = true;
 				rbody.MovePosition (pos);
-				rbody.detectCollisions = false;
 
 				state = State.Grounded;
 			}

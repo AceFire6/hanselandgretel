@@ -9,17 +9,20 @@ public class AIHouse : Movement
 
 	private Animator animator;
 
-	private float stompCD = 5f;
-	private float jumpCD = 12f;
+	private float stompCD = 4f;
+	private float jumpCD = 13.5f;
 
 	private float stompDuration = 2.375f;
 	private float jumpDuration = 2.417f;
+	private float warmingUpTime = 7.1f;
 
 	private float stompRange = 2f;
-	private float jumpRange = 5f;
+	private float jumpRange = 11f;
 
 	private float stompTimer;
 	private float jumpTimer;
+
+	private float jumpFrame = 0f;
 
 	private bool isIdle = false;
 	private bool isAttacking = false;
@@ -31,9 +34,11 @@ public class AIHouse : Movement
 
 	public enum State
 	{
+		WarmingUp,
 		Chasing,
 		BackingOff,
 		Attacking,
+		Jumping,
 		Idle
 	};
 
@@ -57,6 +62,9 @@ public class AIHouse : Movement
 
 		stompTimer += Time.deltaTime;
 		jumpTimer += Time.deltaTime;
+		jumpFrame += Time.deltaTime;
+
+		warmingUpTime -= Time.deltaTime;
 		
 		UpdateState ();
 		ExecuteState ();
@@ -72,18 +80,27 @@ public class AIHouse : Movement
 
 		bool canAttack = (stompTimer >= stompCD) || (jumpTimer >= jumpCD);
 		bool inRangeForAttack = ((closestPlayerDist <= stompRange) && (stompTimer >= stompCD)) || ((closestPlayerDist <= jumpRange) && (jumpTimer >= jumpCD));
-		//bool inChaseRange = closestPlayerDist >= 1;
-		
+
 		bool isAttacking = isStompAttacking || isJumpAttacking;
 		bool isChasing = canAttack && !inRangeForAttack && !isAttacking;
+		bool warmingUp = warmingUpTime >= 0;
+		bool jumping = jumpFrame >= 0.30 && jumpFrame <= 1.18;
 
-		//Check if the distance to the closest player is inside any of our thresholds
-		//update state accordingly
+		animator.SetBool ("stompAttacking",isStompAttacking);
+		animator.SetBool ("jumpAttacking", isJumpAttacking);
 		animator.SetBool ("chasing", isChasing);
 		animator.SetBool ("backingOff", !isChasing);
-		animator.SetBool("idle", isIdle);
+		animator.SetBool ("idle", isIdle);
 
-		if (canAttack && inRangeForAttack && !isAttacking) 
+		if (warmingUp) 
+		{
+			state = State.WarmingUp;
+		}
+		else if (jumping)
+		{
+			state = State.Jumping;
+		}
+		else if (canAttack && inRangeForAttack && !isAttacking) 
 		{
 			state = State.Attacking;
 		} 
@@ -106,11 +123,16 @@ public class AIHouse : Movement
 	{
 		switch (state) 
 		{
+			case State.WarmingUp:
+				break;
 			case State.Chasing:
 				Chase ();
 				break;
 			case State.BackingOff:
 				BackOff ();
+				break;
+			case State.Jumping:
+				Jump();
 				break;
 			case State.Attacking:
 				Attack ();
@@ -185,17 +207,31 @@ public class AIHouse : Movement
 			if ((stompTimer >= stompCD) && (closestPlayerDist <= stompRange)) 
 			{
 				isStompAttacking = true;
-				animator.SetBool ("stompAttacking",true);
 				Invoke ("updateAttackBooleans", stompDuration);
-				stompTimer = 0;
+				stompTimer = stompDuration * -1;
 			}
 			else
 			{
 				isJumpAttacking = true;
-				animator.SetBool ("jumpAttacking", true);
+				//objRigidbody.AddForce(new Vector3(0,7,0));
 				Invoke ("updateAttackBooleans", jumpDuration);
-				jumpTimer = 0;
+				jumpTimer = jumpDuration * -1;
+				jumpFrame = 0f;
 			}
+		}
+	}
+
+	void Jump()
+	{	
+		isIdle = false;
+		float diff = (closestPlayer.transform.position.x - transform.position.x);
+		
+		if (diff > 0) {
+			base.SetDeltaMovement (base.speed * 5f, 0.0f);
+			base.RotateToFace (Movement.Direction.Right);
+		} else {
+			base.SetDeltaMovement (base.speed * -5f, 0.0f);
+			base.RotateToFace (Movement.Direction.Left);
 		}
 	}
 

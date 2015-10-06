@@ -9,7 +9,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class MovementMinion : Movement
+public class MovementMinion2 : Movement
 {
 	
 	private Animator objAnimator; //animator controller component of this GameObject

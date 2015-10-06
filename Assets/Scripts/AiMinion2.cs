@@ -29,13 +29,13 @@ public class AiMinion2 : MonoBehaviour
 
 	private GameObject[] players;
 	private GameObject closestPlayer;
-	private MovementMinion movement;
+	private MovementMinion2 movement;
 	
 
 	protected void Start ()
 	{
 		players = GameObject.FindGameObjectsWithTag ("Player");
-		movement = (MovementMinion)GetComponent<Movement> ();
+		movement = (MovementMinion2)GetComponent<Movement> ();
 		currentState = State.Wandering;
 	}
 

@@ -5,11 +5,11 @@ public class Minion2DamageCollider : MonoBehaviour {
 
 	public int attackDamage = 10;
 
-	private MovementMinion movement;
+	private MovementMinion2 movement;
 
 	// Use this for initialization
 	void Start () {
-		movement = (MovementMinion)GetComponentInParent<Movement> ();
+		movement = (MovementMinion2)GetComponentInParent<Movement> ();
 	}
 	
 	// Update is called once per frame

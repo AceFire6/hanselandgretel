@@ -72,6 +72,7 @@ GameObject:
   - 114: {fileID: 11440564}
   - 114: {fileID: 11440566}
   - 54: {fileID: 5453178}
+  - 65: {fileID: 6503656}
   m_Layer: 0
   m_Name: BH_Unity
   m_TagString: Untagged
@@ -1123,6 +1124,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440560}
+  - 65: {fileID: 6503654}
+  - 114: {fileID: 11403654}
   m_Layer: 0
   m_Name: r_foot_joint
   m_TagString: Untagged
@@ -2119,6 +2122,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &6503654
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140566}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .189999998, z: 1}
+  m_Center: {x: -.25, y: -.300000012, z: .819999993}
+--- !u!65 &6503656
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126686}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.06999993, y: 4.09000015, z: 2.26999998}
+  m_Center: {x: 0, y: 2.06999993, z: 0}
 --- !u!95 &9526678
 Animator:
   serializedVersion: 3
@@ -2134,6 +2161,18 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11403654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 140566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673730597a4894f498c1444b99120137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!114 &11440564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2164,6 +2203,8 @@ MonoBehaviour:
   speed: .75
   rotSpeed: 5
   objRigidbody: {fileID: 0}
+  isStompAttacking: 0
+  isJumpAttacking: 0
   state: 0
 --- !u!137 &13740566
 SkinnedMeshRenderer:

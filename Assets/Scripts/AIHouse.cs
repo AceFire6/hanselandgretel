@@ -29,8 +29,8 @@ public class AIHouse : Movement
 	private bool isChasing = false;
 	private bool isBackingOff = false;
 
-	private bool isStompAttacking = false;
-	private bool isJumpAttacking = false;
+	public bool isStompAttacking = false;
+	public bool isJumpAttacking = false;
 
 	public enum State
 	{

@@ -86,6 +86,10 @@ Transition:
     m_ConditionEvent: stompAttacking
     m_EventTreshold: 0
     m_ExitTime: .896551728
+  - m_ConditionMode: 1
+    m_ConditionEvent: backingOff
+    m_EventTreshold: 0
+    m_ExitTime: .896551728
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0

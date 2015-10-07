@@ -1,3 +1,23 @@
+var walkClip: AudioClip;
+private var walkAud: AudioSource;
+
+var shootClip: AudioClip;
+private var shootAud: AudioSource;
+
+function AddAudio(clip:AudioClip, loop: boolean, playAwake: boolean, vol: float): AudioSource {
+	var newAudio = gameObject.AddComponent(AudioSource);
+	newAudio.clip = clip;
+	newAudio.loop = loop;
+	newAudio.playOnAwake = playAwake;
+	newAudio.volume = vol;
+	return newAudio;
+}
+
+function initAudio(){
+	walkAud = AddAudio(walkClip, true, false, 1);
+	shootAud = AddAudio(shootClip, false, false, 1);
+}
+
 // This makes the character turn to face the current movement speed per default.
 var autoRotate : boolean = true;
 var maxRotationSpeed : float = 360;
@@ -24,6 +44,8 @@ function Awake () {
 		attack += "_2";
 		jump += "_2";
 	}
+	
+	initAudio();
 }
 
 // Update is called once per frame
@@ -89,9 +111,24 @@ function Update () {
 	}
 	
 	//Update AC logic
-	animator.SetBool("isRunning", directionVector != Vector3.zero);
+	animator.SetBool("isRunning", directionVector != Vector3.zero);	
 	animator.SetBool("isStrafing", isStrafing);
 	animator.SetBool("isShooting" , isShooting);
+	
+	//sound playing
+	if((directionVector != Vector3.zero) && (motor.inputJump==false)){
+		if(!walkAud.isPlaying){
+			walkAud.Play();
+		}
+	}else{
+		if(walkAud.isPlaying){
+			walkAud.Stop();
+		}
+	}
+	
+	if(isShooting){
+		shootAud.Play();
+	}
 	
 	/* For jumping, I initally set the boolean like such:
 			animator.SetBool("isJumping" , motor.inputJump);

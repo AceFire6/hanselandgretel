@@ -2,6 +2,22 @@
 #pragma implicit
 #pragma downcast
 
+var landClip: AudioClip;
+private var landAud: AudioSource;
+
+function AddAudio(clip:AudioClip, loop: boolean, playAwake: boolean, vol: float): AudioSource {
+	var newAudio = gameObject.AddComponent(AudioSource);
+	newAudio.clip = clip;
+	newAudio.loop = loop;
+	newAudio.playOnAwake = playAwake;
+	newAudio.volume = vol;
+	return newAudio;
+}
+
+function initAudio(){
+	landAud = AddAudio(landClip, false, false, 1);
+}
+
 // Does this script currently respond to input?
 var canControl : boolean = true;
 
@@ -180,6 +196,8 @@ function Awake () {
 	controller = GetComponent (CharacterController);
 	animator = GetComponent(Animator);
 	tr = transform;
+	
+	initAudio();
 }
 
 private function UpdateFunction () {
@@ -293,6 +311,8 @@ private function UpdateFunction () {
 		grounded = true;
 		jumping.jumping = false;
 		SubtractNewPlatformVelocity();
+		
+		landAud.Play();
 		
 		SendMessage("OnLand", SendMessageOptions.DontRequireReceiver);
 	}

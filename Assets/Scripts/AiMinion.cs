@@ -16,6 +16,9 @@ public class AiMinion : MonoBehaviour
 	public GameObject meleeSlash;
 	public GameObject attackBeam;
 
+	public AudioClip attackClip;
+	private AudioSource attackAud;
+
 	public float chaseRadius = 6.0f;
 	public float attackRadius = 1.0f;
 	public int attackDamage = 10;
@@ -34,11 +37,28 @@ public class AiMinion : MonoBehaviour
 	private Movement movement;
 	
 
+	private AudioSource AddAudio (AudioClip clip, bool loop, bool playAwake, float vol) {
+		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+		newAudio.clip = clip;
+		newAudio.loop = loop;
+		newAudio.playOnAwake = playAwake;
+		newAudio.volume = vol;
+		return newAudio;
+	}
+	
+	private void initAudio () {		
+		if (attackClip != null) {
+			attackAud = AddAudio (attackClip, false, false, 1);
+		}
+	}
+
 	protected void Start ()
 	{
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		movement = (Movement)GetComponent<Movement> ();
 		currentState = State.Wandering;
+
+		initAudio();
 	}
 
 	protected void Update ()
@@ -155,6 +175,11 @@ public class AiMinion : MonoBehaviour
 		//check timer and attack if it's time to attack and then reset timer.
 		attackTimer += Time.deltaTime;
 		if (attackTimer > attackTime) {
+			//play attack sound
+			if(attackAud != null){
+				attackAud.Play();
+			}
+
 			//TODO: REPLACE THIS WITH ANIMATION CODE
 			Vector3 pos = closestPlayer.transform.position;
 			pos.y += 0.5f;
@@ -175,6 +200,8 @@ public class AiMinion : MonoBehaviour
 
 			//Actually reduce player health
 			closestPlayer.GetComponent<Health> ().TakeDamage (attackDamage);
+
+
 
 			attackTimer = 0;
 		}

@@ -15,6 +15,11 @@ public class Health : MonoBehaviour {
 	public int totalHealth = 100;
 	public GameObject deathSpawn; //object to be spawned when this GameObject dies
 
+	public AudioClip deathClip;
+	private AudioSource deathAud;
+
+	public AudioClip[] hurtClip;
+	private AudioSource[] hurtAud;
 
 	public float respawnDelay = 1.5f;
 
@@ -29,6 +34,28 @@ public class Health : MonoBehaviour {
 
 	private GameObject otherPlayer = null;
 
+	private AudioSource AddAudio (AudioClip clip, bool loop, bool playAwake, float vol) {
+		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+		newAudio.clip = clip;
+		newAudio.loop = loop;
+		newAudio.playOnAwake = playAwake;
+		newAudio.volume = vol;
+		return newAudio;
+	}
+
+	private void initAudio () {
+
+		if (hurtClip.Length != 0) {
+			hurtAud = new AudioSource[hurtClip.Length];
+			for(int i = 0; i < hurtClip.Length; i++){
+				hurtAud[i] = AddAudio(hurtClip[i], false, false, 1);
+			}
+		}
+
+		if (deathClip != null) {
+			deathAud = AddAudio (deathClip, false, false, 1);
+		}
+	}
 
 	void Start() {
 		int difficulty = GameObject.Find("SettingsController").GetComponent<PlayerSettings>().DifficultyIndex;
@@ -48,6 +75,8 @@ public class Health : MonoBehaviour {
 			totalHealth = maxHealth;
 		}
 		respawnDelay += difficulty;
+
+		initAudio ();
 	}
 
 	public float GetHealthPercent() {
@@ -77,6 +106,12 @@ public class Health : MonoBehaviour {
 				foreach (Renderer r in renderers) {
 					r.enabled = true;
 				}
+
+				AudioSource[] audioSources = gameObject.GetComponentsInChildren<AudioSource>();
+				foreach (AudioSource a in audioSources) {
+					a.enabled = true;
+				}
+
 				gameObject.GetComponents<MonoBehaviour>()[0].enabled = true;
 
 				SendRespawnEvent();
@@ -89,7 +124,13 @@ public class Health : MonoBehaviour {
 		totalHealth -= damage;
 
 		if (totalHealth <= 0) {
-			Die();
+			Die ();
+		} else {
+			//only got hurt, so play the hurt sound
+			if(hurtAud != null){
+				int i = Random.Range(0, hurtAud.Length);
+				hurtAud[i].Play();
+			}
 		}
 	}
 
@@ -99,6 +140,10 @@ public class Health : MonoBehaviour {
 
 	private void Die()
 	{
+		//Dying, so play the die sound(if any)
+		if (deathAud != null) {
+			deathAud.Play();
+		}
 
 		if (deathSpawn != null){
 			Vector3 pos = transform.position;
@@ -131,6 +176,12 @@ public class Health : MonoBehaviour {
 				foreach (Renderer r in renderers) {
 					r.enabled = false;
 				}
+
+				AudioSource[] audioSources = gameObject.GetComponentsInChildren<AudioSource>();
+				foreach (AudioSource a in audioSources) {
+					a.enabled = false;
+				}
+
 				// Temporary fix!
 				gameObject.GetComponents<MonoBehaviour>()[0].enabled = false;
 			}

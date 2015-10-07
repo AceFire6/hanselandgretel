@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class AIHouse : Movement
@@ -24,11 +24,13 @@ public class AIHouse : Movement
 	private float jumpDuration = 2.417f;
 	private float warmingUpTime = 7.1f;
 
-	private float stompRange = 6f;
-	private float jumpRange = 13f;
+	private float stompRange = 4.5f;
+	private float jumpRange = 17f;
+	private float rageDuration = 1.65f;
 
 	private float stompTimer;
 	private float jumpTimer;
+	private float rageTimer;
 
 	private float jumpFrame = 0f;
 
@@ -36,6 +38,7 @@ public class AIHouse : Movement
 	private bool isAttacking = false;
 	private bool isChasing = false;
 	private bool isBackingOff = false;
+	private bool isRaging = false;
 
 	public bool isStompAttacking = false;
 	public bool isJumpAttacking = false;
@@ -47,6 +50,11 @@ public class AIHouse : Movement
 	private bool enragedModeOn = false;
 	private bool canActivateRageMode = true;
 
+	private float rotateTimer;
+	private float rotateCD = 0.25f;
+	public float growRate = 0.4f;
+	public float currScale = 0.80f;
+
 	private float maxHealth;
 
 	public enum State
@@ -56,7 +64,8 @@ public class AIHouse : Movement
 		BackingOff,
 		Attacking,
 		Jumping,
-		Idle
+		Idle,
+		Raging
 	};
 
 	public State state;
@@ -72,6 +81,8 @@ public class AIHouse : Movement
 
 		stompTimer = stompCD;
 		jumpTimer = jumpCD;
+		rageTimer = 0f;
+		rotateTimer = rotateCD;
 		maxHealth = health.totalHealth;
 	}
 	
@@ -79,15 +90,19 @@ public class AIHouse : Movement
 	void Update () 
 	{
 		base.Update ();
-
+		
 		if (canActivateRageMode && health.totalHealth <= maxHealth / 2) 
 		{
 			canActivateRageMode = false;
 			enragedModeOn = true;
+			isRaging = true;
+			animator.SetTrigger("rageTrigger");
 			jumpDuration = 3.75f;
+			jumpTimer = jumpCD;
 			stompCD = 3f;
 			jumpCD = 10f;
-			jumpRange = 15f;
+			jumpRange = 22f;
+			stompRange = 6f;
 			jumpEndFrame = jumpDuration - jumpLeeway;
 			for (int i = 0; i < pointLights.Length; i++)
 			{
@@ -99,12 +114,14 @@ public class AIHouse : Movement
 		stompTimer += Time.deltaTime;
 		jumpTimer += Time.deltaTime;
 		jumpFrame += Time.deltaTime;
+		rotateTimer += Time.deltaTime;
 
 		warmingUpTime -= Time.deltaTime;
 		
 		UpdateState ();
 		ExecuteState ();
 
+		//transform.localScale = new Vector3(currScale,currScale,currScale);
 		heightDiff = transform.position.y - prevY;
 		prevY = transform.position.y;
 	}
@@ -131,7 +148,11 @@ public class AIHouse : Movement
 		animator.SetBool ("backingOff", !isChasing && !isAttacking);
 		animator.SetBool ("idle", isIdle);
 
-		if (warmingUp) 
+		if (isRaging) 
+		{
+			state = State.Raging;
+		}
+		else if (warmingUp) 
 		{
 			state = State.WarmingUp;
 		}
@@ -162,6 +183,9 @@ public class AIHouse : Movement
 	{
 		switch (state) 
 		{
+			case State.Raging:
+				Rage();
+				break;
 			case State.WarmingUp:
 				break;
 			case State.Chasing:
@@ -202,43 +226,64 @@ public class AIHouse : Movement
 	void Chase()
 	{
 		isIdle = false;
-
 		float diff = (closestPlayer.transform.position.x - transform.position.x);
 		
 		if (diff > 0) 
 		{
 			base.SetDeltaMovement (base.speed, 0.0f);
-			base.RotateToFace (Movement.Direction.Right);
+			if (rotateTimer >= rotateCD)
+			{
+				base.RotateToFace (Movement.Direction.Right);
+				rotateTimer = 0f;
+			}
 		} 
 		else 
 		{
 			base.SetDeltaMovement (base.speed*-1, 0.0f);
-			base.RotateToFace (Movement.Direction.Left);
+			if (rotateTimer >= rotateCD)
+			{
+				base.RotateToFace (Movement.Direction.Left);
+				rotateTimer = 0f;
+			}
 		}
 	}
 
 	void BackOff()
 	{
 		isIdle = false;
-
 		float diff = (closestPlayer.transform.position.x - transform.position.x);
 		
 		if (diff < 0) 
 		{
 			base.SetDeltaMovement (base.speed, 0.0f);
-			base.RotateToFace (Movement.Direction.Left);
+			if (rotateTimer >= rotateCD)
+			{
+				base.RotateToFace (Movement.Direction.Left);
+				rotateTimer = 0f;
+			}
 		} 
 		else 
 		{
 			base.SetDeltaMovement ((base.speed*-1), 0.0f);
-			base.RotateToFace (Movement.Direction.Right);
+			if (rotateTimer >= rotateCD)
+			{
+				base.RotateToFace (Movement.Direction.Right);
+				rotateTimer = 0f;
+			}
 		}
 	}
 
+	void Rage()
+	{
+		rageTimer += Time.deltaTime;
+		currScale += growRate * Time.deltaTime;
+		transform.localScale = new Vector3(currScale,currScale,currScale);
+		if (rageTimer >= rageDuration)
+			isRaging = false;
+	}
 	void Attack()
 	{
 		isIdle = false;
-
 		if (!isAttacking)
 		{
 			float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;
@@ -266,17 +311,24 @@ public class AIHouse : Movement
 	{	
 		isIdle = false;
 		bool inBounds = transform.position.x <= rightBound && transform.position.x >= leftBound;
-		Debug.Log (inBounds);
 		if (jumpFrame <= jumpEndFrame) //&& inBounds) 
 		{
 			float diff = (closestPlayer.transform.position.x - transform.position.x);
 			
 			if (diff > 0) {
 				base.SetDeltaMovement (base.speed * 5f, 0.0f);
-				base.RotateToFace (Movement.Direction.Right);
+				if (rotateTimer >= rotateCD)
+				{
+					base.RotateToFace (Movement.Direction.Right);
+					rotateTimer = 0f;
+				}
 			} else {
 				base.SetDeltaMovement (base.speed * -5f, 0.0f);
-				base.RotateToFace (Movement.Direction.Left);
+				if (rotateTimer >= rotateCD)
+				{
+					base.RotateToFace (Movement.Direction.Left);
+					rotateTimer = 0f;
+				}
 			}
 		}
 	}

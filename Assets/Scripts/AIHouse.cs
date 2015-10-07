@@ -7,6 +7,8 @@ public class AIHouse : Movement
 	private GameObject[] players;
 	private GameObject closestPlayer;
 
+	public Transform[] pointLights;
+
 	private Health health;
 
 	private Animator animator;
@@ -37,6 +39,11 @@ public class AIHouse : Movement
 	private float prevY;
 	public float heightDiff;
 
+	private bool enragedModeOn = false;
+	private bool canActivateRageMode = true;
+
+	private float maxHealth;
+
 	public enum State
 	{
 		WarmingUp,
@@ -60,12 +67,21 @@ public class AIHouse : Movement
 
 		stompTimer = stompCD;
 		jumpTimer = jumpCD;
+		maxHealth = health.totalHealth;
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		base.Update ();
+
+		if (canActivateRageMode && health.totalHealth <= maxHealth / 2) 
+		{
+			canActivateRageMode = false;
+			enragedModeOn = true;
+			for (int i = 0; i < pointLights.Length; i++)
+				pointLights[i].gameObject.GetComponent<ParticleSystem>().enableEmission = true;
+		}
 
 		stompTimer += Time.deltaTime;
 		jumpTimer += Time.deltaTime;

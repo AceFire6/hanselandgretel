@@ -24,8 +24,8 @@ public class AIHouse : Movement
 	private float jumpDuration = 2.417f;
 	private float warmingUpTime = 7.1f;
 
-	private float stompRange = 4.5f;
-	private float jumpRange = 17f;
+	private float stompRange = 4f;
+	private float jumpRange = 16f;
 	private float rageDuration = 1.65f;
 
 	private float stompTimer;
@@ -120,8 +120,7 @@ public class AIHouse : Movement
 		
 		UpdateState ();
 		ExecuteState ();
-
-		//transform.localScale = new Vector3(currScale,currScale,currScale);
+		
 		heightDiff = transform.position.y - prevY;
 		prevY = transform.position.y;
 	}

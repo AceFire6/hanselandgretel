@@ -217,6 +217,7 @@ public class AIHouse : Movement
 				//objRigidbody.AddForce(new Vector3(0,7,0));
 				Invoke ("updateAttackBooleans", jumpDuration);
 				jumpTimer = jumpDuration * -1;
+				objRigidbody.velocity += new Vector3(0,15f,0);
 				jumpFrame = 0f;
 			}
 		}
@@ -236,6 +237,11 @@ public class AIHouse : Movement
 		}
 	}
 
+	void OnCollisionEnter(Collision collision)
+	{
+		if (collision.gameObject.tag == "Player")
+			Physics.IgnoreCollision (collision.collider, collider);
+	}
 	void OnTriggerStay(Collider col)
 	{
 		if (col.gameObject.name == "HouseCollider") 

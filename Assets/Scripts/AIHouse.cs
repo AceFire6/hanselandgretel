@@ -7,21 +7,25 @@ public class AIHouse : Movement
 	private GameObject[] players;
 	private GameObject closestPlayer;
 
+	public float leftBound;
+	public float rightBound;
+
 	public Transform[] pointLights;
+	public float jumpLeeway = 1f;
 
 	private Health health;
 
 	private Animator animator;
 
-	private float stompCD = 10f;
-	private float jumpCD = 5f;
+	private float stompCD = 4f;
+	private float jumpCD = 12f;
 
 	private float stompDuration = 2.375f;
 	private float jumpDuration = 2.417f;
 	private float warmingUpTime = 7.1f;
 
-	private float stompRange = 2f;
-	private float jumpRange = 11f;
+	private float stompRange = 6f;
+	private float jumpRange = 13f;
 
 	private float stompTimer;
 	private float jumpTimer;
@@ -38,6 +42,7 @@ public class AIHouse : Movement
 
 	private float prevY;
 	public float heightDiff;
+	private float jumpEndFrame = 1.18f;
 
 	private bool enragedModeOn = false;
 	private bool canActivateRageMode = true;
@@ -79,8 +84,16 @@ public class AIHouse : Movement
 		{
 			canActivateRageMode = false;
 			enragedModeOn = true;
+			jumpDuration = 3.75f;
+			stompCD = 3f;
+			jumpCD = 10f;
+			jumpRange = 15f;
+			jumpEndFrame = jumpDuration - jumpLeeway;
 			for (int i = 0; i < pointLights.Length; i++)
+			{
+				pointLights[i].gameObject.GetComponent<ParticleSystem>().Play();
 				pointLights[i].gameObject.GetComponent<ParticleSystem>().enableEmission = true;
+			}
 		}
 
 		stompTimer += Time.deltaTime;
@@ -110,9 +123,8 @@ public class AIHouse : Movement
 		bool isAttacking = isStompAttacking || isJumpAttacking;
 		bool isChasing = canAttack && !inRangeForAttack && !isAttacking;
 		bool warmingUp = warmingUpTime >= 0;
-		bool jumping = jumpFrame >= 0.30 && jumpFrame <= 1.18;
+		bool jumping = jumpFrame >= 0.30 && jumpFrame <= jumpEndFrame;
 
-		//Debug.Log (state);
 		animator.SetBool ("stompAttacking",isStompAttacking);
 		animator.SetBool ("jumpAttacking", isJumpAttacking);
 		animator.SetBool ("chasing", isChasing);
@@ -243,7 +255,8 @@ public class AIHouse : Movement
 				//objRigidbody.AddForce(new Vector3(0,7,0));
 				Invoke ("updateAttackBooleans", jumpDuration);
 				jumpTimer = jumpDuration * -1;
-				objRigidbody.velocity += new Vector3(0,15f,0);
+				if (enragedModeOn)
+					objRigidbody.velocity += new Vector3(0,15f,0);
 				jumpFrame = 0f;
 			}
 		}
@@ -252,14 +265,19 @@ public class AIHouse : Movement
 	void Jump()
 	{	
 		isIdle = false;
-		float diff = (closestPlayer.transform.position.x - transform.position.x);
-		
-		if (diff > 0) {
-			base.SetDeltaMovement (base.speed * 5f, 0.0f);
-			base.RotateToFace (Movement.Direction.Right);
-		} else {
-			base.SetDeltaMovement (base.speed * -5f, 0.0f);
-			base.RotateToFace (Movement.Direction.Left);
+		bool inBounds = transform.position.x <= rightBound && transform.position.x >= leftBound;
+		Debug.Log (inBounds);
+		if (jumpFrame <= jumpEndFrame) //&& inBounds) 
+		{
+			float diff = (closestPlayer.transform.position.x - transform.position.x);
+			
+			if (diff > 0) {
+				base.SetDeltaMovement (base.speed * 5f, 0.0f);
+				base.RotateToFace (Movement.Direction.Right);
+			} else {
+				base.SetDeltaMovement (base.speed * -5f, 0.0f);
+				base.RotateToFace (Movement.Direction.Left);
+			}
 		}
 	}
 

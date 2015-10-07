@@ -86,10 +86,11 @@ public class AIHouse : Movement
 		bool warmingUp = warmingUpTime >= 0;
 		bool jumping = jumpFrame >= 0.30 && jumpFrame <= 1.18;
 
+		//Debug.Log (state);
 		animator.SetBool ("stompAttacking",isStompAttacking);
 		animator.SetBool ("jumpAttacking", isJumpAttacking);
 		animator.SetBool ("chasing", isChasing);
-		animator.SetBool ("backingOff", !isChasing);
+		animator.SetBool ("backingOff", !isChasing && !isAttacking);
 		animator.SetBool ("idle", isIdle);
 
 		if (warmingUp) 
@@ -100,7 +101,7 @@ public class AIHouse : Movement
 		{
 			state = State.Jumping;
 		}
-		else if (canAttack && inRangeForAttack && !isAttacking) 
+		else if ((canAttack && inRangeForAttack) && !	isAttacking) 
 		{
 			state = State.Attacking;
 		} 
@@ -237,7 +238,7 @@ public class AIHouse : Movement
 
 	void Idle()
 	{
-
+		animator.SetBool("backingOff", false);
 	}
 
 	void updateAttackBooleans()

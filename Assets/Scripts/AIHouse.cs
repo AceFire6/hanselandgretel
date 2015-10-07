@@ -34,6 +34,9 @@ public class AIHouse : Movement
 	public bool isStompAttacking = false;
 	public bool isJumpAttacking = false;
 
+	private float prevY;
+	public float heightDiff;
+
 	public enum State
 	{
 		WarmingUp,
@@ -50,6 +53,7 @@ public class AIHouse : Movement
 	void Start () 
 	{
 		base.Start ();
+		prevY = transform.position.y;
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		animator = GetComponent<Animator> ();
 		health = GetComponent<Health> ();
@@ -71,6 +75,9 @@ public class AIHouse : Movement
 		
 		UpdateState ();
 		ExecuteState ();
+
+		heightDiff = transform.position.y - prevY;
+		prevY = transform.position.y;
 	}
 
 	//Checks if a state transition is needed and updates currentState accordingly.
@@ -89,7 +96,7 @@ public class AIHouse : Movement
 		bool warmingUp = warmingUpTime >= 0;
 		bool jumping = jumpFrame >= 0.30 && jumpFrame <= 1.18;
 
-		Debug.Log (state);
+		//Debug.Log (state);
 		animator.SetBool ("stompAttacking",isStompAttacking);
 		animator.SetBool ("jumpAttacking", isJumpAttacking);
 		animator.SetBool ("chasing", isChasing);

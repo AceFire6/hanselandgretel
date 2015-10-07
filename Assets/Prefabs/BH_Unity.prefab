@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426686}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: house_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426688}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BH_joint_grp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426690}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BH_geo_grp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426692}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BH_anim_grp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,9 +73,9 @@ GameObject:
   - 114: {fileID: 11440566}
   - 54: {fileID: 5453178}
   - 65: {fileID: 6503656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BH_Unity
-  m_TagString: Untagged
+  m_TagString: Minion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426680}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: house_anim1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: chimney_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426678}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_lean_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440436}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_lean_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426684}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_foot_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440440}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ikHandle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440442}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_ankel_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_toe_master_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440446}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_insideToe_01_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440452}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_insideToe_01_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440454}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_insideToe_02_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_insideToe_02_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440448}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_midToe_01_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440458}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_midToe_01_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_midToe_02_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440462}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_midToe_02_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440450}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_outsideToe_01_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440464}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_outsideToe_01_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440466}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_outsideToe_02_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440468}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_outsideToe_02_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 426682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_foot_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440470}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ikHandle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_ankel_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440474}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_toe_master_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440476}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_insideToe_01_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,7 +463,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440482}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_insideToe_01_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440484}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_insideToe_02_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440486}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_insideToe_02_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440478}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_midToe_01_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -523,7 +523,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440488}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_midToe_01_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_midToe_02_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_midToe_02_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440480}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_outsideToe_01_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,7 +583,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440494}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_outsideToe_01_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440496}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_outsideToe_02_anim_const
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,7 +613,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440498}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_outsideToe_02_anim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +629,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 440500}
   - 137: {fileID: 13740566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BabaYagaHouse_geo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +644,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440564}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: chimney_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -674,7 +674,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440502}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: house_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -689,7 +689,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440556}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: house_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +704,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440558}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: house_end_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +719,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440530}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_upLeg_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +734,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440532}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_lowLeg_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +749,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440534}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_leg_end_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -764,7 +764,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440536}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_foot_toeLink_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +779,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440538}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_insideToe_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -794,7 +794,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440540}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_insideToe_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -809,7 +809,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440542}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_insideToe_end_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440544}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_midToe_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -839,7 +839,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440546}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_midToe_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,7 +854,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440548}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_midToe_mid_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +869,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440550}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_outsideToe_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,7 +884,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440552}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_outsideToe_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -899,7 +899,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440554}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_outsideToe_end_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +914,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440504}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_upLeg_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440506}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_lowLeg_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,7 +944,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440508}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_leg_end_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,7 +959,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_foot_toeLink_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -974,7 +974,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440512}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_insideToe_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +989,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440514}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_insideToe_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1004,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440516}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_insideToe_end_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1019,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440518}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_midToe_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440520}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_midToe_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,7 +1049,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440522}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_midToe_mid_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1064,7 +1064,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440524}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_outsideToe_01_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1079,7 +1079,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440526}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_outsideToe_02_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1094,7 +1094,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440528}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_outsideToe_end_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1109,7 +1109,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 440562}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: l_foot_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,7 +1126,7 @@ GameObject:
   - 4: {fileID: 440560}
   - 65: {fileID: 6503654}
   - 114: {fileID: 11403654}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: r_foot_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2120,7 +2120,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!65 &6503654
 BoxCollider:
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 100
+  totalHealth: 200
   deathSpawn: {fileID: 0}
   respawnDelay: 1.5
   maxHealth: 0
@@ -2205,6 +2205,7 @@ MonoBehaviour:
   objRigidbody: {fileID: 0}
   isStompAttacking: 0
   isJumpAttacking: 0
+  heightDiff: 0
   state: 0
 --- !u!137 &13740566
 SkinnedMeshRenderer:

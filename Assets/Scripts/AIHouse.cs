@@ -24,8 +24,8 @@ public class AIHouse : Movement
 	private float jumpDuration = 2.417f;
 	private float warmingUpTime = 7.1f;
 
-	private float stompRange = 4f;
-	private float jumpRange = 16f;
+	private float stompRange = 3f;
+	private float jumpRange = 6.5f;
 	private float rageDuration = 2.1f;
 
 	private float stompTimer;
@@ -103,6 +103,9 @@ public class AIHouse : Movement
 			jumpCD = 10f;
 			jumpRange = 22f;
 			stompRange = 6f;
+			base.speed = 0.9f;
+			//animator.animation["Base Layer.BH_StompWalkBackwards"].speed = 2f;
+			//animator.animation["Base Layer.BH_StompWalkForward"].speed = 2f;
 			jumpEndFrame = jumpDuration - jumpLeeway;
 			for (int i = 0; i < pointLights.Length; i++)
 			{
@@ -117,7 +120,6 @@ public class AIHouse : Movement
 		rotateTimer += Time.deltaTime;
 
 		warmingUpTime -= Time.deltaTime;
-		
 		UpdateState ();
 		ExecuteState ();
 		
@@ -133,7 +135,6 @@ public class AIHouse : Movement
 	private void UpdateState ()
 	{
 		UpdateClosestPlayer ();
-
 		float closestPlayerDist = (transform.position - closestPlayer.transform.position).sqrMagnitude;
 
 		bool canAttack = (stompTimer >= stompCD) || (jumpTimer >= jumpCD);

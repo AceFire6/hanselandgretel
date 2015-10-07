@@ -2260,7 +2260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facing: 0
-  speed: .75
+  speed: .600000024
   rotSpeed: 5
   objRigidbody: {fileID: 0}
   leftBound: -5.5999999

@@ -7,10 +7,12 @@ public class AIHouse : Movement
 	private GameObject[] players;
 	private GameObject closestPlayer;
 
+	private Health health;
+
 	private Animator animator;
 
 	private float stompCD = 10f;
-	private float jumpCD = 20f;
+	private float jumpCD = 5f;
 
 	private float stompDuration = 2.375f;
 	private float jumpDuration = 2.417f;
@@ -50,6 +52,7 @@ public class AIHouse : Movement
 		base.Start ();
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		animator = GetComponent<Animator> ();
+		health = GetComponent<Health> ();
 
 		stompTimer = stompCD;
 		jumpTimer = jumpCD;
@@ -86,7 +89,7 @@ public class AIHouse : Movement
 		bool warmingUp = warmingUpTime >= 0;
 		bool jumping = jumpFrame >= 0.30 && jumpFrame <= 1.18;
 
-		//Debug.Log (state);
+		Debug.Log (state);
 		animator.SetBool ("stompAttacking",isStompAttacking);
 		animator.SetBool ("jumpAttacking", isJumpAttacking);
 		animator.SetBool ("chasing", isChasing);
@@ -146,7 +149,7 @@ public class AIHouse : Movement
 
 	private void UpdateClosestPlayer ()
 	{
-		//Find the closest player to the Wolf
+		//Find the closest player to the House
 		GameObject target = players [0];
 		float distToTarget = (transform.position - players [0].transform.position).sqrMagnitude;
 		foreach (GameObject player in players) 

@@ -31,6 +31,7 @@ public class Health : MonoBehaviour {
 
 
 	void Start() {
+		int difficulty = GameObject.Find("SettingsController").GetComponent<PlayerSettings>().DifficultyIndex;
 		maxHealth = totalHealth;
 
 		if (gameObject.tag == "Player") {
@@ -42,7 +43,11 @@ public class Health : MonoBehaviour {
 					break;
 				}
 			}
+		} else {
+			maxHealth += (int)(difficulty * (maxHealth / 4.0));
+			totalHealth = maxHealth;
 		}
+		respawnDelay += difficulty;
 	}
 
 	public float GetHealthPercent() {

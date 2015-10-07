@@ -714,7 +714,7 @@ GameObject:
   - 65: {fileID: 110136566}
   - 23: {fileID: 110136565}
   m_Layer: 0
-  m_Name: WolfCollider
+  m_Name: HouseCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2672,6 +2672,7 @@ GameObject:
   - 114: {fileID: 520445177}
   - 114: {fileID: 520445176}
   - 54: {fileID: 520445178}
+  - 65: {fileID: 520445179}
   m_Layer: 0
   m_Name: BH_Unity
   m_TagString: Untagged
@@ -2726,6 +2727,8 @@ MonoBehaviour:
   speed: .75
   rotSpeed: 5
   objRigidbody: {fileID: 0}
+  isStompAttacking: 0
+  isJumpAttacking: 0
   state: 0
 --- !u!114 &520445177
 MonoBehaviour:
@@ -2759,6 +2762,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &520445179
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6503656, guid: ff7fd5a3af7164a4bb0a30cb01f30c69,
+    type: 2}
+  m_PrefabInternal: {fileID: 964759601}
+  m_GameObject: {fileID: 520445173}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.06999993, y: 4.09000015, z: 2.26999998}
+  m_Center: {x: 0, y: 2.06999993, z: 0}
 --- !u!1 &523443734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,6 +2949,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 563381029}
+  - 65: {fileID: 563381031}
+  - 114: {fileID: 563381030}
   m_Layer: 0
   m_Name: r_foot_joint
   m_TagString: Untagged
@@ -2952,6 +2970,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1860855049}
   m_RootOrder: 3
+--- !u!114 &563381030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11403654, guid: ff7fd5a3af7164a4bb0a30cb01f30c69,
+    type: 2}
+  m_PrefabInternal: {fileID: 964759601}
+  m_GameObject: {fileID: 563381028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 673730597a4894f498c1444b99120137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+--- !u!65 &563381031
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6503654, guid: ff7fd5a3af7164a4bb0a30cb01f30c69,
+    type: 2}
+  m_PrefabInternal: {fileID: 964759601}
+  m_GameObject: {fileID: 563381028}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .189999998, z: 1}
+  m_Center: {x: -.25, y: -.300000012, z: .819999993}
 --- !u!1 &569828841
 GameObject:
   m_ObjectHideFlags: 0

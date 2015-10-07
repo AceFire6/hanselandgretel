@@ -9,8 +9,8 @@ public class AIHouse : Movement
 
 	private Animator animator;
 
-	private float stompCD = 4f;
-	private float jumpCD = 13.5f;
+	private float stompCD = 10f;
+	private float jumpCD = 20f;
 
 	private float stompDuration = 2.375f;
 	private float jumpDuration = 2.417f;
@@ -233,6 +233,14 @@ public class AIHouse : Movement
 		} else {
 			base.SetDeltaMovement (base.speed * -5f, 0.0f);
 			base.RotateToFace (Movement.Direction.Left);
+		}
+	}
+
+	void OnTriggerStay(Collider col)
+	{
+		if (col.gameObject.name == "HouseCollider") 
+		{
+			isIdle = true;
 		}
 	}
 

@@ -26,7 +26,7 @@ public class AIHouse : Movement
 
 	private float stompRange = 4f;
 	private float jumpRange = 16f;
-	private float rageDuration = 1.65f;
+	private float rageDuration = 2.1f;
 
 	private float stompTimer;
 	private float jumpTimer;
@@ -123,6 +123,9 @@ public class AIHouse : Movement
 		
 		heightDiff = transform.position.y - prevY;
 		prevY = transform.position.y;
+
+		if (transform.localScale == new Vector3(1.0f,1.0f,1.0f))
+			transform.localScale = new Vector3(currScale,currScale,currScale);
 	}
 
 	//Checks if a state transition is needed and updates currentState accordingly.

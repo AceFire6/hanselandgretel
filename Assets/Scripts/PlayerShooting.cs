@@ -19,15 +19,41 @@ public class PlayerShooting : MonoBehaviour {
 										//animation but the position doesn't change
 	Animator animator;
 
+	private AudioSource AddAudio (AudioClip clip, bool loop, bool playAwake, float vol) {
+		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+		newAudio.clip = clip;
+		newAudio.loop = loop;
+		newAudio.playOnAwake = playAwake;
+		newAudio.volume = vol;
+		return newAudio;
+	}
+
+	public AudioClip shootClip;
+	private AudioSource shootAud;
+	
+	private void initAudio () {
+		
+		if (shootClip != null) {
+			shootAud = AddAudio (shootClip, false, false, 1);
+		}
+	}
+
 	void Start () 
 	{
 		animator = GetComponent<Animator> ();
 		positionOffset = new Vector3 (0, 0.5f, 0);
-		cooldown = 0.3f;
+		cooldown = 0.5f;
+
+		initAudio ();
 	}
 
 	void Shoot()
 	{
+		//play shoot sound
+		if (shootAud != null && !shootAud.isPlaying) {
+			shootAud.Play();
+		}
+
 		positionOffset.x = transform.forward.x * 0.1f;
 		Instantiate (arrow, transform.position + positionOffset,transform.rotation);
 	}

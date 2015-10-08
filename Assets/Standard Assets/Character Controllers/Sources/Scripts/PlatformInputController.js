@@ -1,9 +1,6 @@
 var walkClip: AudioClip;
 private var walkAud: AudioSource;
 
-var shootClip: AudioClip;
-private var shootAud: AudioSource;
-
 function AddAudio(clip:AudioClip, loop: boolean, playAwake: boolean, vol: float): AudioSource {
 	var newAudio = gameObject.AddComponent(AudioSource);
 	newAudio.clip = clip;
@@ -15,7 +12,6 @@ function AddAudio(clip:AudioClip, loop: boolean, playAwake: boolean, vol: float)
 
 function initAudio(){
 	walkAud = AddAudio(walkClip, true, false, 1);
-	shootAud = AddAudio(shootClip, false, false, 1);
 }
 
 // This makes the character turn to face the current movement speed per default.
@@ -124,10 +120,6 @@ function Update () {
 		if(walkAud.isPlaying){
 			walkAud.Stop();
 		}
-	}
-	
-	if(isShooting){
-		shootAud.Play();
 	}
 	
 	/* For jumping, I initally set the boolean like such:

@@ -38,6 +38,31 @@ public class AIWolf : Movement
 	};
 	public State state;
 
+	public AudioClip clawAttackClip;
+	private AudioSource clawAttackAud;
+
+	public AudioClip lungeAttackClip;
+	private AudioSource lungeAttackAud;
+
+	private AudioSource AddAudio (AudioClip clip, bool loop, bool playAwake, float vol) {
+		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+		newAudio.clip = clip;
+		newAudio.loop = loop;
+		newAudio.playOnAwake = playAwake;
+		newAudio.volume = vol;
+		return newAudio;
+	}
+	
+	private void initAudio () {		
+		if (clawAttackClip != null) {
+			clawAttackAud = AddAudio (clawAttackClip, false, false, 1);
+		}
+
+		if (lungeAttackClip != null) {
+			lungeAttackAud = AddAudio (lungeAttackClip, false, false, 1);
+		}
+	}
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -48,6 +73,8 @@ public class AIWolf : Movement
 
 		clawAttackTimer = clawAttackCD;
 		lungeAttackTimer = lungeAttackCD;
+
+		initAudio ();
 	}
 	
 	// Update is called once per frame
@@ -188,6 +215,12 @@ public class AIWolf : Movement
 			if ((clawAttackTimer >= clawAttackCD) && (closestPlayerDist <= clawAttackRange)) 
 			{
 				isClawAttacking = true;
+
+				//play clawAttack sound
+				if(clawAttackAud != null && !clawAttackAud.isPlaying){
+					clawAttackAud.Play();
+				}
+
 				animator.SetTrigger ("ClawAttack");
 				Invoke ("updateAttackBooleans", clawAttackDuration);
 				clawAttackTimer = 0;
@@ -195,6 +228,12 @@ public class AIWolf : Movement
 			else
 			{
 				isLungeAttacking = true;
+
+				//play lungeAttack sound
+				if(lungeAttackAud != null && !lungeAttackAud.isPlaying){
+					lungeAttackAud.Play();
+				}
+
 				animator.SetTrigger ("LungeAttack");
 				Invoke ("updateAttackBooleans", lungeAttackDuration);
 				lungeAttackTimer = 0;

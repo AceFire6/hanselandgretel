@@ -30,13 +30,32 @@ public class AiMinion2 : MonoBehaviour
 	private GameObject[] players;
 	private GameObject closestPlayer;
 	private MovementMinion2 movement;
+
+	public AudioClip attackClip;
+	private AudioSource attackAud;
+
+	private AudioSource AddAudio (AudioClip clip, bool loop, bool playAwake, float vol) {
+		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+		newAudio.clip = clip;
+		newAudio.loop = loop;
+		newAudio.playOnAwake = playAwake;
+		newAudio.volume = vol;
+		return newAudio;
+	}
 	
+	private void initAudio () {		
+		if (attackClip != null) {
+			attackAud = AddAudio (attackClip, false, false, 1);
+		}
+	}
 
 	protected void Start ()
 	{
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		movement = (MovementMinion2)GetComponent<Movement> ();
 		currentState = State.Wandering;
+
+		initAudio();
 	}
 
 	protected void Update ()
@@ -152,6 +171,11 @@ public class AiMinion2 : MonoBehaviour
 		//check timer and attack if it's time to attack and then reset timer.
 		attackTimer += Time.deltaTime;
 		if (attackTimer > attackTime) {
+			//play Attack sound
+			if(attackAud != null){
+				attackAud.Play ();
+			}
+
 			//Attack and reset the timer
 			movement.SetIsAttacking (true);
 			attackTimer = 0;

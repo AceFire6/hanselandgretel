@@ -312,7 +312,10 @@ private function UpdateFunction () {
 		jumping.jumping = false;
 		SubtractNewPlatformVelocity();
 		
-		landAud.Play();
+		if(PlayerPrefs.GetInt("MuteMusic") != 1){
+			landAud.volume = PlayerPrefs.GetInt("SoundVolume");
+			landAud.Play();
+		}
 		
 		SendMessage("OnLand", SendMessageOptions.DontRequireReceiver);
 	}

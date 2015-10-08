@@ -19,6 +19,8 @@ public class PlayerShooting : MonoBehaviour {
 										//animation but the position doesn't change
 	Animator animator;
 
+	private AudioManager audioManager;
+
 	private AudioSource AddAudio (AudioClip clip, bool loop, bool playAwake, float vol) {
 		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
 		newAudio.clip = clip;
@@ -32,7 +34,8 @@ public class PlayerShooting : MonoBehaviour {
 	private AudioSource shootAud;
 	
 	private void initAudio () {
-		
+		audioManager = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioManager>();
+
 		if (shootClip != null) {
 			shootAud = AddAudio (shootClip, false, false, 1);
 		}
@@ -50,7 +53,8 @@ public class PlayerShooting : MonoBehaviour {
 	void Shoot()
 	{
 		//play shoot sound
-		if (shootAud != null && !shootAud.isPlaying) {
+		if (shootAud != null && !shootAud.isPlaying && !audioManager.isSoundMute) {
+			shootAud.volume = audioManager.soundVolume;
 			shootAud.Play();
 		}
 

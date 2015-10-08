@@ -34,6 +34,8 @@ public class Health : MonoBehaviour {
 
 	private GameObject otherPlayer = null;
 
+	private AudioManager audioManager;
+
 	private AudioSource AddAudio (AudioClip clip, bool loop, bool playAwake, float vol) {
 		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
 		newAudio.clip = clip;
@@ -44,6 +46,7 @@ public class Health : MonoBehaviour {
 	}
 
 	private void initAudio () {
+		audioManager = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioManager>();
 
 		if (hurtClip.Length != 0) {
 			hurtAud = new AudioSource[hurtClip.Length];
@@ -127,8 +130,9 @@ public class Health : MonoBehaviour {
 			Die ();
 		} else {
 			//only got hurt, so play the hurt sound
-			if(hurtAud != null){
+			if(hurtAud != null && !audioManager.isSoundMute){
 				int i = Random.Range(0, hurtAud.Length);
+				hurtAud[i].volume = audioManager.soundVolume;
 				hurtAud[i].Play();
 			}
 		}
@@ -141,7 +145,8 @@ public class Health : MonoBehaviour {
 	private void Die()
 	{
 		//Dying, so play the die sound(if any)
-		if (deathAud != null) {
+		if (deathAud != null && !audioManager.isSoundMute) {
+			deathAud.volume = audioManager.soundVolume;
 			deathAud.Play();
 		}
 

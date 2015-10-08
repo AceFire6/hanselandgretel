@@ -34,6 +34,8 @@ public class AiMinion2 : MonoBehaviour
 	public AudioClip attackClip;
 	private AudioSource attackAud;
 
+	private AudioManager audioManager;
+
 	private AudioSource AddAudio (AudioClip clip, bool loop, bool playAwake, float vol) {
 		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
 		newAudio.clip = clip;
@@ -43,7 +45,9 @@ public class AiMinion2 : MonoBehaviour
 		return newAudio;
 	}
 	
-	private void initAudio () {		
+	private void initAudio () {
+		audioManager = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioManager>();
+
 		if (attackClip != null) {
 			attackAud = AddAudio (attackClip, false, false, 1);
 		}
@@ -172,8 +176,9 @@ public class AiMinion2 : MonoBehaviour
 		attackTimer += Time.deltaTime;
 		if (attackTimer > attackTime) {
 			//play Attack sound
-			if(attackAud != null){
-				attackAud.Play ();
+			if(attackAud != null && !audioManager.isSoundMute){
+				attackAud.volume = audioManager.soundVolume;
+				attackAud.Play();
 			}
 
 			//Attack and reset the timer

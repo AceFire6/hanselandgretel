@@ -38,6 +38,8 @@ public class AIWolf : Movement
 	};
 	public State state;
 
+	private AudioManager audioManager;
+
 	public AudioClip clawAttackClip;
 	private AudioSource clawAttackAud;
 
@@ -53,7 +55,9 @@ public class AIWolf : Movement
 		return newAudio;
 	}
 	
-	private void initAudio () {		
+	private void initAudio () {
+		audioManager = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioManager>();
+
 		if (clawAttackClip != null) {
 			clawAttackAud = AddAudio (clawAttackClip, false, false, 1);
 		}
@@ -217,7 +221,8 @@ public class AIWolf : Movement
 				isClawAttacking = true;
 
 				//play clawAttack sound
-				if(clawAttackAud != null && !clawAttackAud.isPlaying){
+				if(clawAttackAud != null && !clawAttackAud.isPlaying && !audioManager.isSoundMute){
+					clawAttackAud.volume = audioManager.soundVolume;
 					clawAttackAud.Play();
 				}
 
@@ -230,7 +235,8 @@ public class AIWolf : Movement
 				isLungeAttacking = true;
 
 				//play lungeAttack sound
-				if(lungeAttackAud != null && !lungeAttackAud.isPlaying){
+				if(lungeAttackAud != null && !lungeAttackAud.isPlaying && !audioManager.isSoundMute){
+					lungeAttackAud.volume = audioManager.soundVolume;
 					lungeAttackAud.Play();
 				}
 

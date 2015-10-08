@@ -15,11 +15,17 @@ public class AudioManager : MonoBehaviour {
 
 	public AudioSource backgroundMusic;
 
-	private float musicVolume = 1.0f;
-	private float soundVolume = 1.0f;
+	[HideInInspector]
+	public float musicVolume = 1.0f;
 
-	private bool isMusicMute = false;
-	private bool isSoundMute = false;
+	[HideInInspector]
+	public float soundVolume = 1.0f;
+
+	[HideInInspector]
+	public bool isMusicMute = false;
+
+	[HideInInspector]
+	public bool isSoundMute = false;
 
 	public void AdjustMusicVolume (float vol){
 		musicVolume = Mathf.Clamp01 (vol);
@@ -41,4 +47,5 @@ public class AudioManager : MonoBehaviour {
 		isSoundMute = isMute;
 		//TODO: mute all audioSources
 	}
+
 }

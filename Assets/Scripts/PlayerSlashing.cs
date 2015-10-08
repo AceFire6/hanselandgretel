@@ -29,9 +29,12 @@ public class PlayerSlashing : MonoBehaviour {
 	
 	public AudioClip slashClip;
 	private AudioSource slashAud;
-	
+
+	private AudioManager audioManager;
+
 	private void initAudio () {
-		
+		audioManager = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioManager>();
+
 		if (slashClip != null) {
 			slashAud = AddAudio (slashClip, false, false, 1);
 		}
@@ -61,7 +64,8 @@ public class PlayerSlashing : MonoBehaviour {
 		canSlash = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.StandAndAttack") || animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.RunAndChop");
 
 		//play slashing sound
-		if(canSlash && slashAud!= null && !slashAud.isPlaying){
+		if(canSlash && slashAud!= null && !slashAud.isPlaying && !audioManager.isSoundMute){
+			slashAud.volume = audioManager.soundVolume;
 			slashAud.Play();
 		}
 	}

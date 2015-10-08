@@ -112,13 +112,16 @@ function Update () {
 	animator.SetBool("isShooting" , isShooting);
 	
 	//sound playing
-	if((directionVector != Vector3.zero) && (motor.inputJump==false)){
-		if(!walkAud.isPlaying){
-			walkAud.Play();
-		}
-	}else{
-		if(walkAud.isPlaying){
-			walkAud.Stop();
+	if(PlayerPrefs.GetInt("MuteMusic") != 1){			
+		if((directionVector != Vector3.zero) && (motor.inputJump==false)){
+			walkAud.volume = PlayerPrefs.GetInt("SoundVolume");
+			if(!walkAud.isPlaying){
+				walkAud.Play();
+			}
+		}else{
+			if(walkAud.isPlaying){
+				walkAud.Stop();
+			}
 		}
 	}
 	

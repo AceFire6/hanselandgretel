@@ -5683,7 +5683,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110370}
   m_LocalRotation: {x: 0, y: .707106888, z: 0, w: .707106769}
-  m_LocalPosition: {x: -40.8699989, y: .00999999978, z: 0}
+  m_LocalPosition: {x: -41.1790009, y: .00999999978, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410170}
@@ -6117,7 +6117,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 0}
+  deathClip: {fileID: 0}
+  hurtClip:
+  - {fileID: 8300000, guid: fad683ed60ad62a4d977f0f05e2e3dc2, type: 3}
+  - {fileID: 8300000, guid: 0936ff6e9a11f084e8ee3fcfee532d4a, type: 3}
   respawnDelay: 3
+  maxHealth: 0
 --- !u!114 &11409940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6129,6 +6134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da93ddd6928094e24bb1f3f665f143d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkClip: {fileID: 8300000, guid: 5460643d137c07c4c9f3f075effdcff5, type: 3}
   autoRotate: 1
   maxRotationSpeed: 360
   playerNo: 1
@@ -6143,6 +6149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab79d7f243824f5d9826bd83522c8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landClip: {fileID: 8300000, guid: 624a05da6d67449459c11dab68e74cd1, type: 3}
   canControl: 1
   useFixedUpdate: 1
   movement:
@@ -6199,6 +6206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 460108, guid: a7a2b142335794b85befe924fa94aa8e, type: 2}
+  shootClip: {fileID: 8300000, guid: 26f16bc0f4e166f4fb67cb72f7c490d6, type: 3}
 --- !u!137 &13709940
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -14424,6 +14424,7 @@ GameObject:
   - 23: {fileID: 947506790}
   - 65: {fileID: 947506793}
   - 54: {fileID: 947506792}
+  - 114: {fileID: 947506794}
   m_Layer: 0
   m_Name: fence_01_geo
   m_TagString: Untagged
@@ -14499,6 +14500,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .856268525, y: 3.58349204, z: 5.07230568}
   m_Center: {x: -.479061127, y: 1.14216459, z: 1.02154899}
+--- !u!114 &947506794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947506788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82d94aacbf49b142b268074856d2a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raiseSpeed: .5
+  depth: 1.20000005
+  rightTriggerDist: .699999988
 --- !u!1 &957344795
 GameObject:
   m_ObjectHideFlags: 0
@@ -16202,6 +16217,10 @@ Prefab:
     - target: {fileID: 426694, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 126686, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}
@@ -23033,7 +23052,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 187726, guid: ba1ec74945858bc448f518c27bb1fea4, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba1ec74945858bc448f518c27bb1fea4, type: 2}
@@ -32958,7 +32977,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2137240992
 Transform:
   m_ObjectHideFlags: 0

@@ -312,7 +312,7 @@ private function UpdateFunction () {
 		jumping.jumping = false;
 		SubtractNewPlatformVelocity();
 		
-		if(PlayerPrefs.GetInt("MuteMusic") != 1){
+		if(PlayerPrefs.GetInt("MuteSound") != 1){
 			landAud.volume = PlayerPrefs.GetInt("SoundVolume");
 			landAud.Play();
 		}

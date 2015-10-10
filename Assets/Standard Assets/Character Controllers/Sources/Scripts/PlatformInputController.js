@@ -112,7 +112,7 @@ function Update () {
 	animator.SetBool("isShooting" , isShooting);
 	
 	//sound playing
-	if(PlayerPrefs.GetInt("MuteMusic") != 1){			
+	if(PlayerPrefs.GetInt("MuteSound") != 1){			
 		if((directionVector != Vector3.zero) && (motor.inputJump==false)){
 			walkAud.volume = PlayerPrefs.GetInt("SoundVolume");
 			if(!walkAud.isPlaying){

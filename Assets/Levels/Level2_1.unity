@@ -14514,6 +14514,8 @@ MonoBehaviour:
   raiseSpeed: .5
   depth: 1.20000005
   rightTriggerDist: .699999988
+  cameraZoomedOutZ: -7
+  cameraZoomSpeed: 1
 --- !u!1 &957344795
 GameObject:
   m_ObjectHideFlags: 0

@@ -65,7 +65,6 @@ public class RaiseFence : MonoBehaviour {
 
 	void OnTriggerExit(Collider other) {
 		if(other.tag == "Player" && !isTriggered){
-			Debug.Log ("PlayerTrigger " + other.name + " "+ AllPlayersPassed());
 			if (AllPlayersPassed ()) {
 				Trigger();
 			}

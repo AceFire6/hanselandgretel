@@ -3166,7 +3166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193874}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -38.0439987, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 493872}
@@ -3229,6 +3229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 150
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &11493652
@@ -3245,8 +3247,9 @@ MonoBehaviour:
   wanderTime: 2
   attackTime: 1
   chaseRadius: 6
-  attackRadius: .300000012
+  attackRadius: .200000003
   attackDamage: 10
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
 --- !u!114 &11493654
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -17,10 +17,34 @@ public class PlayerSlashing : MonoBehaviour {
 
 	private Animator animator;
 	private bool canSlash;
+
+	private AudioSource AddAudio (AudioClip clip, bool loop, bool playAwake, float vol) {
+		AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+		newAudio.clip = clip;
+		newAudio.loop = loop;
+		newAudio.playOnAwake = playAwake;
+		newAudio.volume = vol;
+		return newAudio;
+	}
 	
+	public AudioClip slashClip;
+	private AudioSource slashAud;
+
+	private AudioManager audioManager;
+
+	private void initAudio () {
+		audioManager = GameObject.FindGameObjectWithTag("AudioController").GetComponent<AudioManager>();
+
+		if (slashClip != null) {
+			slashAud = AddAudio (slashClip, false, false, 1);
+		}
+	}
+
 	void Start () 
 	{
 		animator = GetComponentInParent<Animator> ();
+
+		initAudio ();
 	}
 
 	//The axe has hit something
@@ -38,5 +62,15 @@ public class PlayerSlashing : MonoBehaviour {
 	void Update () 
 	{
 		canSlash = animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.StandAndAttack") || animator.GetCurrentAnimatorStateInfo (0).IsName ("Base Layer.RunAndChop");
+
+		//play slashing sound
+		if (canSlash && slashAud != null){
+			if (!slashAud.isPlaying && !audioManager.isSoundMute) {
+				slashAud.volume = audioManager.soundVolume;
+				slashAud.Play ();
+			}
+		} else if(slashAud != null){
+			slashAud.Stop();
+		}
 	}
 }

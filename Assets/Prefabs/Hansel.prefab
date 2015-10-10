@@ -5361,6 +5361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab79d7f243824f5d9826bd83522c8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landClip: {fileID: 8300000, guid: 624a05da6d67449459c11dab68e74cd1, type: 3}
   canControl: 1
   useFixedUpdate: 1
   movement:
@@ -5416,6 +5417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da93ddd6928094e24bb1f3f665f143d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkClip: {fileID: 8300000, guid: 5460643d137c07c4c9f3f075effdcff5, type: 3}
   autoRotate: 1
   maxRotationSpeed: 360
   playerNo: 2
@@ -5432,6 +5434,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 0}
+  deathClip: {fileID: 0}
+  hurtClip:
+  - {fileID: 8300000, guid: b031f354692f2b841a510ad0cd07bc97, type: 3}
+  - {fileID: 8300000, guid: 0b63af96b99d08248ad3d97cc36659c7, type: 3}
   respawnDelay: 3
   maxHealth: 0
 --- !u!114 &11494322
@@ -5446,6 +5452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashDamage: 5
+  slashClip: {fileID: 8300000, guid: d7fc9bc761871964898a199821ebe714, type: 3}
 --- !u!114 &11494324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5458,6 +5465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashDamage: 10
+  slashClip: {fileID: 0}
 --- !u!135 &13594322
 SphereCollider:
   m_ObjectHideFlags: 1

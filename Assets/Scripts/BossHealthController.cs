@@ -17,6 +17,7 @@ public class BossHealthController : MonoBehaviour {
 		healthBar = GetComponent<Slider>();
 		bossHealth = Boss.GetComponent<Health>();
 		bossHealthText = GetComponentInChildren<Text>();
+		healthBar.maxValue = bossHealth.maxHealth;
 		firstUpdate = false;
 	}
 	

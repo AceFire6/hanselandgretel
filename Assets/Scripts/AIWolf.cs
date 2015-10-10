@@ -27,7 +27,7 @@ public class AIWolf : Movement
 
 	private bool isDying = false;
 
-	private int lastHpHit = 2000;
+	private int lastHpHit;
 	public enum State
 	{
 		Chasing,
@@ -75,6 +75,7 @@ public class AIWolf : Movement
 		health = GetComponent<Health>();
 		players = GameObject.FindGameObjectsWithTag ("Player");
 
+		lastHpHit = health.totalHealth;
 		clawAttackTimer = clawAttackCD;
 		lungeAttackTimer = lungeAttackCD;
 

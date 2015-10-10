@@ -14400,8 +14400,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 2000
+  totalHealth: 12500
   deathSpawn: {fileID: 0}
+  deathClip: {fileID: 0}
+  hurtClip: []
+  respawnDelay: 1.5
+  maxHealth: 0
 --- !u!114 &11468904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14422,6 +14426,8 @@ MonoBehaviour:
   isClawAttacking: 0
   isLungeAttacking: 0
   state: 0
+  clawAttackClip: {fileID: 0}
+  lungeAttackClip: {fileID: 0}
 --- !u!114 &11484800
 MonoBehaviour:
   m_ObjectHideFlags: 1

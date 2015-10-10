@@ -1299,8 +1299,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188100}
-  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -39.4599991, y: -1.28999996, z: 4.84000015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 9.89000034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488104}
@@ -2471,7 +2471,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
-  attackClip: {fileID: 8300000, guid: 7b1a88ae342cd384bae930916f7041fb, type: 3}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10

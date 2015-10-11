@@ -345,7 +345,7 @@ public class AIHouse : Movement
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "Player")
+		if (collision.gameObject.tag == "Player" || collision.gameObject.name == "AxeCollider" )
 			Physics.IgnoreCollision (collision.collider, collider);
 	}
 	void OnTriggerStay(Collider col)

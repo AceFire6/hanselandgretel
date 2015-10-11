@@ -153,6 +153,16 @@ public class AIHouse : Movement
 		animator.SetBool ("backingOff", !isChasing && !isAttacking);
 		animator.SetBool ("idle", isIdle);
 
+		if (isJumpAttacking) {
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss"), LayerMask.NameToLayer("PlayerCharacter"), true);
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss"), LayerMask.NameToLayer("PlayerWeapon"), true);
+		}
+		else if (!collider.bounds.Contains(players[0].transform.position) && !collider.bounds.Contains(players[1].transform.position))
+		{
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss"), LayerMask.NameToLayer("PlayerCharacter"), false);
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss"), LayerMask.NameToLayer("PlayerWeapon"), false);
+		}
+
 		if (isDying)
 			state = State.Dying;
 		else if (isRaging) 
@@ -345,8 +355,8 @@ public class AIHouse : Movement
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "Player" || collision.gameObject.name == "AxeCollider" )
-			Physics.IgnoreCollision (collision.collider, collider);
+	//	if (collision.gameObject.tag == "Player" || collision.gameObject.name == "AxeCollider" )
+	//		Physics.IgnoreCollision (collision.collider, collider);
 	}
 	void OnTriggerStay(Collider col)
 	{

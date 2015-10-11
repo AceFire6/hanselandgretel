@@ -5051,6 +5051,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 0}
+  deathClip: {fileID: 0}
+  hurtClip: []
+  respawnDelay: 1.5
+  maxHealth: 0
 --- !u!114 &11456006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5065,6 +5069,7 @@ MonoBehaviour:
   facing: 0
   speed: 3
   rotSpeed: .100000001
+  objRigidbody: {fileID: 0}
   movementSpeed: 1
   strafeSpeed: .5
   rotationSpeed: 180

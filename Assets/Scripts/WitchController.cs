@@ -43,7 +43,6 @@ public class WitchController : MonoBehaviour {
 	}
 
 	public void Flee() {
-		Debug.Log ("Fleeing");
 		isFleeing = true;
 	}
 }

@@ -371,6 +371,8 @@ public class AIHouse : Movement
 		if (!isDying)
 		{
 			isDying = true;
+			GameObject obj = GameObject.Find("Blob Shadow Projector");
+			Destroy(obj);
 			animator.SetTrigger ("die");
 			Destroy (gameObject, 6.25f);
 		}

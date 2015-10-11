@@ -3,7 +3,7 @@ using System.Collections;
 
 public class RaiseFence : MonoBehaviour {
 
-	public float raiseSpeed = 0.7f; //speed at which the fence will rise
+	public float lowerSpeed = 0.7f; //speed at which the fence will rise
 	public float depth = 0.5f; //How far to sink/rise
 	public float rightTriggerDist = 0.7f; //How far must the players have walked past us to trigger the gate to rise
 	public float cameraZoomedOutZ = -5f;
@@ -33,21 +33,33 @@ public class RaiseFence : MonoBehaviour {
 		pos.y -= depth;
 		transform.position = pos;
 
+		//In case players resume and respawn inside the boss fight area
+		if (AllPlayersPassed ()) {
+			Debug.Log ("trigg");
+			Trigger ();
+		} else {
+			Debug.Log ("notTrigg");
+		}
+
 	}
 
 	void Update () {
-		if (isTriggered){
+		if (isTriggered) {
 			//if are triggered and aren't yet at the up position
 			if (transform.position.y < upPos.y) {
 				Vector3 pos = transform.position;
-				pos.y += (raiseSpeed * Time.deltaTime);
+				pos.y += (lowerSpeed * Time.deltaTime);
 				transform.position = pos;
 			}
 
-			if (Camera.main.transform.position.z > cameraZoomedOutZ){
+			if (Camera.main.transform.position.z > cameraZoomedOutZ) {
 				Vector3 camPos = Camera.main.transform.position;
-				camPos.z = Mathf.Lerp(camPos.z, cameraZoomedOutZ, cameraZoomSpeed * Time.deltaTime);
+				camPos.z = Mathf.Lerp (camPos.z, cameraZoomedOutZ, cameraZoomSpeed * Time.deltaTime);
 				Camera.main.transform.position = camPos;
+			}
+		} else {
+			if(AllPlayersPassed()){
+				Trigger();
 			}
 		}
 	}

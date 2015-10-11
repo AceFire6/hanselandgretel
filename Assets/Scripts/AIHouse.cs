@@ -25,7 +25,7 @@ public class AIHouse : Movement
 	private float warmingUpTime = 7.1f;
 
 	private float stompRange = 3f;
-	private float jumpRange = 6.5f;
+	private float jumpRange = 5.5f;
 	private float rageDuration = 2.1f;
 
 	private float stompTimer;

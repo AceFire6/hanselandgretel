@@ -9,7 +9,8 @@ public class RaiseFence : MonoBehaviour {
 	public float cameraZoomedOutZ = -5f;
 	public float cameraZoomSpeed = 0.7f;
 
-	private bool isTriggered = false;
+	[HideInInspector]
+	public bool isTriggered = false;
 	private Rigidbody rigidbody;
 	private BoxCollider collider;
 	private Vector3 upPos;
@@ -35,10 +36,7 @@ public class RaiseFence : MonoBehaviour {
 
 		//In case players resume and respawn inside the boss fight area
 		if (AllPlayersPassed ()) {
-			Debug.Log ("trigg");
 			Trigger ();
-		} else {
-			Debug.Log ("notTrigg");
 		}
 
 	}

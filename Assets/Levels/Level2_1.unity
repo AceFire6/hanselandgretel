@@ -372,6 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightMargin: -2
+  entranceFence: {fileID: 947506788}
   fleeDestination: {fileID: 904591103}
   fleeSpeed: .5
 --- !u!23 &17320149
@@ -8921,6 +8922,10 @@ Prefab:
       propertyPath: fleeDestination
       value: 
       objectReference: {fileID: 904591103}
+    - target: {fileID: 11499774, guid: ba0c81dd6384a8f46bdd5de954c8a93f, type: 2}
+      propertyPath: entranceFence
+      value: 
+      objectReference: {fileID: 947506788}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba0c81dd6384a8f46bdd5de954c8a93f, type: 2}
   m_RootGameObject: {fileID: 17320147}
@@ -15910,6 +15915,7 @@ MonoBehaviour:
   rightTriggerDist: .699999988
   cameraZoomedOutZ: -5
   cameraZoomSpeed: .699999988
+  isTriggered: 0
 --- !u!1 &957344795
 GameObject:
   m_ObjectHideFlags: 0
@@ -16296,11 +16302,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 983301372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.6500015, y: 1.75999999, z: -1.29999995}
-  m_LocalScale: {x: 1, y: 3.95854735, z: 4.38628387}
+  m_LocalPosition: {x: 50.7700005, y: 1.75999999, z: -1.29999995}
+  m_LocalScale: {x: 2.83603811, y: 3.95854735, z: 4.38628387}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 14
 --- !u!1 &987921731
 GameObject:
   m_ObjectHideFlags: 0
@@ -20460,6 +20466,54 @@ Transform:
   - {fileID: 704409211}
   m_Father: {fileID: 1793941726}
   m_RootOrder: 0
+--- !u!1 &1263002816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1263002819}
+  - 33: {fileID: 1263002818}
+  - 65: {fileID: 1263002817}
+  m_Layer: 0
+  m_Name: HouseCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1263002817
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263002816}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1263002818
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263002816}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1263002819
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263002816}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 39.4500008, y: 1.75999999, z: -1.29999995}
+  m_LocalScale: {x: 2.83603811, y: 3.95854735, z: 4.38628387}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1 &1264724579
 GameObject:
   m_ObjectHideFlags: 0
@@ -31998,54 +32052,6 @@ Transform:
   - {fileID: 1512441753}
   m_Father: {fileID: 1983512761}
   m_RootOrder: 0
---- !u!1 &1965291429
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1965291432}
-  - 33: {fileID: 1965291431}
-  - 65: {fileID: 1965291430}
-  m_Layer: 0
-  m_Name: HouseCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &1965291430
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1965291429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!33 &1965291431
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1965291429}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1965291432
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1965291429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40.0499992, y: 1.75999999, z: -1.29999995}
-  m_LocalScale: {x: 1, y: 3.95854735, z: 4.38628387}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
 --- !u!1 &1972122139
 GameObject:
   m_ObjectHideFlags: 0

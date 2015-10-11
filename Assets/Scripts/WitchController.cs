@@ -5,8 +5,12 @@ public class WitchController : MonoBehaviour {
 
 	public float rightMargin = 0.5f; //How far from the right edge of the screen the witch will fly
 
+	public GameObject entranceFence;
+
 	public Transform fleeDestination; //where the witch will flee to when she "retreats to the house"
 	public float fleeSpeed = 0.5f;
+
+	private RaiseFence fenceController;
 
 	private Camera cam;
 	private float depth;
@@ -16,12 +20,15 @@ public class WitchController : MonoBehaviour {
 	void Start () {
 		cam = Camera.main;
 		depth = transform.position.z;
+
+		fenceController = entranceFence.GetComponent<RaiseFence> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
-
+		if (fenceController.isTriggered) {
+			Destroy(this.gameObject);
+		}
 		if (isFleeing) {
 			//just move towards the flee Point at fleeSpeed
 			Vector3 pos = transform.position;

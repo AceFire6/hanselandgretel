@@ -39,6 +39,7 @@ public class AIHouse : Movement
 	private bool isChasing = false;
 	private bool isBackingOff = false;
 	private bool isRaging = false;
+	private bool isDying = false;
 
 	public bool isStompAttacking = false;
 	public bool isJumpAttacking = false;
@@ -65,7 +66,8 @@ public class AIHouse : Movement
 		Attacking,
 		Jumping,
 		Idle,
-		Raging
+		Raging,
+		Dying
 	};
 
 	public State state;
@@ -145,13 +147,18 @@ public class AIHouse : Movement
 		bool warmingUp = warmingUpTime >= 0;
 		bool jumping = jumpFrame >= 0.30 && jumpFrame <= jumpEndFrame;
 
+		if (health.totalHealth <= 0)
+			Die ();
+
 		animator.SetBool ("stompAttacking",isStompAttacking);
 		animator.SetBool ("jumpAttacking", isJumpAttacking);
 		animator.SetBool ("chasing", isChasing);
 		animator.SetBool ("backingOff", !isChasing && !isAttacking);
 		animator.SetBool ("idle", isIdle);
 
-		if (isRaging) 
+		if (isDying)
+			state = State.Dying;
+		else if (isRaging) 
 		{
 			state = State.Raging;
 		}
@@ -186,6 +193,9 @@ public class AIHouse : Movement
 	{
 		switch (state) 
 		{
+			case State.Dying:
+				Die ();
+				break;
 			case State.Raging:
 				Rage();
 				break;
@@ -346,6 +356,16 @@ public class AIHouse : Movement
 		if (col.gameObject.name == "HouseCollider") 
 		{
 			isIdle = true;
+		}
+	}
+
+	public void Die()
+	{
+		if (!isDying)
+		{
+			isDying = true;
+			animator.SetTrigger ("die");
+			Destroy (gameObject, 6.25f);
 		}
 	}
 

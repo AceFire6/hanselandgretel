@@ -4227,7 +4227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 1000
+  totalHealth: 500
   deathSpawn: {fileID: 0}
   deathClip: {fileID: 0}
   hurtClip: []
@@ -4437,7 +4437,7 @@ GameObject:
   - 4: {fileID: 563381029}
   - 65: {fileID: 563381031}
   - 114: {fileID: 563381030}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: r_foot_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4452,7 +4452,7 @@ Transform:
   m_GameObject: {fileID: 563381028}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: .588841677, y: .29617092, z: .228785813}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.29999995, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1860855049}
   m_RootOrder: 3
@@ -6272,7 +6272,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11440564, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}
       propertyPath: totalHealth
-      value: 1000
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 140566, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 440560, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.29999995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}

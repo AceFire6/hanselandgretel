@@ -147,9 +147,6 @@ public class AIHouse : Movement
 		bool warmingUp = warmingUpTime >= 0;
 		bool jumping = jumpFrame >= 0.30 && jumpFrame <= jumpEndFrame;
 
-		if (health.totalHealth <= 0)
-			Die ();
-
 		animator.SetBool ("stompAttacking",isStompAttacking);
 		animator.SetBool ("jumpAttacking", isJumpAttacking);
 		animator.SetBool ("chasing", isChasing);

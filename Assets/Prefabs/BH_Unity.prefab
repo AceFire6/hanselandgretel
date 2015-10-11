@@ -2246,6 +2246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 200
   deathSpawn: {fileID: 0}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &11440566

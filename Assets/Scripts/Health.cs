@@ -157,7 +157,9 @@ public class Health : MonoBehaviour {
 		}
 
 		if (this.name == "BBWolf_Unity") //Change later to check a tag for boss
-			gameObject.GetComponent<AIWolf> ().Die();
+			gameObject.GetComponent<AIWolf> ().Die ();
+		else if (this.name == "BH_Unity")
+			gameObject.GetComponent<AIHouse> ().Die ();
 		else if (this.tag != "Player") {
 			Destroy(this.gameObject);
 		} else {

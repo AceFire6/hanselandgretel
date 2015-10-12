@@ -7,8 +7,6 @@ public class AIHouse : Movement
 	private GameObject[] players;
 	private GameObject closestPlayer;
 
-	public bool isActive = false;
-
 	public float leftBound;
 	public float rightBound;
 
@@ -93,45 +91,45 @@ public class AIHouse : Movement
 	// Update is called once per frame
 	void Update () 
 	{
-		if (isActive) {
-			base.Update ();
+		base.Update ();
 		
-			if (canActivateRageMode && health.totalHealth <= maxHealth / 2) {
-				canActivateRageMode = false;
-				enragedModeOn = true;
-				isRaging = true;
-				animator.SetTrigger ("rageTrigger");
-				jumpDuration = 3.75f;
-				jumpTimer = jumpCD;
-				stompCD = 3f;
-				jumpCD = 10f;
-				jumpRange = 22f;
-				stompRange = 6f;
-				base.speed = 0.9f;
-				//animator.animation["Base Layer.BH_StompWalkBackwards"].speed = 2f;
-				//animator.animation["Base Layer.BH_StompWalkForward"].speed = 2f;
-				jumpEndFrame = jumpDuration - jumpLeeway;
-				for (int i = 0; i < pointLights.Length; i++) {
-					pointLights [i].gameObject.GetComponent<ParticleSystem> ().Play ();
-					pointLights [i].gameObject.GetComponent<ParticleSystem> ().enableEmission = true;
-				}
+		if (canActivateRageMode && health.totalHealth <= maxHealth / 2) 
+		{
+			canActivateRageMode = false;
+			enragedModeOn = true;
+			isRaging = true;
+			animator.SetTrigger("rageTrigger");
+			jumpDuration = 3.75f;
+			jumpTimer = jumpCD;
+			stompCD = 3f;
+			jumpCD = 10f;
+			jumpRange = 22f;
+			stompRange = 6f;
+			base.speed = 0.9f;
+			//animator.animation["Base Layer.BH_StompWalkBackwards"].speed = 2f;
+			//animator.animation["Base Layer.BH_StompWalkForward"].speed = 2f;
+			jumpEndFrame = jumpDuration - jumpLeeway;
+			for (int i = 0; i < pointLights.Length; i++)
+			{
+				pointLights[i].gameObject.GetComponent<ParticleSystem>().Play();
+				pointLights[i].gameObject.GetComponent<ParticleSystem>().enableEmission = true;
 			}
-
-			stompTimer += Time.deltaTime;
-			jumpTimer += Time.deltaTime;
-			jumpFrame += Time.deltaTime;
-			rotateTimer += Time.deltaTime;
-
-			warmingUpTime -= Time.deltaTime;
-			UpdateState ();
-			ExecuteState ();
-		
-			heightDiff = transform.position.y - prevY;
-			prevY = transform.position.y;
-
-			if (transform.localScale == new Vector3 (1.0f, 1.0f, 1.0f))
-				transform.localScale = new Vector3 (currScale, currScale, currScale);
 		}
+
+		stompTimer += Time.deltaTime;
+		jumpTimer += Time.deltaTime;
+		jumpFrame += Time.deltaTime;
+		rotateTimer += Time.deltaTime;
+
+		warmingUpTime -= Time.deltaTime;
+		UpdateState ();
+		ExecuteState ();
+		
+		heightDiff = transform.position.y - prevY;
+		prevY = transform.position.y;
+
+		if (transform.localScale == new Vector3(1.0f,1.0f,1.0f))
+			transform.localScale = new Vector3(currScale,currScale,currScale);
 	}
 
 	//Checks if a state transition is needed and updates currentState accordingly.

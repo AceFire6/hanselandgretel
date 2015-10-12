@@ -3391,6 +3391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashDamage: 10
+  slashClip: {fileID: 0}
 --- !u!135 &77144900
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6584,6 +6585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &141652921
@@ -6602,6 +6605,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -9812,6 +9816,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &184273937
@@ -9830,6 +9836,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -10535,6 +10542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &196435258
@@ -10553,6 +10562,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -11720,6 +11730,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &211672465
@@ -11738,6 +11750,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -11882,6 +11895,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &212844091
@@ -11900,6 +11915,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -17876,6 +17892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &315271379
@@ -17894,6 +17912,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -20425,6 +20444,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &373645085
@@ -20443,6 +20464,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -21280,6 +21302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &387642500
@@ -21298,6 +21322,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -30589,6 +30614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slashDamage: 5
+  slashClip: {fileID: 8300000, guid: d7fc9bc761871964898a199821ebe714, type: 3}
 --- !u!135 &542342291
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -39567,6 +39593,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 0}
+  deathClip: {fileID: 0}
+  hurtClip:
+  - {fileID: 8300000, guid: b031f354692f2b841a510ad0cd07bc97, type: 3}
+  - {fileID: 8300000, guid: 0b63af96b99d08248ad3d97cc36659c7, type: 3}
   respawnDelay: 3
   maxHealth: 0
 --- !u!114 &689985445
@@ -39581,6 +39611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da93ddd6928094e24bb1f3f665f143d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkClip: {fileID: 8300000, guid: 5460643d137c07c4c9f3f075effdcff5, type: 3}
   autoRotate: 1
   maxRotationSpeed: 360
   playerNo: 2
@@ -39596,6 +39627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab79d7f243824f5d9826bd83522c8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landClip: {fileID: 8300000, guid: 624a05da6d67449459c11dab68e74cd1, type: 3}
   canControl: 1
   useFixedUpdate: 1
   movement:
@@ -44641,6 +44673,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &781417990
@@ -44659,6 +44693,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -46226,6 +46261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &808282254
@@ -46244,6 +46281,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -50763,6 +50801,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &905297520
@@ -50781,6 +50821,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -52028,6 +52069,10 @@ Prefab:
       propertyPath: backgroundMusic
       value: 
       objectReference: {fileID: 1625456721}
+    - target: {fileID: 8297418, guid: e1a853d43bbaf48bab90e5f86e6796ed, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a9d2c46349868694a8ec27eb901d03ad, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1a853d43bbaf48bab90e5f86e6796ed, type: 2}
   m_RootGameObject: {fileID: 649204634}
@@ -56842,6 +56887,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &999591193
@@ -56860,6 +56907,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -61214,6 +61262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1081619963
@@ -61232,6 +61282,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -61471,8 +61522,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -275, y: -162}
-  m_SizeDelta: {x: 230, y: 50}
+  m_AnchoredPosition: {x: -141, y: -162}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1084751694
 MonoBehaviour:
@@ -66658,6 +66709,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1175387189
@@ -66676,6 +66729,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -67859,6 +67913,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1192103267
@@ -67877,6 +67933,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -68839,6 +68896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1207408319
@@ -68857,6 +68916,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -74999,6 +75059,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1313250127
@@ -75017,6 +75079,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -75966,6 +76029,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1328140141
@@ -75984,6 +76049,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -78491,6 +78557,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1374586981
@@ -78509,6 +78577,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -79881,6 +79950,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1394690799
@@ -79899,6 +79970,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -82295,6 +82367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1430106864
@@ -82313,6 +82387,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -82429,6 +82504,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1430369923
@@ -82447,6 +82524,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -88848,6 +88926,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1524522145
@@ -88866,6 +88946,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -90473,6 +90554,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1544358922
@@ -90491,6 +90574,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -91487,6 +91571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1558970307
@@ -91505,6 +91591,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -91937,8 +92024,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -275, y: -162}
-  m_SizeDelta: {x: 230, y: 50}
+  m_AnchoredPosition: {x: -141, y: -162}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1565143536
 MonoBehaviour:
@@ -92136,6 +92223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1569945791
@@ -92154,6 +92243,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -96300,6 +96390,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1624303905
@@ -96318,6 +96410,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -96532,6 +96625,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundMusic: {fileID: 1625456721}
+  musicVolume: 1
+  soundVolume: 1
+  isMusicMute: 0
+  isSoundMute: 0
 --- !u!82 &1625456721
 AudioSource:
   m_ObjectHideFlags: 0
@@ -96541,7 +96638,7 @@ AudioSource:
   m_GameObject: {fileID: 1625456718}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 2badb4c6da86c40209fa8778e975cf7d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a9d2c46349868694a8ec27eb901d03ad, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -97186,6 +97283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1636925356
@@ -97204,6 +97303,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -98216,6 +98316,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 0}
+  deathClip: {fileID: 0}
+  hurtClip:
+  - {fileID: 8300000, guid: fad683ed60ad62a4d977f0f05e2e3dc2, type: 3}
+  - {fileID: 8300000, guid: 0936ff6e9a11f084e8ee3fcfee532d4a, type: 3}
   respawnDelay: 3
   maxHealth: 0
 --- !u!114 &1654166271
@@ -98231,6 +98335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrow: {fileID: 460108, guid: a7a2b142335794b85befe924fa94aa8e, type: 2}
+  shootClip: {fileID: 8300000, guid: 26f16bc0f4e166f4fb67cb72f7c490d6, type: 3}
 --- !u!114 &1654166272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98243,6 +98348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da93ddd6928094e24bb1f3f665f143d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkClip: {fileID: 8300000, guid: 5460643d137c07c4c9f3f075effdcff5, type: 3}
   autoRotate: 1
   maxRotationSpeed: 360
   playerNo: 1
@@ -98258,6 +98364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab79d7f243824f5d9826bd83522c8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  landClip: {fileID: 8300000, guid: 624a05da6d67449459c11dab68e74cd1, type: 3}
   canControl: 1
   useFixedUpdate: 1
   movement:
@@ -101887,6 +101994,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1710710059
@@ -101905,6 +102014,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -102874,6 +102984,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1723045973
@@ -102892,6 +103004,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -104516,6 +104629,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1745455885
@@ -104534,6 +104649,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -105233,6 +105349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1757067774
@@ -105251,6 +105369,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -115900,6 +116019,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1942324662
@@ -115918,6 +116039,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10
@@ -118275,6 +118397,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 100
   deathSpawn: {fileID: 175960, guid: c251fa2f32329425cb3169b82ed38867, type: 2}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &1982477125
@@ -118293,6 +118417,7 @@ MonoBehaviour:
   attackTime: 1
   meleeSlash: {fileID: 194946, guid: eff4c22b1493b70469740be78ab83de3, type: 2}
   attackBeam: {fileID: 185986, guid: d1060cd900872124ba0a4473a99e0970, type: 2}
+  attackClip: {fileID: 8300000, guid: a82438e5d944e0e4f8b54f1563e83477, type: 3}
   chaseRadius: 6
   attackRadius: 1
   attackDamage: 10

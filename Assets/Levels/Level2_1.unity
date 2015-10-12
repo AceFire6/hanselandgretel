@@ -61403,7 +61403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 1000
+  totalHealth: 15000
   deathSpawn: {fileID: 0}
   deathClip: {fileID: 8300000, guid: 5c2d95ceada21ac49868368abfcf297d, type: 3}
   hurtClip:
@@ -64999,6 +64999,10 @@ Prefab:
     - target: {fileID: 426694, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}
       propertyPath: m_RootOrder
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 11440564, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}
+      propertyPath: totalHealth
+      value: 15000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff7fd5a3af7164a4bb0a30cb01f30c69, type: 2}

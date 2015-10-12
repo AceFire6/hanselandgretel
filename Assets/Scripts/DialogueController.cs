@@ -54,7 +54,7 @@ public class DialogueController : MonoBehaviour {
 
 		if (progressIndex > DialogueContent.Length - 1) {
 			Time.timeScale = 1;
-			GameObject.Find("GameUI").GetComponent<UIHandler>().ToggleNamePlates();
+			GameObject.Find("GameUI").GetComponent<UIHandler>().ToggleNamePlates(true);
 			runDialog = false;
 		}
 	}

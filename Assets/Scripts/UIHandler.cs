@@ -82,10 +82,10 @@ public class UIHandler : MonoBehaviour {
 		SettingsMenu.gameObject.SetActive(settingsState);
 	}
 
-	public void ToggleNamePlates() {
-		namePlatesActive = !namePlatesActive;
+	public void ToggleNamePlates(bool on=false) {
+		namePlatesActive = on;
 		foreach (GameObject namePlate in namePlates) {
-			namePlate.SetActive(namePlatesActive);
+			namePlate.SetActive(on);
 		}
 	}
 }

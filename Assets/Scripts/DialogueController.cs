@@ -47,7 +47,7 @@ public class DialogueController : MonoBehaviour {
 			portraitDict.TryGetValue(charName, out temp);
 			portrait.sprite = temp;
 
-			if (Input.GetKeyDown(KeyCode.LeftControl)) {
+			if (Input.GetButtonDown("Attack")) {
 				progressIndex++;
 			}
 		}

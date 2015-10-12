@@ -71,6 +71,7 @@ GameObject:
   - 95: {fileID: 9526678}
   - 114: {fileID: 11440564}
   - 114: {fileID: 11440566}
+  - 114: {fileID: 11423884}
   - 54: {fileID: 5453178}
   - 65: {fileID: 6503656}
   m_Layer: 10
@@ -2293,6 +2294,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &11423884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 126686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5807b00a8cc8c48935657a257cdc0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cackleDelay: 7
+  cackleVariance: 2
+  cackleClips:
+  - {fileID: 8300000, guid: 9d45d48f37dae0a42a1ee8921a435829, type: 3}
+  - {fileID: 8300000, guid: 64b500254f28fc94db701bc4c8a5ae37, type: 3}
+  - {fileID: 8300000, guid: 48621a2abb3eec542bebec23b1546b09, type: 3}
+  - {fileID: 8300000, guid: 62e2c876e3240714eb756a3d1583edd7, type: 3}
+  - {fileID: 8300000, guid: 095901e62d6a0b946b270d54853fb0ee, type: 3}
+  - {fileID: 8300000, guid: 49b6770f3d6074d49834295bea5817c8, type: 3}
+  - {fileID: 8300000, guid: 782015c929fbf8b40aca385830b2e8fe, type: 3}
+  - {fileID: 8300000, guid: 358cf6a7c7b0792408ea7675f13bb308, type: 3}
 --- !u!114 &11440564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2306,8 +2329,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 1000
   deathSpawn: {fileID: 0}
-  deathClip: {fileID: 0}
-  hurtClip: []
+  deathClip: {fileID: 8300000, guid: 5c2d95ceada21ac49868368abfcf297d, type: 3}
+  hurtClip:
+  - {fileID: 8300000, guid: 6fb159416957d794ba9bba38dffd5433, type: 3}
+  - {fileID: 8300000, guid: 71baa4440b91f8b4782ca99ef9cdcefd, type: 3}
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &11440566

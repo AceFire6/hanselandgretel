@@ -1160,7 +1160,7 @@ GameObject:
   - 4: {fileID: 440560}
   - 65: {fileID: 6503654}
   - 114: {fileID: 11403654}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: r_foot_joint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2126,7 +2126,7 @@ Transform:
   m_GameObject: {fileID: 140566}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: .588841677, y: .29617092, z: .228785813}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.29999995, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 426688}
   m_RootOrder: 3
@@ -2192,8 +2192,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: .189999998, z: 1}
-  m_Center: {x: -.25, y: -.300000012, z: .819999993}
+  m_Size: {x: 1, y: .606544197, z: 1.93609667}
+  m_Center: {x: -.249999985, y: -.508272111, z: .35196054}
 --- !u!65 &6503656
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2244,8 +2244,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6966b81ca49bb48968403faacdfc8e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 200
+  totalHealth: 1000
   deathSpawn: {fileID: 0}
+  deathClip: {fileID: 0}
+  hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0
 --- !u!114 &11440566

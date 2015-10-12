@@ -25,7 +25,7 @@ public class AIHouse : Movement
 	private float warmingUpTime = 7.1f;
 
 	private float stompRange = 3f;
-	private float jumpRange = 6.5f;
+	private float jumpRange = 5.5f;
 	private float rageDuration = 2.1f;
 
 	private float stompTimer;
@@ -39,6 +39,7 @@ public class AIHouse : Movement
 	private bool isChasing = false;
 	private bool isBackingOff = false;
 	private bool isRaging = false;
+	private bool isDying = false;
 
 	public bool isStompAttacking = false;
 	public bool isJumpAttacking = false;
@@ -65,7 +66,8 @@ public class AIHouse : Movement
 		Attacking,
 		Jumping,
 		Idle,
-		Raging
+		Raging,
+		Dying
 	};
 
 	public State state;
@@ -151,7 +153,19 @@ public class AIHouse : Movement
 		animator.SetBool ("backingOff", !isChasing && !isAttacking);
 		animator.SetBool ("idle", isIdle);
 
-		if (isRaging) 
+		if (isJumpAttacking) {
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss"), LayerMask.NameToLayer("PlayerCharacter"), true);
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss"), LayerMask.NameToLayer("PlayerWeapon"), true);
+		}
+		else if (!collider.bounds.Contains(players[0].transform.position) && !collider.bounds.Contains(players[1].transform.position))
+		{
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss"), LayerMask.NameToLayer("PlayerCharacter"), false);
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Boss"), LayerMask.NameToLayer("PlayerWeapon"), false);
+		}
+
+		if (isDying)
+			state = State.Dying;
+		else if (isRaging) 
 		{
 			state = State.Raging;
 		}
@@ -186,6 +200,9 @@ public class AIHouse : Movement
 	{
 		switch (state) 
 		{
+			case State.Dying:
+				Die ();
+				break;
 			case State.Raging:
 				Rage();
 				break;
@@ -338,14 +355,26 @@ public class AIHouse : Movement
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.tag == "Player")
-			Physics.IgnoreCollision (collision.collider, collider);
+	//	if (collision.gameObject.tag == "Player" || collision.gameObject.name == "AxeCollider" )
+	//		Physics.IgnoreCollision (collision.collider, collider);
 	}
 	void OnTriggerStay(Collider col)
 	{
 		if (col.gameObject.name == "HouseCollider") 
 		{
 			isIdle = true;
+		}
+	}
+
+	public void Die()
+	{
+		if (!isDying)
+		{
+			isDying = true;
+			GameObject obj = GameObject.Find("Blob Shadow Projector");
+			Destroy(obj);
+			animator.SetTrigger ("die");
+			Destroy (gameObject, 6.25f);
 		}
 	}
 

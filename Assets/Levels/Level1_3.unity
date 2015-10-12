@@ -14413,6 +14413,18 @@ Prefab:
       propertyPath: totalHealth
       value: 12500
       objectReference: {fileID: 0}
+    - target: {fileID: 11454140, guid: 4c15d08537ba894488936de753e88e90, type: 2}
+      propertyPath: deathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a2c0d4f34f283c4e9cda8ecc6ed2160, type: 3}
+    - target: {fileID: 11468904, guid: 4c15d08537ba894488936de753e88e90, type: 2}
+      propertyPath: clawAttackClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 192568a8f3206f04ab065cd32745ad24, type: 3}
+    - target: {fileID: 11468904, guid: 4c15d08537ba894488936de753e88e90, type: 2}
+      propertyPath: lungeAttackClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8294c94b0a5f29442b1d51f9c95b3e6c, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c15d08537ba894488936de753e88e90, type: 2}
   m_RootGameObject: {fileID: 1140277403}
@@ -18959,8 +18971,8 @@ MonoBehaviour:
   isClawAttacking: 0
   isLungeAttacking: 0
   state: 0
-  clawAttackClip: {fileID: 0}
-  lungeAttackClip: {fileID: 0}
+  clawAttackClip: {fileID: 8300000, guid: 192568a8f3206f04ab065cd32745ad24, type: 3}
+  lungeAttackClip: {fileID: 8300000, guid: 8294c94b0a5f29442b1d51f9c95b3e6c, type: 3}
 --- !u!114 &1140277407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18975,7 +18987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalHealth: 12500
   deathSpawn: {fileID: 0}
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 6a2c0d4f34f283c4e9cda8ecc6ed2160, type: 3}
   hurtClip: []
   respawnDelay: 1.5
   maxHealth: 0

@@ -61,6 +61,23 @@ public class PlayerSettings : MonoBehaviour {
 		Loaded = true;
 	}
 
+	void Update() {
+		string levelName = Application.loadedLevelName;
+		if (Input.GetKeyDown(KeyCode.F1)) {
+			Application.LoadLevel("Level1_2");
+		} else if (Input.GetKeyDown(KeyCode.F2)) {
+			Vector3 newPos = new Vector3(112F, 0F, 0F);
+			foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+				player.transform.position = newPos;
+			}
+		} else if (Input.GetKeyDown(KeyCode.F3)) {
+			Vector3 newPos = new Vector3(185F, 0.1F, 0F);
+			foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player")) {
+				player.transform.position = newPos;
+			}
+		}
+	}
+
 	void FirstPlaySetup() {
 		PlayerPrefs.SetString("Played", "");
 		

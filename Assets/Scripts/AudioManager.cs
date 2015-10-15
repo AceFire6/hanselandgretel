@@ -48,4 +48,12 @@ public class AudioManager : MonoBehaviour {
 		//TODO: mute all audioSources
 	}
 
+	void Update () {
+		if (Mathf.Approximately (Time.timeScale, 0)) {
+			AudioListener.volume = 0;
+		} else {
+			AudioListener.volume = 1;
+		}
+	}
+
 }

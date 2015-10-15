@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightMargin: -2
+  entranceFence: {fileID: 0}
   fleeDestination: {fileID: 0}
   fleeSpeed: .5
 --- !u!114 &11499776
@@ -284,8 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5807b00a8cc8c48935657a257cdc0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cackleDelay: 5
-  cackleVariance: 0
+  cackleDelay: 4
+  cackleVariance: 2
   cackleClips:
   - {fileID: 8300000, guid: 3ffcb9025fe7da7458471a4d118e9ce4, type: 3}
   - {fileID: 8300000, guid: b0b5e3fcfa70c1d44a0ca02d222a1591, type: 3}

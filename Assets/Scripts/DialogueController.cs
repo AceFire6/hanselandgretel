@@ -47,14 +47,14 @@ public class DialogueController : MonoBehaviour {
 			portraitDict.TryGetValue(charName, out temp);
 			portrait.sprite = temp;
 
-			if (Input.GetKeyDown(KeyCode.LeftControl)) {
+			if (Input.GetButtonDown("Attack")) {
 				progressIndex++;
 			}
 		}
 
 		if (progressIndex > DialogueContent.Length - 1) {
 			Time.timeScale = 1;
-			GameObject.Find("GameUI").GetComponent<UIHandler>().ToggleNamePlates();
+			GameObject.Find("GameUI").GetComponent<UIHandler>().ToggleNamePlates(true);
 			runDialog = false;
 		}
 	}
